@@ -81,12 +81,6 @@ function playerClick(e) {
   }
 }
 
-document.querySelector("#slider").addEventListener("input", () => {
-  document.querySelector(".sliderVal").innerHTML = Math.round(
-    document.querySelector("#slider").value * 100
-  );
-});
-
 function equals3(a, b, c) {
   return a == b && b == c && a != "";
 }

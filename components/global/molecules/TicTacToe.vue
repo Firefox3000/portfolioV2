@@ -16,8 +16,8 @@ export default {
 
 <template>
   <section class="ticTacToe">
-    <p class="winner heading3">Winner:</p>
-    <div class="ticTacToe__Grid">
+    <p class="winner heading4">Winner:</p>
+    <div class="ticTacToe__grid">
       <div class="row">
         <div class="col"></div>
         <div class="col"></div>
@@ -35,10 +35,8 @@ export default {
       </div>
     </div>
 
-    <TextButton class="restart">Restart game</TextButton>
-
     <div class="sliderContainer">
-      <p>makkelijk</p>
+      <p>Easy</p>
       <input
         id="slider"
         class="slider"
@@ -48,9 +46,10 @@ export default {
         value="0.5"
         step="0.01"
       />
-      <p>moeilijk</p>
+      <p>Hard</p>
     </div>
-    <p class="sliderVal">50</p>
+
+    <TextButton class="restart">Restart game</TextButton>
 
     <script src="/js/ticTacToe.js" defer></script>
   </section>
@@ -67,7 +66,7 @@ export default {
   padding: 2.4rem 1.5rem;
   background-color: var(--col-secondary);
 
-  &__Grid {
+  &__grid {
     margin: 0 auto 2rem auto;
 
     display: grid;
@@ -82,54 +81,61 @@ export default {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
+
+    .row {
+      div {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        border-color: rgba(0, 0, 0, 0.4);
+        border-width: 4px;
+        border-style: solid;
+
+        font-size: 3rem;
+        font-weight: 400;
+
+        // remove unnecessary grid lines
+        &:first-child {
+          border-left: 0;
+        }
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+
+      // remove unnecessary grid lines
+      &:nth-child(1) div {
+        border-top: 0;
+      }
+
+      &:nth-child(3) div {
+        border-bottom: 0;
+      }
+    }
+
+    .col:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
   }
 
   button {
     margin: 0 auto 1rem auto;
   }
 
-  .row div {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    border-color: rgba(0, 0, 0, 0.4);
-    border-width: 4px;
-    border-style: solid;
-
-    font-size: 3rem;
-    font-weight: 400;
-  }
-
-  // remove unnecessary grid lines
-  .row:nth-child(1) div {
-    border-top: 0;
-  }
-
-  .row:nth-child(3) div {
-    border-bottom: 0;
-  }
-
-  .row div:first-child {
-    border-left: 0;
-  }
-
-  .row div:last-child {
-    border-right: 0;
-  }
-
-  .col:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+  .heading4 {
+    text-align: center;
   }
 
   .sliderContainer {
-    margin: 0 auto 0.4rem auto;
+    margin: 0 auto 1.5rem auto;
     max-width: fit-content;
 
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
 
     #slider {
       margin: 0 1rem;
@@ -138,10 +144,6 @@ export default {
     p {
       margin-bottom: 0;
     }
-  }
-
-  .sliderVal {
-    text-align: center;
   }
 
   @media screen and (min-width: 48rem) {
