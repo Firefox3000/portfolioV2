@@ -10,9 +10,8 @@ keywords: CV
 
 # CV - Sam de Kanter
 
-Droomt in code / Ziet
-problemen als een
-uitdaging, pluist ze uit en lost ze graag op / Lekker nuchter
+Droomt in code, ziet problemen als een uitdaging, pluist ze uit en lost ze graag op. Lekker nuchter.
+Probeert het web een beter plekje te maken
 
 ## Opleiding
 
@@ -29,7 +28,7 @@ uitdaging, pluist ze uit en lost ze graag op / Lekker nuchter
 - Feb 2020 - Apr 2020
   Front-end Development stage bij Netvlies Breda
 
-## Skills en Wards
+## Skills en Awards
 
 - Google Fundamentals of Digital Marketing (certificaat)
 - CSS Battle #13 top 10
