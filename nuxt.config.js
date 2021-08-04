@@ -29,6 +29,9 @@ export default {
         content: process.env.npm_package_description || "",
       },
     ],
+    htmlAttrs: {
+      lang: "en",
+    },
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
@@ -53,8 +56,7 @@ export default {
       { rel: "preconnect", href: "https://fonts.gstatic.com" },
       {
         rel: "syltesheet",
-        href:
-          "https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap",
       },
     ],
   },
