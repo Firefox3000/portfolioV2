@@ -1,26 +1,26 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@nuxt/content': ^1.14.0
-  '@nuxt/image': ^0.6.1
+  '@nuxt/content': ^1.15.1
+  '@nuxt/image': ^0.6.2
   '@nuxtjs/axios': ^5.13.6
   '@nuxtjs/eslint-config': ^3.1.0
   '@nuxtjs/eslint-module': ^2.0.0
   '@nuxtjs/google-analytics': ^2.4.0
-  '@nuxtjs/style-resources': ^1.2.0
+  '@nuxtjs/style-resources': ^1.2.1
   '@nuxtjs/svg': ^0.1.12
   babel-eslint: ^10.1.0
-  eslint: ^7.30.0
+  eslint: ^7.32.0
   eslint-config-google: ^0.14.0
   eslint-config-prettier: ^6.15.0
   eslint-loader: ^4.0.2
-  eslint-plugin-prettier: ^3.4.0
+  eslint-plugin-prettier: ^3.4.1
   eslint-plugin-vue: ^6.2.2
-  nuxt: ^2.15.7
+  nuxt: ^2.15.8
   nuxt-vite: ^0.3.5
-  prettier: ^2.3.2
+  prettier: ^2.5.1
   sass: ^1.49.7
-  sass-loader: ^10.1.1
+  sass-loader: ^10.2.1
 
 dependencies:
   '@nuxt/content': 1.15.1_sass@1.49.7
@@ -30,7 +30,7 @@ dependencies:
   nuxt: 2.15.8
 
 devDependencies:
-  '@nuxt/image': 0.6.1
+  '@nuxt/image': 0.6.2
   '@nuxtjs/eslint-config': 3.1.0_eslint@7.32.0
   '@nuxtjs/eslint-module': 2.0.0_eslint@7.32.0
   '@nuxtjs/svg': 0.1.12
@@ -1560,8 +1560,8 @@ packages:
       ufo: 0.7.10
     dev: false
 
-  /@nuxt/image/0.6.1:
-    resolution: {integrity: sha512-djQ4k7Om5Q0vPqm16A4uchFeBuIYiX8mYJiMAC+tsuPzWebLZsN/ku2v7tu3uBXZsMiDaHvq+2L/lCh5NdzjhQ==}
+  /@nuxt/image/0.6.2:
+    resolution: {integrity: sha512-2Q4Atp/vceHKHMarKnLdy+z4zAaYCWy0wrK2G1tjrmhXOhhJZ5PhqURodlBu2Qb8wAMZKrm2c48rM58tFR7XYA==}
     dependencies:
       consola: 2.15.3
       defu: 5.0.1
@@ -10880,7 +10880,7 @@ packages:
   /wide-align/1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 4.2.3
+      string-width: 1.0.2
     dev: true
     optional: true
 
