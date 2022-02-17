@@ -80,6 +80,8 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     "@nuxtjs/eslint-module",
     "@nuxtjs/google-analytics",
+    "@nuxt/image",
+    // "nuxt-vite",
   ],
 
   /*
