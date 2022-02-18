@@ -83,8 +83,15 @@ export default {
     "@nuxtjs/eslint-module",
     "@nuxtjs/google-analytics",
     "@nuxt/image",
+    "@nuxtjs/pwa",
     // "nuxt-vite",
   ],
+
+  pwa: {
+    workbox: {
+      /* workbox options */
+    },
+  },
 
   /*
    ** Nuxt.js modules
