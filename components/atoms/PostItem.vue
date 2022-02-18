@@ -15,12 +15,13 @@ export default {
 
 <template>
   <NuxtLink :to="{ name: 'projects-slug', params: { slug: article.slug } }">
-    <img
+    <nuxt-picture
       width="512"
       height="512"
       :loading="loadlazy ? 'lazy' : null"
       :src="article.img"
       :alt="article.alt"
+      sizes="sm:100vw md:50vw lg:512px"
     />
     <div class="projects__text">
       <h2 class="heading3">{{ article.title }}</h2>
@@ -42,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 h2,
-img {
+a::v-deep img {
   transition: transform 0.2s ease-out;
 }
 
@@ -50,7 +51,7 @@ h2 {
   text-shadow: rgba(30, 30, 30, 0.5) 0px 0px 0.5rem;
 }
 
-img {
+a::v-deep img {
   width: 100%;
   height: auto;
 }
@@ -96,7 +97,7 @@ a {
       transform: translateY(-0.8em);
     }
 
-    img {
+    ::v-deep img {
       transform: scale(1.1);
     }
 
