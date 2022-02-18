@@ -29,6 +29,7 @@ export default {
         name: "description",
         content: process.env.npm_package_description || "",
       },
+      { name: "theme-color", content: "#141414" },
     ],
     htmlAttrs: {
       lang: "en",
