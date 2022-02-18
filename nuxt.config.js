@@ -11,6 +11,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-target
    */
   target: "static",
+
   router: {
     base: "/",
   },
@@ -80,6 +81,8 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     "@nuxtjs/eslint-module",
     "@nuxtjs/google-analytics",
+    "@nuxt/image",
+    // "nuxt-vite",
   ],
 
   /*
@@ -104,7 +107,7 @@ export default {
   },
 
   styleResources: {
-    scss: ["assets/scss/_variables.scss"],
+    scss: ["assets/scss/_variables.scss", "assets/scss/_mixins.scss"],
   },
   /*
    ** Build configuration

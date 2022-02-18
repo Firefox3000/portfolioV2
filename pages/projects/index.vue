@@ -82,8 +82,6 @@ export default {
 </template>
 
 <style lang="scss">
-@import "~assets/scss/mixins";
-
 .projects {
   margin-top: 3rem;
   margin-bottom: 3rem;

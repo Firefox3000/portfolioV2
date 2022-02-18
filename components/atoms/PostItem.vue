@@ -41,8 +41,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import "~assets/scss/mixins";
-
 h2,
 img {
   transition: transform 0.2s ease-out;
