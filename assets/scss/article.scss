@@ -8,9 +8,15 @@
   grid-template-rows: min-content;
 
   article {
-    .nuxt-content {
+    > div {
       p:nth-child(2) img {
         margin-top: 0;
+      }
+    }
+
+    > div > p {
+      &:last-of-type {
+        margin-bottom: 2ch;
       }
     }
 
@@ -23,10 +29,6 @@
       margin-right: auto;
 
       line-height: 1.4;
-
-      &:last-of-type {
-        margin-bottom: 2ch;
-      }
     }
 
     h1,

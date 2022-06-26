@@ -3,7 +3,7 @@ title: Meal Match
 description: Dating app project
 img: /img/mealMatch.png
 alt: Meal Match
-link: mealMatch
+slug: mealMatch
 createdAt: 2020-06-22T00:00:00+0000
 ---
 

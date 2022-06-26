@@ -1,68 +1,53 @@
-<script>
-import PostItem from "../../components/atoms/PostItem.vue";
+<script setup>
+  const data = await queryContent('/projects/').only(["title", "description", "img", "slug", "createdAt", "alt"]).find();
+  const articles = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-export default {
-  components: { PostItem },
-  async asyncData({ $content, params }) {
-    const articles = await $content("articles", params.slug)
-      .only(["title", "description", "img", "slug", "createdAt", "alt"])
-      .sortBy("createdAt", "desc")
-      .fetch();
+  useHead({
+    title: "Projects",
+    meta: [
+      {
+        hid: "ogtitle",
+        property: "og:title",
+        content: "Projects",
+      },
+      {
+        hid: "description",
+        name: "description",
+        content: "See all my recent projects",
+      },
+      {
+        hid: "ogdescription ",
+        property: "og:description ",
+        content: "See all my recent projects",
+      },
 
-    return {
-      articles,
-    };
-  },
-
-  head() {
-    return {
-      title: "Projects",
-      meta: [
-        {
-          hid: "ogtitle",
-          property: "og:title",
-          content: "Projects",
-        },
-        {
-          hid: "description",
-          name: "description",
-          content: "See all my recent projects",
-        },
-        {
-          hid: "ogdescription ",
-          property: "og:description ",
-          content: "See all my recent projects",
-        },
-
-        {
-          hid: "ogurl",
-          property: "og:url",
-          content: "http://schelpkikker.nl/projects",
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: "http://schelpkikker.nl/logo.png",
-        },
-        {
-          hid: "keywords",
-          property: "keywords",
-          content: "Projects",
-        },
-        {
-          hid: "robots",
-          name: "robots",
-          content: "index, follow",
-        },
-        {
-          hid: "googlebot",
-          name: "googlebot",
-          content: "index, follow",
-        },
-      ],
-    };
-  },
-};
+      {
+        hid: "ogurl",
+        property: "og:url",
+        content: "http://schelpkikker.nl/projects",
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "http://schelpkikker.nl/logo.png",
+      },
+      {
+        hid: "keywords",
+        property: "keywords",
+        content: "Projects",
+      },
+      {
+        hid: "robots",
+        name: "robots",
+        content: "index, follow",
+      },
+      {
+        hid: "googlebot",
+        name: "googlebot",
+        content: "index, follow",
+      },
+    ],
+  });
 </script>
 
 <template>
@@ -75,7 +60,7 @@ export default {
         :key="article.slug"
         class="projects__item aspect-1"
       >
-        <PostItem :article="article" :loadlazy="index >= 6" />
+        <AtomsPostItem :article="article" :loadlazy="index >= 6" />
       </li>
     </ul>
   </main>

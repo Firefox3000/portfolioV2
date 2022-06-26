@@ -3,7 +3,7 @@ title: Nodevember
 description: Dating app project
 img: /img/nodevember2020/glitch.png
 alt: Nodevember 2020
-link: nodevember
+slug: nodevember
 createdAt: 2020-12-01T00:00:00+0000
 ---
 

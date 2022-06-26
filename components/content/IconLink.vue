@@ -1,6 +1,5 @@
-<script>
-export default {
-  props: {
+<script setup>
+  defineProps ({
     href: {
       type: String,
       default: "/",
@@ -9,19 +8,18 @@ export default {
       type: String,
       default: "",
     },
-  },
-};
+  })
 </script>
 
 <template>
   <a class="iconLink" :href="href">
-    <img v-if="icon" :src="`./icons/${icon}.svg?inline`" />
+    <img v-if="icon" :src="`/icons/${icon}.svg?inline`" />
     <slot>Link</slot>
   </a>
 </template>
 
 <style lang="scss" scoped>
-a.iconLink {
+.iconLink {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -36,6 +34,10 @@ a.iconLink {
     height: 1.35rem;
     width: auto;
     filter: invert(1);
+  }
+
+  :deep(p) {
+    margin: 0;
   }
 }
 </style>

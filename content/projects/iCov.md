@@ -3,7 +3,7 @@ title: iCov
 description: A team project to create a data visualization tool for iCov to find and trace unlawful obtained assets so they can be confiscated and returned.
 img: /img/iCovThumbnail.png
 alt: icov
-link: iCov
+slug: iCov
 createdAt: 2021-02-22T00:00:00+0000
 ---
 
@@ -19,7 +19,7 @@ So in commission for iCov, we wanted to make sure that partners can analyze the 
 
 We ended up creating an interactive network graph showing all connected data. To assist this visualization we also created an insight panel on the side of the page to show more detailed information on the selected nodes in the graph.
 
-<tech-stack tech="svelte,nodejs,surge"></tech-stack>
+:tech-stack{tech="svelte,nodejs,surge"}
 
 This project was build using Svelte, d3.js and Node.js. D3 was used to visualize the dataset provided through a custom API made with Node.js. Svelte used to build the front end of this site. I used Svelte since I find it easy to use and is fast.
 
@@ -29,6 +29,10 @@ My main role during this project was to create a working version of the app. Apa
 
 Check out the GitHub [wiki](https://github.com/Vuurvos1/iCOV/wiki) for more detailed information and the design process of the project.
 
-<icon-link href="https://github.com/vuurvos1/icov" target="_blank" icon="github">Source code</icon-link>
+::icon-link{href="https://github.com/vuurvos1/icov" target="_blank" icon="github"}
+Source code
+::
 
-<icon-link href="https://icovdev.surge.sh/" target="_blank" icon="launch">See it live</icon-link>
+::icon-link{href="https://icovdev.surge.sh/" target="_blank" icon="launch"}
+See it live
+::

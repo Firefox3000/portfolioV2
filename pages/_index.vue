@@ -1,61 +1,75 @@
-<script setup>
-  const data = await queryContent('/projects/').only(["title", "description", "img", "slug", "createdAt", "alt"]).find();
-  const articles = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 3);
+<script>
+import PostItem from "../components/atoms/PostItem.vue";
+export default {
+  components: { PostItem },
+  async asyncData({ $content, params }) {
+    const articles = await $content("articles", params.slug)
+      .limit(3)
+      .only(["title", "description", "img", "slug", "alt"])
+      .sortBy("createdAt", "asc")
+      .fetch();
 
-  useHead({
-    title: "Portfolio | Sam de Kanter",
-    meta: [
-      {
-        hid: "description",
-        name: "description",
-        content:
-          "Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam.",
-      },
-      {
-        hid: "ogdescription ",
-        property: "og:description ",
-        content:
-          "Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam.",
-      },
-      {
-        hid: "ogtitle",
-        property: "og:title",
-        content: "Portfolio | Sam de Kanter",
-      },
-      {
-        hid: "og:image",
-        property: "og:image",
-        content: `http://schelpkikker.nl/logo.png`,
-      },
-      {
-        hid: "keywords",
-        property: "keywords",
-        content: "Portfolio, Sam, Frontend, JavaScript, Developer",
-      },
-      {
-        hid: "ogurl",
-        property: "og:url",
-        content: "http://schelpkikker.nl/",
-      },
-      {
-        hid: "robots",
-        name: "robots",
-        content: "index, follow",
-      },
-      {
-        hid: "googlebot",
-        name: "googlebot",
-        content: "index, follow",
-      },
-    ],
-    script: [
-      {
-        src: "/js/parallaxBlobs.js",
-        body: true,
-        defer: true,
-      },
-    ],
-  })
+    return {
+      articles,
+    };
+  },
+  head() {
+    return {
+      title: "Portfolio | Sam de Kanter",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam.",
+        },
+        {
+          hid: "ogdescription ",
+          property: "og:description ",
+          content:
+            "Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam.",
+        },
+        {
+          hid: "ogtitle",
+          property: "og:title",
+          content: "Portfolio | Sam de Kanter",
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: `http://schelpkikker.nl/logo.png`,
+        },
+        {
+          hid: "keywords",
+          property: "keywords",
+          content: "Portfolio, Sam, Frontend, JavaScript, Developer",
+        },
+        {
+          hid: "ogurl",
+          property: "og:url",
+          content: "http://schelpkikker.nl/",
+        },
+        {
+          hid: "robots",
+          name: "robots",
+          content: "index, follow",
+        },
+        {
+          hid: "googlebot",
+          name: "googlebot",
+          content: "index, follow",
+        },
+      ],
+      script: [
+        {
+          src: "/js/parallaxBlobs.js",
+          body: true,
+          defer: true,
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <template>
@@ -141,7 +155,7 @@
           :key="article.slug"
           class="projects__item aspect-1"
         >
-          <AtomsPostItem :article="article" />
+          <PostItem :article="article" />
         </li>
       </ul>
 

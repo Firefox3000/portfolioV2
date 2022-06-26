@@ -1,8 +1,5 @@
-<script>
-import TextButton from "~/components/atoms/TextButton.vue";
-export default {
-  components: { TextButton },
-  head: {
+<script setup>
+  useHead({
     script: [
       {
         src: "/js/ticTacToe.js",
@@ -10,8 +7,7 @@ export default {
         defer: true,
       },
     ],
-  },
-};
+  })
 </script>
 
 <template>
@@ -49,9 +45,7 @@ export default {
       <p>Hard</p>
     </div>
 
-    <TextButton class="restart">Restart game</TextButton>
-
-    <script src="/js/ticTacToe.js" defer></script>
+    <AtomsTextButton class="restart">Restart game</AtomsTextButton>
   </section>
 </template>
 

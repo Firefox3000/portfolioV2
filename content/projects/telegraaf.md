@@ -3,7 +3,7 @@ title: Parking
 description: A data visualization of parking density in the Netherlands
 img: /img/parkingVolkskrant.png
 alt: Parking project for the Telegraaf
-link: parking
+slug: parking
 createdAt: 2021-02-10T00:00:00+0000
 ---
 
