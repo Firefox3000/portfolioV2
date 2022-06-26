@@ -1,61 +1,65 @@
 <script setup>
-  const data = await queryContent('/projects/').only(["title", "description", "img", "slug", "createdAt", "alt"]).find();
-  const articles = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 3);
+const data = await queryContent('/projects/')
+  .only(['title', 'description', 'img', 'slug', 'createdAt', 'alt'])
+  .find();
+const articles = data
+  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+  .slice(0, 3);
 
-  useHead({
-    title: "Portfolio | Sam de Kanter",
-    meta: [
-      {
-        hid: "description",
-        name: "description",
-        content:
-          "Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam.",
-      },
-      {
-        hid: "ogdescription ",
-        property: "og:description ",
-        content:
-          "Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam.",
-      },
-      {
-        hid: "ogtitle",
-        property: "og:title",
-        content: "Portfolio | Sam de Kanter",
-      },
-      {
-        hid: "og:image",
-        property: "og:image",
-        content: `http://schelpkikker.nl/logo.png`,
-      },
-      {
-        hid: "keywords",
-        property: "keywords",
-        content: "Portfolio, Sam, Frontend, JavaScript, Developer",
-      },
-      {
-        hid: "ogurl",
-        property: "og:url",
-        content: "http://schelpkikker.nl/",
-      },
-      {
-        hid: "robots",
-        name: "robots",
-        content: "index, follow",
-      },
-      {
-        hid: "googlebot",
-        name: "googlebot",
-        content: "index, follow",
-      },
-    ],
-    script: [
-      {
-        src: "/js/parallaxBlobs.js",
-        body: true,
-        defer: true,
-      },
-    ],
-  })
+useHead({
+  title: 'Portfolio | Sam de Kanter',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam.',
+    },
+    {
+      hid: 'ogdescription ',
+      property: 'og:description ',
+      content:
+        'Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam.',
+    },
+    {
+      hid: 'ogtitle',
+      property: 'og:title',
+      content: 'Portfolio | Sam de Kanter',
+    },
+    {
+      hid: 'og:image',
+      property: 'og:image',
+      content: `http://schelpkikker.nl/logo.png`,
+    },
+    {
+      hid: 'keywords',
+      property: 'keywords',
+      content: 'Portfolio, Sam, Frontend, JavaScript, Developer',
+    },
+    {
+      hid: 'ogurl',
+      property: 'og:url',
+      content: 'http://schelpkikker.nl/',
+    },
+    {
+      hid: 'robots',
+      name: 'robots',
+      content: 'index, follow',
+    },
+    {
+      hid: 'googlebot',
+      name: 'googlebot',
+      content: 'index, follow',
+    },
+  ],
+  script: [
+    {
+      src: '/js/parallaxBlobs.js',
+      body: true,
+      defer: true,
+    },
+  ],
+});
 </script>
 
 <template>
@@ -212,7 +216,7 @@
       max-width: 32ch;
 
       span {
-        font-size: unquote("clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem)");
+        font-size: unquote('clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem)');
       }
     }
   }

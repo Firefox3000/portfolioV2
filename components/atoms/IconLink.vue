@@ -1,16 +1,14 @@
-<script>
-export default {
-  props: {
-    href: {
-      type: String,
-      default: "/",
-    },
-    icon: {
-      type: String,
-      default: "",
-    },
+<script setup>
+defineProps({
+  href: {
+    type: String,
+    default: '/',
   },
-};
+  icon: {
+    type: String,
+    default: '',
+  },
+});
 </script>
 
 <template>

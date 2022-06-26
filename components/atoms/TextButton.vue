@@ -1,8 +1,4 @@
-<script>
-export default {
-  props: {},
-};
-</script>
+<script setup></script>
 
 <template>
   <button>

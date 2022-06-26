@@ -1,8 +1,9 @@
 <script>
+// Do something with this or remove it
 export default {
   mounted() {
-    const canvas = document.querySelector("#canvas");
-    const ctx = canvas.getContext("2d");
+    const canvas = document.querySelector('#canvas');
+    const ctx = canvas.getContext('2d');
 
     ctx.beginPath();
     ctx.arc(100, 75, 50, 0, 2 * Math.PI);

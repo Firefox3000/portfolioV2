@@ -1,12 +1,10 @@
-<script>
-export default {
-  props: {
-    tech: {
-      type: String,
-      default: "",
-    },
+<script setup>
+defineProps({
+  tech: {
+    type: String,
+    default: '',
   },
-};
+});
 </script>
 
 <template>

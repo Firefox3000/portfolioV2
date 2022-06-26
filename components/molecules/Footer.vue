@@ -1,8 +1,5 @@
 <script setup>
-  const year = new Date().getFullYear()
-</script>
-
-<script>
+const year = new Date().getFullYear();
 </script>
 
 <template>

@@ -1,6 +1,4 @@
-<script>
-export default {};
-</script>
+<script></script>
 
 <template>
   <div class="arrow">
@@ -18,7 +16,7 @@ export default {};
   color: var(--white);
 
   &::before {
-    content: "";
+    content: '';
     // animation: elasticus 1.5s cubic-bezier(1, 0, 0, 1) infinite;
     animation: scroll 4s cubic-bezier(0.77, 0, 0.175, 1) infinite both;
     position: absolute;
@@ -38,7 +36,7 @@ export default {};
     height: 38px;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       width: 8px;
       height: 8px;

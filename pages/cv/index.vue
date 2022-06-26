@@ -1,64 +1,57 @@
-<script>
-export default {
-  async asyncData({ $content, params }) {
-    const article = await $content("cv", "cv").fetch();
-    return { article };
-  },
+<script setup>
+const article = await queryContent('/cv/').findOne();
 
-  head() {
-    return {
-      title: this.article.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: "CV",
-        },
-        {
-          hid: "ogtitle",
-          property: "og:title",
-          content: this.article.title,
-        },
-        {
-          hid: "ogdescription ",
-          property: "og:description ",
-          content: this.article.title,
-        },
-        {
-          hid: "ogurl",
-          property: "og:url",
-          content: `http://schelpkikker.nl/cv`,
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: `http://schelpkikker.nl/logo.png`,
-        },
-        {
-          hid: "keywords",
-          property: "keywords",
-          content: this.article.keywords ? this.article.keywords : "",
-        },
-        {
-          hid: "robots",
-          name: "robots",
-          content: "index, follow",
-        },
-        {
-          hid: "googlebot",
-          name: "googlebot",
-          content: "index, follow",
-        },
-      ],
-    };
-  },
-};
+useHead({
+  title: article.title,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'CV',
+    },
+    {
+      hid: 'ogtitle',
+      property: 'og:title',
+      content: article.title,
+    },
+    {
+      hid: 'ogdescription ',
+      property: 'og:description ',
+      content: article.title,
+    },
+    {
+      hid: 'ogurl',
+      property: 'og:url',
+      content: `http://schelpkikker.nl/cv`,
+    },
+    {
+      hid: 'og:image',
+      property: 'og:image',
+      content: `http://schelpkikker.nl/logo.png`,
+    },
+    {
+      hid: 'keywords',
+      property: 'keywords',
+      content: article.keywords ? article.keywords : '',
+    },
+    {
+      hid: 'robots',
+      name: 'robots',
+      content: 'index, follow',
+    },
+    {
+      hid: 'googlebot',
+      name: 'googlebot',
+      content: 'index, follow',
+    },
+  ],
+});
 </script>
 
 <template>
   <main class="projectDesc grid">
     <article class="width-4/9 article">
-      <nuxt-content :document="article" />
+      <ContentRenderer :value="article" />
     </article>
   </main>
 </template>

@@ -1,16 +1,14 @@
-<script>
-export default {
-  props: {
-    article: {
-      type: Object,
-      default: () => {},
-    },
-    loadlazy: {
-      type: Boolean,
-      default: false,
-    },
+<script setup>
+defineProps({
+  article: {
+    type: Object,
+    default: () => {},
   },
-};
+  loadlazy: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <template>
@@ -44,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 h2,
-a:deep(img)  {
+a:deep(img) {
   transition: transform 0.2s ease-out;
 }
 
@@ -93,7 +91,8 @@ a {
   // outline: none;
   overflow: hidden;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     h2 {
       transform: translateY(-0.8em);
     }
@@ -109,7 +108,8 @@ a {
   }
 
   @media (prefers-reduced-motion) {
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       img {
         // don't scale image with reduced motion
         transform: scale(1);

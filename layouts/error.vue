@@ -1,12 +1,10 @@
-<script>
-export default {
-  props: {
-    error: {
-      type: Object,
-      default: () => {},
-    },
+<script setup>
+defineProps({
+  error: {
+    type: Object,
+    default: () => {},
   },
-};
+});
 </script>
 
 <template>
@@ -30,7 +28,7 @@ main {
 }
 
 h1 {
-  font-size: unquote("clamp(2rem, 0.875rem + 5vw, 3.5rem)");
+  font-size: unquote('clamp(2rem, 0.875rem + 5vw, 3.5rem)');
 }
 
 .grid {
