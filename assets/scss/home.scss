@@ -47,16 +47,14 @@
 
     .svg1 {
       top: -269px;
-      left: 0;
-      transform: translateX(-60px);
+      left: -60px;
 
       fill: var(--col-secondary);
     }
 
     .svg2 {
       top: 210px;
-      right: 0;
-      transform: translateX(210px);
+      right: -200px;
 
       fill: var(--col-primary);
     }
@@ -78,8 +76,7 @@
 
     .svg3 {
       top: 77px;
-      left: 0;
-      transform: translateX(-51px);
+      left: -50px;
 
       fill: var(--col-secondary-var);
     }
@@ -141,12 +138,12 @@
 
       .svg1 {
         top: -269px;
-        transform: translateX(-88px);
+        left: -95px;
       }
 
       .svg2 {
         top: -160px;
-        transform: translateX(-100px);
+        right: -100px;
       }
     }
 
@@ -157,15 +154,13 @@
 
       .svg3 {
         top: 77px;
-        transform: translateX(-51px);
       }
 
       .svg4 {
         display: initial;
 
-        top: 110px;
-        right: 0;
-        transform: translateX(80px);
+        top: 120px;
+        right: -80px;
       }
     }
   }
