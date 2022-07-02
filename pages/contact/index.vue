@@ -46,47 +46,37 @@ useHead({
     },
   ],
 });
-</script>
 
-<script>
-// TODO convert this
-export default {
-  layout: 'contactLayout',
-  methods: {
-    sendForm: function (e) {
-      e.preventDefault();
+const sendForm = (ev) => {
+  const formEl = document.querySelector('#contactForm');
 
-      const formEl = document.querySelector('#contactForm');
+  // validate inputs
+  const name = document.querySelector('#name');
+  const mail = document.querySelector('#email');
+  const msg = document.querySelector('#message');
 
-      // validate inputs
-      const name = document.querySelector('#name');
-      const mail = document.querySelector('#email');
-      const msg = document.querySelector('#message');
+  const formData = new FormData(formEl);
 
-      const formData = new FormData(formEl);
+  formData.append('name', name.value);
+  formData.append('email', mail.value);
+  formData.append('message', msg.value);
 
-      formData.append('name', name.value);
-      formData.append('email', mail.value);
-      formData.append('message', msg.value);
+  const data = new URLSearchParams(formData);
 
-      const data = new URLSearchParams(formData);
+  fetch('https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc', {
+    method: 'POST',
+    body: data,
+  });
 
-      fetch('https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc', {
-        method: 'POST',
-        body: data,
-      });
+  name.value = '';
+  mail.value = '';
+  msg.value = '';
 
-      name.value = '';
-      mail.value = '';
-      msg.value = '';
+  document.querySelector('#submitbutton').classList.add('clicked');
 
-      document.querySelector('#submitbutton').classList.add('clicked');
-
-      setTimeout(() => {
-        document.querySelector('#submitbutton').classList.remove('clicked');
-      }, 4000);
-    },
-  },
+  setTimeout(() => {
+    document.querySelector('#submitbutton').classList.remove('clicked');
+  }, 4000);
 };
 </script>
 
@@ -100,7 +90,7 @@ export default {
         action="https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc"
         method="POST"
         class="width-4/9"
-        @submit="sendForm($event)"
+        @submit.prevent="sendForm"
       >
         <AtomsTextInput
           :type="'text'"

@@ -1,5 +1,3 @@
-<script></script>
-
 <template>
   <div class="arrow">
     <span class="arrow__head"></span>

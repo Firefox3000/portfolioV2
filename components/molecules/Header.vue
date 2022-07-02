@@ -1,10 +1,6 @@
-<script>
-export default {
-  methods: {
-    closeMenu: () => {
-      document.querySelector('#toggleMenu').checked = false;
-    },
-  },
+<script setup>
+const closeMenu = () => {
+  document.querySelector('#toggleMenu').checked = false;
 };
 </script>
 
