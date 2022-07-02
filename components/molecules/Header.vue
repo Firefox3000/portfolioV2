@@ -1,9 +1,8 @@
 <script>
 export default {
-  setup() {},
   methods: {
-    closeMenu: function () {
-      document.querySelector("#toggleMenu").checked = false;
+    closeMenu: () => {
+      document.querySelector('#toggleMenu').checked = false;
     },
   },
 };
@@ -29,11 +28,15 @@ export default {
       </label>
 
       <ul class="menu__list">
-        <li @click="closeMenu"><nuxt-link to="/">Home</nuxt-link></li>
         <li @click="closeMenu">
-          <nuxt-link to="/projects">Projects</nuxt-link>
+          <NuxtLink to="/">Home</NuxtLink>
         </li>
-        <li @click="closeMenu"><nuxt-link to="/contact">Contact</nuxt-link></li>
+        <li @click="closeMenu">
+          <NuxtLink to="/projects">Projects</NuxtLink>
+        </li>
+        <li @click="closeMenu">
+          <NuxtLink to="/contact">Contact</NuxtLink>
+        </li>
       </ul>
     </nav>
   </header>
@@ -146,7 +149,7 @@ header {
       }
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
 
         top: calc(50% - 2px);

@@ -8,6 +8,8 @@ defineProps({
 </script>
 
 <template>
+  <MoleculesHeader />
+
   <main class="grid">
     <h1 v-if="error.statusCode === 404" class="width-4/9">Page not found</h1>
     <h1 v-else class="width-4/9">An error ocurred</h1>
@@ -17,9 +19,11 @@ defineProps({
     </marquee>
 
     <div class="link width-4/9">
-      <nuxt-link to="/">Go back to a page that actually does exsist</nuxt-link>
+      <NuxtLink to="/" />
     </div>
   </main>
+
+  <MoleculesFooter />
 </template>
 
 <style lang="scss" scoped>

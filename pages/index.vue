@@ -233,6 +233,7 @@ useHead({
 .homePage__about {
   span {
     display: inline-block;
+    margin-right: calc(1em / 8);
   }
 
   .mask {

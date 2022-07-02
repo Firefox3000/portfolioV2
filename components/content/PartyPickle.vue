@@ -12,19 +12,19 @@ export default {
     var touches = 0;
     var clearTouchTrack = 0;
 
-    var newPosition = ["85px", "83px"]; //width, height
+    var newPosition = ['85px', '83px']; //width, height
 
     var potOpen = false;
 
     var i;
-    var etenKleur = ["#585858", "#767676", "#101010", "#b7b7b7", "#dcdcdcx"];
-    var divEten = document.querySelectorAll(".eten");
+    var etenKleur = ['#585858', '#767676', '#101010', '#b7b7b7', '#dcdcdcx'];
+    var divEten = document.querySelectorAll('.eten');
     var etenReset = 1;
 
     //Animate pickle on click
     function newPos() {
-      newPosition[0] = Math.floor(Math.random() * 157) + "px";
-      newPosition[1] = Math.floor(Math.random() * 101) + "px";
+      newPosition[0] = Math.floor(Math.random() * 157) + 'px';
+      newPosition[1] = Math.floor(Math.random() * 101) + 'px';
       return newPosition;
     }
 
@@ -33,7 +33,7 @@ export default {
       var prevNH = newPosition[1];
       newPos();
 
-      document.querySelector("img.pickle").animate(
+      document.querySelector('img.pickle').animate(
         [
           //keyframes
           {
@@ -48,14 +48,14 @@ export default {
         {
           //timing ms
           duration: 1000,
-          easing: "ease-in-out",
+          easing: 'ease-in-out',
         }
       );
-      document.querySelector("img.pickle").style =
-        "top:" + newPosition[1] + ";left:" + newPosition[0];
+      document.querySelector('img.pickle').style =
+        'top:' + newPosition[1] + ';left:' + newPosition[0];
     }
 
-    document.querySelector("img.pickle").addEventListener("click", pickleNew);
+    document.querySelector('img.pickle').addEventListener('click', pickleNew);
 
     //vloeistof minder worden
     function vloeistof() {
@@ -64,12 +64,12 @@ export default {
         x = 0;
         if (vloeistofLevel > 1) {
           vloeistofLevel--;
-          document.querySelector("div.pickleSaus").style =
-            "height: " + vloeistofLevel + "px";
+          document.querySelector('div.pickleSaus').style =
+            'height: ' + vloeistofLevel + 'px';
         } else {
-          document.querySelector("div.pickleSaus").style = "height: 0px";
-          document.querySelector("img.pickle").src =
-            "/img/partyPickle/pickleVies.png";
+          document.querySelector('div.pickleSaus').style = 'height: 0px';
+          document.querySelector('img.pickle').src =
+            '/img/partyPickle/pickleVies.png';
         }
       }
     }
@@ -96,7 +96,7 @@ export default {
       }
     }
 
-    document.querySelector("div#drink").addEventListener("click", addWater);
+    document.querySelector('div#drink').addEventListener('click', addWater);
 
     //Pot kapot maken
     function clearTouches() {
@@ -107,7 +107,7 @@ export default {
     function potKapot() {
       touches++;
       if (touches > 25) {
-        document.querySelector("img.jar").src = "/img/partyPickle/jarKapot.png";
+        document.querySelector('img.jar').src = '/img/partyPickle/jarKapot.png';
         drainSpeed = 1;
       }
 
@@ -118,46 +118,46 @@ export default {
     }
 
     function potRepareren() {
-      document.querySelector("img.jar").src = "/img/partyPickle/jar.png";
+      document.querySelector('img.jar').src = '/img/partyPickle/jar.png';
       drainSpeed = 7;
     }
 
-    document.querySelector("img.jar").addEventListener("mouseenter", potKapot);
-    document.querySelector("img.jar").addEventListener("mouseleave", potKapot);
+    document.querySelector('img.jar').addEventListener('mouseenter', potKapot);
+    document.querySelector('img.jar').addEventListener('mouseleave', potKapot);
     document
-      .querySelector("img.jar")
-      .addEventListener("dblclick", potRepareren);
+      .querySelector('img.jar')
+      .addEventListener('dblclick', potRepareren);
 
     //pot openen
     function openPot() {
       if (potOpen == true) {
         document
-          .querySelector("div.deksel")
-          .classList.add("dekselAnimateClose");
-        document.querySelector("div.deksel").classList.remove("dekselAnimate");
+          .querySelector('div.deksel')
+          .classList.add('dekselAnimateClose');
+        document.querySelector('div.deksel').classList.remove('dekselAnimate');
         potOpen = false;
       } else {
-        document.querySelector("div.deksel").classList.add("dekselAnimate");
+        document.querySelector('div.deksel').classList.add('dekselAnimate');
         document
-          .querySelector("div.deksel")
-          .classList.remove("dekselAnimateClose");
+          .querySelector('div.deksel')
+          .classList.remove('dekselAnimateClose');
         potOpen = true;
       }
     }
 
-    document.querySelector("div.deksel").addEventListener("click", openPot);
+    document.querySelector('div.deksel').addEventListener('click', openPot);
 
     //eten geven
     function removeEtenAni() {
       for (i = 0; i < divEten.length; i++) {
-        divEten[i].classList.remove("etenAnimate");
+        divEten[i].classList.remove('etenAnimate');
       }
       etenReset = 1;
     }
 
     document
-      .querySelector("div.eten")
-      .addEventListener("animationend", removeEtenAni);
+      .querySelector('div.eten')
+      .addEventListener('animationend', removeEtenAni);
 
     function geefEten() {
       if (potOpen == true && etenReset == 1) {
@@ -169,38 +169,38 @@ export default {
 
         for (i = 0; i < eetNummer; i++) {
           positie = Math.floor(Math.random() * 15) - 7.5 + 50;
-          offset = Math.floor(Math.random() * 50) + 25 + "px";
-          grote = Math.floor(Math.random() * 10) + 10 + "px";
+          offset = Math.floor(Math.random() * 50) + 25 + 'px';
+          grote = Math.floor(Math.random() * 10) + 10 + 'px';
 
           var kleur = Math.floor(Math.random() * etenKleur.length);
           divEten[i].style =
             `width:${grote};height:${grote};` +
             `left:${positie}%;top:-${offset}` +
             `;background-color: ${etenKleur[kleur]}`;
-          divEten[i].classList.add("etenAnimate");
+          divEten[i].classList.add('etenAnimate');
         }
         etenReset = 0;
 
         if (vloeistofLevel >= 275) {
-          document.querySelector("img.pickle").src =
-            "/img/partyPickle/pickle.png";
+          document.querySelector('img.pickle').src =
+            '/img/partyPickle/pickle.png';
         }
       }
     }
 
-    document.querySelector("div#eten").addEventListener("click", geefEten);
+    document.querySelector('div#eten').addEventListener('click', geefEten);
 
     //animatie klass deksel openen we halen
     function removeOpenPot() {
-      document.querySelector("div.deksel").classList.add("dekselOpen");
-      document.querySelector("div.deksel").classList.remove("dekselAnimate");
+      document.querySelector('div.deksel').classList.add('dekselOpen');
+      document.querySelector('div.deksel').classList.remove('dekselAnimate');
     }
 
     document
-      .querySelector("div.deksel")
-      .addEventListener("animationend", removeOpenPot);
+      .querySelector('div.deksel')
+      .addEventListener('animationend', removeOpenPot);
   },
-  beforeDestroy() {
+  unmounted() {
     clearInterval(this.interval);
   },
 };

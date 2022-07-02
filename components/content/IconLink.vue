@@ -1,14 +1,14 @@
 <script setup>
-  defineProps ({
-    href: {
-      type: String,
-      default: "/",
-    },
-    icon: {
-      type: String,
-      default: "",
-    },
-  })
+defineProps({
+  href: {
+    type: String,
+    default: '/',
+  },
+  icon: {
+    type: String,
+    default: '',
+  },
+});
 </script>
 
 <template>
