@@ -29,10 +29,10 @@ My main role during this project was to create a working version of the app. Apa
 
 Check out the GitHub [wiki](https://github.com/Vuurvos1/iCOV/wiki) for more detailed information and the design process of the project.
 
-::icon-link{href="https://github.com/vuurvos1/icov" target="_blank" icon="github"}
+<icon-link href="https://github.com/vuurvos1/icov" target="_blank" icon="github">
 Source code
-::
+</icon-link>
 
-::icon-link{href="https://icovdev.surge.sh/" target="_blank" icon="launch"}
+<icon-link href="https://icovdev.surge.sh/" target="_blank" icon="launch">
 See it live
-::
+</icon-link>

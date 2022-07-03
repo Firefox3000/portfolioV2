@@ -148,8 +148,6 @@ const geefEten = () => {
   }
 };
 
-//
-
 //animatie klass deksel openen we halen
 const removeOpenPot = () => {
   document.querySelector('div.deksel').classList.add('dekselOpen');

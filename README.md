@@ -1,15 +1,12 @@
-# Nuxt 3 Minimal Starter
+# Portfolio Site
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+Portfolio site build with [nuxt 3](https://v3.nuxtjs.org)
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# yarn
-yarn install
-
 # npm
 npm install
 
