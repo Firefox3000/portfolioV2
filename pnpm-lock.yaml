@@ -3,13 +3,13 @@ lockfileVersion: 5.4
 specifiers:
   '@nuxt/content': ^2.0.1
   '@nuxtjs/pwa': ^3.3.5
-  nuxt: 3.0.0-rc.4
+  nuxt: 3.0.0-rc.3
   sass: ^1.53.0
 
 devDependencies:
   '@nuxt/content': 2.0.1
   '@nuxtjs/pwa': 3.3.5
-  nuxt: 3.0.0-rc.4_sass@1.53.0
+  nuxt: 3.0.0-rc.3_sass@1.53.0
   sass: 1.53.0
 
 packages:
@@ -3784,8 +3784,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt/3.0.0-rc.4_sass@1.53.0:
-    resolution: {integrity: sha512-Cj23WECa9JSN1Gkhh48e9JzkigXugMZ3glH+/ftN9jmYXce2NrOYHBn7Drg1dO7VdlkkhpxtSVf81u5zRZe/gg==}
+  /nuxt/3.0.0-rc.3_sass@1.53.0:
+    resolution: {integrity: sha512-Ch68sD9Npt3BN0ZphvtRurVhFqtm1sAu4VDoXghmsRoVAwpT2ZDeDWaQJ9PSmXHYwyEaXPIZ9B2EDXPKETh0cQ==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
     hasBin: true
     dependencies:
@@ -3821,8 +3821,8 @@ packages:
       ufo: 0.8.4
       unctx: 1.1.4
       unenv: 0.5.2
-      unimport: 0.2.10
-      unplugin: 0.7.1
+      unimport: 0.1.9
+      unplugin: 0.6.3
       untyped: 0.4.4
       vue: 3.2.37
       vue-bundle-renderer: 0.3.9

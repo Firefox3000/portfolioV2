@@ -3,28 +3,29 @@ import { defineNuxtConfig } from 'nuxt';
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ['@nuxt/content'],
+
   content: {
     highlight: {
       theme: 'light-plus',
     },
   },
 
-  router: {
-    base: '/',
-  },
+  // router: {
+  //   base: '/',
+  // },
 
   /* global CSS */
   css: ['~/assets/scss/main.scss'],
 
   /* build modules */
-  buildModules: ['@nuxtjs/pwa'],
+  // buildModules: ['@nuxtjs/pwa'],
 
   // might be broken?
-  pwa: {
-    workbox: {
-      /* workbox options */
-    },
-  },
+  // pwa: {
+  //   workbox: {
+  //     /* workbox options */
+  //   },
+  // },
 
   /* default head */
   app: {
@@ -57,6 +58,7 @@ export default defineNuxtConfig({
         {
           rel: 'syltesheet',
           href: 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap',
+          // get these from
         },
       ],
     },
