@@ -1,8 +1,4 @@
 <script setup>
-definePageMeta({
-  layout: defualt,
-});
-
 // default head elements
 useHead({
   title: 'Portfolio | Sam de Kanter',
