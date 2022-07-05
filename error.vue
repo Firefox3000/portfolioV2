@@ -14,9 +14,9 @@ defineProps({
     <h1 v-if="error.statusCode === 404" class="width-4/9">Page not found</h1>
     <h1 v-else class="width-4/9">An error ocurred</h1>
 
-    <marquee direction="down" behavior="alternate" class="marquee width-4/9">
+    <!-- <marquee direction="down" behavior="alternate" class="marquee width-4/9">
       <marquee behavior="alternate"> 🦝 </marquee>
-    </marquee>
+    </marquee> -->
 
     <div class="link width-4/9">
       <NuxtLink to="/" />

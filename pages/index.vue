@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const data = await queryContent('/projects/')
   .only(['title', 'description', 'img', 'slug', 'createdAt', 'alt'])
