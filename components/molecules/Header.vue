@@ -1,6 +1,6 @@
 <script setup>
 const closeMenu = () => {
-  // document.querySelector('#toggleMenu').checked = false;
+  document.querySelector('#toggleMenu').checked = false;
 };
 </script>
 
