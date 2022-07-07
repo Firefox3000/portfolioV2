@@ -1,94 +1,82 @@
-<script>
-import TextInput from "../../components/atoms/TextInput.vue";
-
-export default {
-  components: { TextInput },
-  layout: "contactLayout",
-  methods: {
-    sendForm: function (e) {
-      // spam protection done by getform maybe still add recapatcha3?
-      e.preventDefault();
-
-      const formEl = document.querySelector("#contactForm");
-
-      // validate inputs
-      const name = document.querySelector("#name");
-      const mail = document.querySelector("#email");
-      const msg = document.querySelector("#message");
-
-      const formData = new FormData(formEl);
-
-      formData.append("name", name.value);
-      formData.append("email", mail.value);
-      formData.append("message", msg.value);
-
-      const data = new URLSearchParams(formData);
-
-      fetch("https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc", {
-        method: "POST",
-        body: data,
-      });
-
-      name.value = "";
-      mail.value = "";
-      msg.value = "";
-
-      document.querySelector("#submitbutton").classList.add("clicked");
-
-      setTimeout(() => {
-        document.querySelector("#submitbutton").classList.remove("clicked");
-      }, 4000);
+<script setup>
+useHead({
+  title: 'Contact',
+  meta: [
+    {
+      hid: 'ogtitle',
+      property: 'og:title',
+      content: 'Contact',
     },
-  },
-  head() {
-    return {
-      title: "Contact",
-      meta: [
-        {
-          hid: "ogtitle",
-          property: "og:title",
-          content: "Contact",
-        },
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Find some info about me to find me on different platforms, or contact me if you have any questions",
-        },
-        {
-          hid: "ogdescription ",
-          property: "og:description ",
-          content: "Lets get in contact",
-        },
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Find some info about me to find me on different platforms, or contact me if you have any questions',
+    },
+    {
+      hid: 'ogdescription ',
+      property: 'og:description ',
+      content: 'Lets get in contact',
+    },
 
-        {
-          hid: "ogurl",
-          property: "og:url",
-          content: "http://schelpkikker.nl/contact",
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: "http://schelpkikker.nl/logo.png",
-        },
-        {
-          hid: "keywords",
-          property: "keywords",
-          content: "Contact, mail",
-        },
-        {
-          hid: "robots",
-          name: "robots",
-          content: "index, follow",
-        },
-        {
-          hid: "googlebot",
-          name: "googlebot",
-          content: "index, follow",
-        },
-      ],
-    };
-  },
+    {
+      hid: 'ogurl',
+      property: 'og:url',
+      content: 'http://schelpkikker.nl/contact',
+    },
+    {
+      hid: 'og:image',
+      property: 'og:image',
+      content: 'http://schelpkikker.nl/logo.png',
+    },
+    {
+      hid: 'keywords',
+      property: 'keywords',
+      content: 'Contact, mail',
+    },
+    {
+      hid: 'robots',
+      name: 'robots',
+      content: 'index, follow',
+    },
+    {
+      hid: 'googlebot',
+      name: 'googlebot',
+      content: 'index, follow',
+    },
+  ],
+});
+
+const sendForm = (ev) => {
+  const formEl = document.querySelector('#contactForm');
+
+  // validate inputs
+  const name = document.querySelector('#name');
+  const mail = document.querySelector('#email');
+  const msg = document.querySelector('#message');
+
+  const formData = new FormData(formEl);
+
+  formData.append('name', name.value);
+  formData.append('email', mail.value);
+  formData.append('message', msg.value);
+
+  const data = new URLSearchParams(formData);
+
+  fetch('https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc', {
+    method: 'POST',
+    body: data,
+  });
+
+  name.value = '';
+  mail.value = '';
+  msg.value = '';
+
+  document.querySelector('#submitbutton').classList.add('clicked');
+
+  setTimeout(() => {
+    document.querySelector('#submitbutton').classList.remove('clicked');
+  }, 4000);
 };
 </script>
 
@@ -102,26 +90,26 @@ export default {
         action="https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc"
         method="POST"
         class="width-4/9"
-        @submit="sendForm($event)"
+        @submit.prevent="sendForm"
       >
-        <TextInput
+        <AtomsTextInput
           :type="'text'"
           label="Your name"
           name="name"
           :req="true"
-        ></TextInput>
-        <TextInput
+        />
+        <AtomsTextInput
           :type="'email'"
           label="Your email address"
           name="email"
           :req="true"
-        ></TextInput>
-        <TextInput
+        />
+        <AtomsTextInput
           :type="'textarea'"
           label="Leave a message"
           name="message"
           :req="true"
-        ></TextInput>
+        />
 
         <button id="submitbutton" type="submit" class="button">
           <span> Send Message </span>

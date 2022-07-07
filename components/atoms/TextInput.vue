@@ -1,28 +1,26 @@
-<script>
-export default {
-  props: {
-    type: {
-      type: String,
-      default: "text",
-    },
-    label: {
-      type: String,
-      default: "Sample text",
-    },
-    name: {
-      type: String,
-      default: "",
-    },
-    rows: {
-      type: Number,
-      default: 5,
-    },
-    req: {
-      type: Boolean,
-      default: false,
-    },
+<script setup>
+defineProps({
+  type: {
+    type: String,
+    default: 'text',
   },
-};
+  label: {
+    type: String,
+    default: 'Sample text',
+  },
+  name: {
+    type: String,
+    default: '',
+  },
+  rows: {
+    type: Number,
+    default: 5,
+  },
+  req: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <template>

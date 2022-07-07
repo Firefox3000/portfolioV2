@@ -1,28 +1,27 @@
-<script>
-export default {
-  props: {
-    article: {
-      type: Object,
-      default: () => {},
-    },
-    loadlazy: {
-      type: Boolean,
-      default: false,
-    },
+<script setup>
+defineProps({
+  article: {
+    type: Object,
+    default: () => {},
   },
-};
+  loadlazy: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <template>
   <NuxtLink :to="{ name: 'projects-slug', params: { slug: article.slug } }">
-    <nuxt-picture
+    <!-- <nuxt-picture -->
+    <img
       width="512"
       height="512"
       :loading="loadlazy ? 'lazy' : null"
       :src="article.img"
       :alt="article.alt"
-      sizes="sm:100vw md:50vw lg:512px"
     />
+    <!-- sizes="sm:100vw md:50vw lg:512px" -->
     <div class="projects__text">
       <h2 class="heading3">{{ article.title }}</h2>
       <svg
@@ -43,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 h2,
-a::v-deep img {
+a:deep(img) {
   transition: transform 0.2s ease-out;
 }
 
@@ -51,7 +50,7 @@ h2 {
   text-shadow: rgba(30, 30, 30, 0.5) 0px 0px 0.5rem;
 }
 
-a::v-deep img {
+a:deep(img) {
   width: 100%;
   height: auto;
 }
@@ -92,12 +91,13 @@ a {
   // outline: none;
   overflow: hidden;
 
-  @include hocus() {
+  &:hover,
+  &:focus {
     h2 {
       transform: translateY(-0.8em);
     }
 
-    ::v-deep img {
+    :deep(img) {
       transform: scale(1.1);
     }
 
@@ -108,7 +108,8 @@ a {
   }
 
   @media (prefers-reduced-motion) {
-    @include hocus() {
+    &:hover,
+    &:focus {
       img {
         // don't scale image with reduced motion
         transform: scale(1);

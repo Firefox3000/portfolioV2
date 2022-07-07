@@ -3,11 +3,11 @@
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  /* user-drag: none; */
+  // user-drag: none; 
 }
 
 .selectNone {
-  /* No text select*/
+  // No text select
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -118,7 +118,7 @@
 }
 
 .dekselOpen {
-  @include transform(rotate(-90deg));
+  transform: rotate(-90deg);
 }
 
 .eten {
@@ -138,35 +138,35 @@
 
 @keyframes dekselAn {
   0% {
-    @include transform(translate(0, 0));
+    transform: translate(0, 0);
   }
 
   50% {
-    @include transform(translate(0px, -100px));
+    transform: translate(0, -100px);
   }
 
   100% {
-    @include transform(rotate(-90deg));
+    transform: rotate(-90deg);
   }
 }
 
 @keyframes dekselAnClose {
   0% {
-    @include transform(rotate(-90deg));
+    transform: rotate(-90deg);
   }
 
   60% {
-    @include transform(translate(0, -100px));
+    transform: translate(0, -100px);
   }
 
   100% {
-    @include transform(translate(0, 0));
+    transform: translate(0, 0);
   }
 }
 
 @keyframes etenDrop {
   0% {
-    @include transform(translate(0, 0));
+    transform: translate(0, 0);
   }
 
   60% {
@@ -174,7 +174,7 @@
   }
 
   100% {
-    @include transform(translateY(70vh));
+    transform: translateY(70vh);
     opacity: 0;
   }
 }

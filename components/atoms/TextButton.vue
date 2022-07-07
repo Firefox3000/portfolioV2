@@ -1,9 +1,3 @@
-<script>
-export default {
-  props: {},
-};
-</script>
-
 <template>
   <button>
     <slot>Button</slot>

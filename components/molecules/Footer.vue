@@ -1,3 +1,7 @@
+<script setup>
+const year = new Date().getFullYear();
+</script>
+
 <template>
   <footer class="grid">
     <div class="width-3/10">
@@ -24,7 +28,7 @@
           >CSS Battle</a
         >
       </p>
-      <p class="body2">&copy; 2021 - Sam de Kanter</p>
+      <p class="body2">&copy; {{ year }} - Sam de Kanter</p>
     </div>
   </footer>
 </template>

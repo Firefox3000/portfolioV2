@@ -1,20 +1,41 @@
-# PortfolioSite
+# Portfolio Site
 
-## Build Setup
+Portfolio site build with [nuxt 3](https://v3.nuxtjs.org)
+
+NOTE: pnpm seems to be broken for deployment
+
+## Setup
+
+Make sure to install the dependencies:
 
 ```bash
-# install dependencies
-$ npm install
+# npm
+npm install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+# pnpm
+pnpm install --shamefully-hoist
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Development Server
+
+Start the development server on http://localhost:3000
+
+```bash
+npm run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+npm run build
+```
+
+Locally preview production build:
+
+```bash
+npm run preview
+```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
