@@ -5,6 +5,12 @@ export default defineNuxtConfig({
   target: 'static',
   ssr: true,
 
+  // routes: ['404'],
+  generate: {
+    fallback: '404.html',
+  },
+  // fallback: '404.html',
+
   modules: ['@nuxt/content'],
 
   content: {
@@ -13,9 +19,9 @@ export default defineNuxtConfig({
     },
   },
 
-  // router: {
-  //   base: '/',
-  // },
+  router: {
+    base: '/',
+  },
 
   /* global CSS */
   css: ['~/assets/scss/main.scss'],

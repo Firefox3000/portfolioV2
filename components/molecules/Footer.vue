@@ -17,7 +17,7 @@ const year = new Date().getFullYear();
         <a
           class="lineHover"
           target="social"
-          href="https://www.linkedin.com/in/sam-de-kanter-b3020b1a0/"
+          href="https://www.linkedin.com/in/samdekanter"
           >LinkedIn</a
         >
         /
