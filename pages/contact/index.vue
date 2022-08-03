@@ -47,6 +47,7 @@ useHead({
   ],
 });
 
+// TODO vueify this
 const sendForm = (ev) => {
   const formEl = document.querySelector('#contactForm');
 
@@ -83,10 +84,9 @@ const sendForm = (ev) => {
 <template>
   <main class="contactPage">
     <section class="grid contactPage__form">
-      <h1 class="width-4/9 heading2">Let’s get in contact</h1>
+      <h1 class="width-4/9 heading2">Let's get in contact</h1>
 
       <form
-        id="contactForm"
         action="https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc"
         method="POST"
         class="width-4/9"
@@ -112,7 +112,7 @@ const sendForm = (ev) => {
         />
 
         <button id="submitbutton" type="submit" class="button">
-          <span> Send Message </span>
+          <span>Send Message</span>
           <span>Sending...</span>
           <span>Done!</span>
         </button>
@@ -162,7 +162,7 @@ const sendForm = (ev) => {
 </template>
 
 <style lang="scss" scoped>
-#submitbutton {
+form {
   display: flex;
   flex-direction: column;
 
