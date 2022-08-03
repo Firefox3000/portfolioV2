@@ -1,5 +1,5 @@
 <script setup>
-// default head elements
+// default head settings
 useHead({
   title: 'Portfolio | Sam de Kanter',
   meta: [
@@ -34,7 +34,6 @@ useHead({
 
 <template>
   <div>
-    <!-- TODO this probably should be inside a layout -->
     <MoleculesHeader />
     <NuxtPage />
     <MoleculesFooter />

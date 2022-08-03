@@ -1,9 +1,8 @@
-// add this to all pages (currently only home page)
-
-const trigger = document.querySelector("#swipeTrigger");
-const menuList = document.querySelector(".menu__list");
-const menuToggle = document.querySelector(".menu__label");
-const menuCheckbox = document.querySelector("#toggleMenu");
+// TODO vuefy and add to nav component
+const trigger = document.querySelector('#swipeTrigger');
+const menuList = document.querySelector('.menu__list');
+const menuToggle = document.querySelector('.menu__label');
+const menuCheckbox = document.querySelector('#toggleMenu');
 
 let touchStartX;
 let touchCloseX;
@@ -44,7 +43,7 @@ window.onresize = () => {
 };
 
 // Menu toggle
-menuToggle.addEventListener("click", () => {
+menuToggle.addEventListener('click', () => {
   if (menuOpen) {
     menuOpen = false;
     menuCheckbox.checked = true;
@@ -58,7 +57,7 @@ menuToggle.addEventListener("click", () => {
 
 // Touch start
 trigger.addEventListener(
-  "touchstart",
+  'touchstart',
   (e) => {
     const firstTouch = e.touches[0] || e.originalEvent.touches[0]; // browser API
     touchStartX = firstTouch.clientX;
@@ -68,7 +67,7 @@ trigger.addEventListener(
 
 // Dragging
 trigger.addEventListener(
-  "touchmove",
+  'touchmove',
   (e) => {
     e.preventDefault();
     touchmoveX = e.changedTouches[0].clientX;
@@ -88,7 +87,7 @@ trigger.addEventListener(
 );
 
 // Swipe end
-trigger.addEventListener("touchend", () => {
+trigger.addEventListener('touchend', () => {
   if (dragDist < menuOpenDrag) {
     // close menu
     openMenu(false);
@@ -99,7 +98,7 @@ trigger.addEventListener("touchend", () => {
 });
 
 // tap next to menu when open
-document.querySelector("body").addEventListener("click", (e) => {
+document.querySelector('body').addEventListener('click', (e) => {
   if (menuOpen) {
     if (e.clientX < windowWidth - menuWidth) {
       // close menu
@@ -110,7 +109,7 @@ document.querySelector("body").addEventListener("click", (e) => {
 
 // add swipe to close menu
 menuList.addEventListener(
-  "touchstart",
+  'touchstart',
   (e) => {
     const firstTouch = e.touches[0] || e.originalEvent.touches[0]; // browser API
     touchCloseX = firstTouch.clientX;
@@ -119,7 +118,7 @@ menuList.addEventListener(
 );
 
 menuList.addEventListener(
-  "touchmove",
+  'touchmove',
   (e) => {
     e.preventDefault();
     touchmoveX = e.changedTouches[0].clientX;
