@@ -2,14 +2,8 @@ import { defineNuxtConfig } from 'nuxt';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  target: 'static',
+  // target: 'static',
   ssr: true,
-
-  // routes: ['404'],
-  generate: {
-    fallback: '404.html',
-  },
-  // fallback: '404.html',
 
   modules: ['@nuxt/content'],
 
