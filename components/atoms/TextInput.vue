@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
   type: {
     type: String,
     default: 'text',
@@ -20,7 +20,13 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  value: {
+    type: String,
+    default: '',
+  },
 });
+
+const emit = defineEmits(['update:value']);
 </script>
 
 <template>
@@ -31,6 +37,8 @@ defineProps({
       :placeholder="label"
       :rows="rows"
       :required="req"
+      :value="value"
+      @input="emit('update:value', $event.target.value)"
     ></textarea>
     <input
       v-else
@@ -38,6 +46,8 @@ defineProps({
       :placeholder="label"
       :type="type"
       :required="req"
+      :value="value"
+      @input="emit('update:value', $event.target.value)"
     />
     <label :for="name">{{ label }}</label>
   </div>

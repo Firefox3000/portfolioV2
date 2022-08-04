@@ -47,36 +47,40 @@ useHead({
   ],
 });
 
+const form = ref();
+
+const name = ref('');
+const email = ref('');
+const message = ref('');
+
+const clicked = ref(false);
+
 // TODO vueify this
 const sendForm = (ev) => {
-  const formEl = document.querySelector('#contactForm');
+  const formData = new FormData(form.value);
 
-  // validate inputs
-  const name = document.querySelector('#name');
-  const mail = document.querySelector('#email');
-  const msg = document.querySelector('#message');
-
-  const formData = new FormData(formEl);
-
+  // TODO validate inputs
   formData.append('name', name.value);
-  formData.append('email', mail.value);
-  formData.append('message', msg.value);
+  formData.append('email', email.value);
+  formData.append('message', message.value);
 
   const data = new URLSearchParams(formData);
 
+  // send form data
   fetch('https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc', {
     method: 'POST',
     body: data,
   });
 
+  // reset form values
   name.value = '';
-  mail.value = '';
-  msg.value = '';
+  email.value = '';
+  message.value = '';
 
-  document.querySelector('#submitbutton').classList.add('clicked');
-
+  // animate submit button
+  clicked.value = true;
   setTimeout(() => {
-    document.querySelector('#submitbutton').classList.remove('clicked');
+    clicked.value = false;
   }, 4000);
 };
 </script>
@@ -90,6 +94,7 @@ const sendForm = (ev) => {
         action="https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc"
         method="POST"
         class="width-4/9"
+        ref="form"
         @submit.prevent="sendForm"
       >
         <AtomsTextInput
@@ -97,21 +102,26 @@ const sendForm = (ev) => {
           label="Your name"
           name="name"
           :req="true"
+          v-model:value="name"
         />
+
         <AtomsTextInput
           :type="'email'"
           label="Your email address"
           name="email"
           :req="true"
+          v-model:value="email"
         />
+
         <AtomsTextInput
           :type="'textarea'"
           label="Leave a message"
           name="message"
           :req="true"
+          v-model:value="message"
         />
 
-        <button id="submitbutton" type="submit" class="button">
+        <button type="submit" class="button" :class="{ clicked: clicked }">
           <span>Send Message</span>
           <span>Sending...</span>
           <span>Done!</span>
@@ -162,14 +172,15 @@ const sendForm = (ev) => {
 </template>
 
 <style lang="scss" scoped>
-form {
+button[type='submit'] {
   display: flex;
   flex-direction: column;
 
-  text-align: center;
-
   height: 2.6em;
   overflow-y: hidden;
+
+  margin-left: auto;
+  text-align: center;
 
   span {
     margin: 0.6em 0;
@@ -188,6 +199,12 @@ form {
       animation-name: sendButton;
       animation-duration: 3.4s;
     }
+  }
+
+  &:focus,
+  &:focus::before {
+    overflow-x: hidden;
+    transition: none;
   }
 }
 
