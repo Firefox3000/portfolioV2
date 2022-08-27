@@ -217,7 +217,7 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
 
 <template>
   <section class="ticTacToe">
-    <p class="winner heading4">Winner:</p>
+    <p class="winner h4">Winner:</p>
     <div class="ticTacToe__grid">
       <div class="row" v-for="x in 3" :key="x">
         <div class="col" @click="playerClick" v-for="y in 3" :key="y"></div>
@@ -314,7 +314,7 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
     margin: 0 auto 1rem auto;
   }
 
-  .heading4 {
+  .h4 {
     text-align: center;
   }
 

@@ -56,7 +56,7 @@ useHead({
 
 <template>
   <main class="grid projects">
-    <h1 class="width-3/10 heading3 titleSide">Projects</h1>
+    <h1 class="width-3/10 h3 titleSide">Projects</h1>
 
     <ul class="width-3/10 projects__grid">
       <li

@@ -88,7 +88,7 @@ const sendForm = (ev) => {
 <template>
   <main class="contactPage">
     <section class="grid contactPage__form">
-      <h1 class="width-4/9 heading2">Let's get in contact</h1>
+      <h1 class="width-4/9 h2">Let's get in contact</h1>
 
       <form
         action="https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc"
@@ -130,7 +130,7 @@ const sendForm = (ev) => {
     </section>
 
     <section class="grid contactPage__social">
-      <h2 class="width-4/9 heading2">Find me on other platforms</h2>
+      <h2 class="width-4/9 h2">Find me on other platforms</h2>
 
       <ul class="width-4/9">
         <li>

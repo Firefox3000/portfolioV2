@@ -23,7 +23,7 @@ defineProps({
     />
     <!-- sizes="sm:100vw md:50vw lg:512px" -->
     <div class="projects__text">
-      <h2 class="heading3">{{ article.title }}</h2>
+      <h2 class="h3">{{ article.title }}</h2>
       <svg
         width="49"
         height="32"

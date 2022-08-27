@@ -8,12 +8,13 @@
     "full-install": "pnpm i --shamefully-hoist"
   },
   "dependencies": {
-    "@fontsource/work-sans": "^4.5.10",
+    "@fontsource/work-sans": "^4.5.11",
     "@nuxt/content": "^2.0.1",
-    "sass": "^1.54.1"
+    "sass": "^1.54.5"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^5.3.2",
     "nuxt": "3.0.0-rc.8",
-    "vercel": "^27.3.4"
+    "vercel": "^27.4.0"
   }
 }

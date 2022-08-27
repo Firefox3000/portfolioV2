@@ -60,7 +60,7 @@ onMounted(() => {
       pos.y = canvas.value.height / 2;
     }
 
-    //Set size of the emoji and the font
+    // set size of the emoji and the font
     ctx.font = '64px Arial';
     // use these alignment properties for "better" positioning
     ctx.textAlign = 'center';
@@ -95,7 +95,7 @@ main {
 }
 
 h1 {
-  font-size: unquote('clamp(2rem, 0.875rem + 5vw, 3.5rem)');
+  font-size: clamp(2rem, 0.875rem + 5vw, 3.5rem);
 }
 
 .grid {

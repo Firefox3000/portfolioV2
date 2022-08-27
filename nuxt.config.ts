@@ -21,6 +21,7 @@ export default defineNuxtConfig({
   css: ['~/assets/scss/main.scss'],
 
   /* build modules */
+  buildModules: ['@nuxtjs/tailwindcss'],
   // buildModules: ['@nuxtjs/pwa'],
 
   // might be broken?

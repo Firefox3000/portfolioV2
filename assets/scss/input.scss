@@ -1,5 +1,6 @@
 // buttons
 body .button {
+  display: inline-block;
   text-transform: uppercase;
   font-weight: bold;
   color: var(--col-primary);
@@ -39,8 +40,7 @@ body .button {
   }
 }
 
-// Slider
-
+// slider
 .slidecontainer {
   display: flex;
   flex-direction: row;
