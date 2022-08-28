@@ -87,10 +87,10 @@ div {
     // focused
     &:focus {
       color: rgba(var(--rgbText), 0.87);
-      border-color: var(--col-primary);
+      border-color: var(--primary);
 
       & ~ label {
-        color: var(--col-primary);
+        color: var(--primary);
       }
     }
 
@@ -108,10 +108,10 @@ div {
 
     // error
     &:focus:invalid {
-      border-color: var(--col-error);
+      border-color: var(--error);
 
       & ~ label {
-        color: var(--col-error);
+        color: var(--error);
       }
     }
 

@@ -253,7 +253,7 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
   margin-left: -1.5rem;
 
   padding: 2.4rem 1.5rem;
-  background-color: var(--col-secondary);
+  background-color: var(--secondary);
 
   &__grid {
     margin: 0 auto 2rem auto;

@@ -172,6 +172,85 @@ const sendForm = (ev) => {
 </template>
 
 <style lang="scss" scoped>
+.contactPage {
+  padding-top: 6rem;
+
+  h1,
+  h2 {
+    font-size: 3rem;
+  }
+
+  .contactPage__form {
+    margin-bottom: 2rem;
+  }
+
+  .contactPage__social {
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      margin-bottom: 3rem;
+
+      li {
+        font-size: 0;
+        margin: 0 1rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        svg {
+          width: 3.2rem;
+          height: auto;
+          fill: var(--text);
+
+          transition: all 0.2s ease-out;
+        }
+
+        a {
+          &:hover,
+          &:focus {
+            outline: none;
+
+            svg {
+              fill: var(--primary);
+            }
+          }
+        }
+      }
+
+      &:hover {
+        a:focus svg {
+          fill: var(--text);
+        }
+
+        a:hover svg {
+          fill: var(--primary);
+        }
+      }
+    }
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 48rem) {
+  h1,
+  h2 {
+    font-size: 3.75rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 64rem) {
+}
+
 button[type='submit'] {
   display: flex;
   flex-direction: column;

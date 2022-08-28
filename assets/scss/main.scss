@@ -7,8 +7,6 @@
 @import "input";
 
 @import "article";
-@import "contact";
-@import "partyPickle";
 
 body {
   background-color: var(--background);
@@ -34,7 +32,7 @@ main {
   flex-direction: column;
 
   section:first-child {
-    background-color: var(--col-secondary);
+    background-color: var(--secondary);
   }
 }
 
@@ -93,7 +91,7 @@ main {
     width: 100%;
 
     // background-color: #ff3c31;
-    background-color: var(--col-primary);
+    background-color: var(--primary);
 
     animation-duration: 0.65s;
     transform: translateX(-110%);

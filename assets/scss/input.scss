@@ -3,7 +3,7 @@ body .button {
   display: inline-block;
   text-transform: uppercase;
   font-weight: bold;
-  color: var(--col-primary);
+  color: var(--primary);
   border: 1px solid rgba(var(--rgbText), 0.5);
   padding: 0.6rem 0.8rem;
   border-radius: 0.25rem;
@@ -69,7 +69,7 @@ body .button {
   appearance: none;
   width: 1rem;
   height: 1rem;
-  background: var(--col-primary);
+  background: var(--primary);
   cursor: pointer;
   border-radius: 50%;
 
@@ -82,7 +82,7 @@ body .button {
 
 /** Firefox support*/
 .slider::-moz-range-progress {
-  background-color: var(--col-primary);
+  background-color: var(--primary);
   border-radius: 20rem 0 0 20rem;
 }
 
@@ -92,7 +92,7 @@ body .button {
 }
 
 .slider::-moz-range-thumb {
-  background-color: var(--col-primary);
+  background-color: var(--primary);
   border: none;
   border-radius: 20rem;
 }

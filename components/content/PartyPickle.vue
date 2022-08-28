@@ -238,4 +238,185 @@ onUnmounted(() => {
     background: linear-gradient(#ffcb57 65%, rgba(0, 0, 0, 0) 0 100%);
   }
 }
+
+.grabNone {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  // user-drag: none;
+}
+
+.selectNone {
+  // No text select
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.partyPickle {
+  position: relative;
+  z-index: 1;
+  min-height: 42rem;
+  overflow-x: hidden;
+
+  margin-top: 2rem;
+
+  .pickle {
+    position: absolute;
+    top: 83px;
+    left: 85px;
+
+    width: auto;
+
+    cursor: pointer;
+
+    z-index: 2;
+  }
+
+  .moveSpace {
+    width: 274px;
+    height: 320px;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .positionMove {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24vh;
+  }
+
+  .pickleSaus {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    height: 300px;
+    width: 276px;
+    bottom: 24vh;
+    background-color: #919b54;
+    z-index: -1;
+
+    border-radius: 0 0 22px 22px;
+  }
+
+  .knoppen {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+
+    z-index: 2;
+
+    .button {
+      margin: 0 1rem;
+    }
+  }
+
+  .jar {
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    width: auto;
+    left: 0;
+    right: 0;
+    bottom: 24vh;
+  }
+}
+
+.deksel {
+  width: 210px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #a5a5a5;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(24vh + 360px);
+  z-index: 1;
+
+  transform-origin: 0% 100%;
+
+  transition: all 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.dekselAnimate {
+  animation-name: dekselAn;
+  animation-duration: 2s;
+}
+
+.dekselAnimateClose {
+  animation-name: dekselAnClose;
+  animation-duration: 3s;
+}
+
+.dekselOpen {
+  transform: rotate(-90deg);
+}
+
+.eten {
+  border-radius: 50%;
+  position: absolute;
+
+  top: -50px;
+  left: 50%;
+
+  transition: all 0.3s ease-out;
+}
+
+.etenAnimate {
+  animation-name: etenDrop;
+  animation-duration: 3.2s;
+}
+
+@keyframes dekselAn {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0, -100px);
+  }
+
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes dekselAnClose {
+  0% {
+    transform: rotate(-90deg);
+  }
+
+  60% {
+    transform: translate(0, -100px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes etenDrop {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(70vh);
+    opacity: 0;
+  }
+}
 </style>

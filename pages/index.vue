@@ -169,11 +169,11 @@ useHead({
 }
 
 .glow-green {
-  background-color: var(--col-secondary);
+  background-color: var(--secondary);
 }
 
 .glow-green2 {
-  background-color: var(--col-secondary-var);
+  background-color: var(--secondary-dark);
 }
 
 .homePage {
