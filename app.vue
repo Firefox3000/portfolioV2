@@ -40,10 +40,4 @@ useHead({
   </div>
 </template>
 
-<style>
-pre {
-  background: #eee;
-  padding: 0.75rem;
-  border-radius: 0.25rem;
-}
-</style>
+<style lang="scss" scoped></style>

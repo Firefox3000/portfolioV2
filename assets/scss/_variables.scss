@@ -10,10 +10,10 @@
   --green-500: #03dac6;
   --green-700: #018786;
   
-  --primary: #6200ee;
-  --primary-dark: #6200ee;
-  --secondray: #03dac6;
-  --secondray-dark: #03dac6;
+  --primary: var(--purple-500);
+  --primary-dark: var(--purple-700);
+  --secondary: var(--green-500);
+  --secondary-dark: var(--green-700);
   
   --surface: #fff;
   --text: #111517;

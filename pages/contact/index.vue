@@ -180,11 +180,11 @@ const sendForm = (ev) => {
     font-size: 3rem;
   }
 
-  .contactPage__form {
+  &__form {
     margin-bottom: 2rem;
   }
 
-  .contactPage__social {
+  &__social {
     ul {
       display: flex;
       flex-direction: row;

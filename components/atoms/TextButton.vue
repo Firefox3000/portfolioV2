@@ -11,7 +11,7 @@ button {
   align-items: center;
   padding: 0.25rem 1rem;
   font-size: 0.875rem;
-  background: #6200ee;
+  background: var(--primary);
   border-radius: 0.25rem;
   color: #fff;
 }

@@ -165,7 +165,7 @@ useHead({
 }
 
 .glow-purple {
-  background-color: #6200ee;
+  background-color: var(--primary);
 }
 
 .glow-green {
