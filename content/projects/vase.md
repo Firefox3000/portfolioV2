@@ -3,7 +3,8 @@ title: Drop the vase
 description: A procedural blender project
 img: /img/blenderVase1.png
 alt: Drop the vase
-link: vase
+slug: vase
+status: archived
 ---
 
 # Drop the vase

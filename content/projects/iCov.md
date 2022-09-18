@@ -5,13 +5,14 @@ img: /img/iCovThumbnail.png
 alt: icov
 slug: iCov
 createdAt: 2021-02-22T00:00:00+0000
+status: public
 ---
 
 # iCov
 
 ![Screenshot of the new datatool for iCov](/img/icov/icovApp1.png)
 
-iCov (infobox for Crimineel en Onverklaarbaar Vermogen) has a partnership with various government organizations to trace unlawful obtained assets so they can be confiscated and returned. However, with the tools they currently have, it can be quite hard to find suspicious relations.
+iCov (infobox voor Crimineel en Onverklaarbaar Vermogen) has a partnership with various government organizations to trace unlawful obtained assets so they can be confiscated and returned. However, with the tools they currently have, it can be quite hard to find suspicious relations.
 
 So in commission for iCov, we wanted to make sure that partners can analyze the relationship scan with as little time and effort as possible. This means we have to look at how to make the current solution better or think of something new. The new solution must be user-friendly and interactive.
 

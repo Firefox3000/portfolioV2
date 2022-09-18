@@ -1,10 +1,11 @@
 ---
 title: Tic Tac Toe
 description: A tic tac toe ai with varying difficultie
-img: /img/tictactoe.png
+img: /img/ticTacToe.png
 alt: Tic tac toe
 slug: tictactoe
 createdAt: 2021-01-10T00:00:00+0000
+status: public
 ---
 
 # Tic Tac Toe

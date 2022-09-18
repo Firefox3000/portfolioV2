@@ -5,6 +5,7 @@ img: /img/parkingVolkskrant.png
 alt: Parking project for the Telegraaf
 slug: parking
 createdAt: 2021-02-10T00:00:00+0000
+status: public
 ---
 
 # Parking density

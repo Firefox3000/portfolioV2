@@ -5,6 +5,7 @@ img: /img/mealMatch.png
 alt: Meal Match
 slug: mealMatch
 createdAt: 2020-06-22T00:00:00+0000
+status: archived
 ---
 
 # Meal Match

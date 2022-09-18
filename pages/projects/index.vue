@@ -1,6 +1,7 @@
 <script setup>
 const data = await queryContent('/projects/')
   .only(['title', 'description', 'img', 'slug', 'createdAt', 'alt'])
+  .where({ status: 'public' })
   .find();
 const articles = data.sort(
   (a, b) => new Date(b.createdAt) - new Date(a.createdAt)

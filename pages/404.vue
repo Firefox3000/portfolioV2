@@ -114,7 +114,7 @@ onUnmounted(() => {
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
-          <span> go back </span>
+          <span>go back</span>
         </button>
         <a :href="route.path" class="flex items-center rounded px-4 py-2">
           <svg

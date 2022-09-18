@@ -3,7 +3,8 @@ title: Hiking app
 description: De app om aan de hand van je locatie wandelroutes te vinden
 img: /img/hikingApp.png
 alt: Hiking app
-link: hikingApp
+slug: hikingApp
+status: archived
 ---
 
 # Hiking app

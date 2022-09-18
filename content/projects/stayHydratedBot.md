@@ -5,6 +5,7 @@ img: /img/stayHydratedBot.png
 alt: Stay hydrated bot
 slug: stayHydratedBot
 createdAt: 2020-08-16T00:00:00+0000
+status: public
 ---
 
 # Stay hydrated bot
