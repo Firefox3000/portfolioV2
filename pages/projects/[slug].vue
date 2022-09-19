@@ -1,4 +1,5 @@
 <script setup>
+// TODO add url filters
 const route = useRoute();
 const art = await queryContent('projects')
   .where({ slug: route.params.slug, status: { $eq: 'public' } })

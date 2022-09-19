@@ -1,4 +1,5 @@
 <script setup>
+// TODO add url filters
 const data = await queryContent('/projects/')
   .only(['title', 'description', 'img', 'slug', 'createdAt', 'alt'])
   .where({ status: 'public' })
