@@ -121,7 +121,11 @@ const sendForm = (ev) => {
           v-model:value="message"
         />
 
-        <button type="submit" class="button" :class="{ clicked: clicked }">
+        <button
+          type="submit"
+          class="button flex-col ml-auto"
+          :class="{ clicked: clicked }"
+        >
           <span>Send Message</span>
           <span>Sending...</span>
           <span>Done!</span>
@@ -253,23 +257,16 @@ const sendForm = (ev) => {
 
 button[type='submit'] {
   display: flex;
-  flex-direction: column;
-
-  height: 2.6em;
-  overflow-y: hidden;
-
-  margin-left: auto;
-  text-align: center;
 
   span {
-    margin: 0.6em 0;
-
-    &:first-child {
-      margin-top: 0;
+    &:nth-child(2) {
+      position: absolute;
+      top: calc(1ch + 2.5rem);
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    &:nth-child(3) {
+      position: absolute;
+      top: calc(1ch + 5rem);
     }
   }
 
@@ -293,19 +290,19 @@ button[type='submit'] {
   }
 
   20% {
-    transform: translateY(-2.4em);
+    transform: translateY(-2.5rem);
   }
 
   40% {
-    transform: translateY(-2.4em);
+    transform: translateY(-2.5rem);
   }
 
   70% {
-    transform: translateY(-4.8em);
+    transform: translateY(-5rem);
   }
 
   90% {
-    transform: translateY(-4.8em);
+    transform: translateY(-5rem);
   }
 
   100% {

@@ -70,7 +70,7 @@ useHead({
         style="animation-delay: 4s"
       ></div>
 
-      <div class="container width-3/10">
+      <div class="relative width-3/10">
         <h1 class="h2">
           <span class="mask"><span>Hey, I’m Sam.</span></span>
           <span class="mask" style="--order: 1"><span>I’m</span></span>
@@ -87,7 +87,7 @@ useHead({
       </div>
     </section>
 
-    <section id="whatIdo" class="grid homePage__about2 container">
+    <section id="whatIdo" class="grid homePage__about2 relative">
       <div class="width-4/9">
         <h2 class="h3">What do I do</h2>
         <p>
@@ -97,13 +97,12 @@ useHead({
       </div>
     </section>
 
-    <section class="grid homePage__projects container">
+    <section class="grid homePage__projects relative">
       <div
         class="glow glow-green w-[24rem] h-[24rem] top-32 right-24 opacity-10"
       ></div>
-      *
 
-      <div class="container width-3/10">
+      <div class="relative width-3/10">
         <h2 class="h5 titleSide">Recent projects</h2>
 
         <ul class="highlighted">
@@ -134,7 +133,7 @@ useHead({
       </div>
     </section>
 
-    <section class="grid homePage__contact container">
+    <section class="grid homePage__contact relative">
       <div
         class="glow glow-purple w-[24rem] h-[24rem] top-0 left-24 opacity-20"
       ></div>
@@ -151,10 +150,6 @@ useHead({
 </template>
 
 <style lang="scss" scoped>
-.container {
-  position: relative;
-}
-
 .glow {
   z-index: -10;
   filter: blur(120px);

@@ -5,11 +5,11 @@ const art = await queryContent('projects')
   .where({ slug: route.params.slug, status: { $eq: 'public' } })
   .find();
 
-if (!art || !art[0]) {
+if (!art[0]) {
   throw createError({ statusCode: 404, statusMessage: 'Page Not Found' });
 }
 
-const article = art[0]; // FIX get 0th index because nuxt content findOne() is broken for now?
+const article = art[0]; // FIX get 0th index because nuxt content findOne() is broken
 
 useHead({
   title: article.title,

@@ -27,15 +27,6 @@ main {
   margin: 0 auto;
 }
 
-.col-2 {
-  display: flex;
-  flex-direction: column;
-
-  section:first-child {
-    background-color: var(--secondary);
-  }
-}
-
 :focus-visible:focus {
   outline: 0;
   position: relative;
@@ -90,7 +81,6 @@ main {
     height: 2px;
     width: 100%;
 
-    // background-color: #ff3c31;
     background-color: var(--primary);
 
     animation-duration: 0.65s;
@@ -123,13 +113,6 @@ main {
 }
 
 @media screen and (min-width: 48rem) {
-  .col-2 {
-    flex-direction: row;
-
-    section {
-      width: 50%;
-    }
-  }
 }
 
 /* Desktop */
