@@ -56,7 +56,7 @@ useHead({
 </script>
 
 <template>
-  <main class="homePage overflow-x-hidden">
+  <main class="homePage max-w-full overflow-x-hidden">
     <section class="grid homePage__about mt-48 mb-24 relative">
       <div
         class="glow glow-purple w-[24rem] h-[24rem] top-56 -right-20 opacity-20"
@@ -151,6 +151,8 @@ useHead({
 
 <style lang="scss" scoped>
 .homePage {
+  // max-width: 100%;
+
   &__projects {
     .titleSide {
       @media screen and (min-width: 48rem) {
