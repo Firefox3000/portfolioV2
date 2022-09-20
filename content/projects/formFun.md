@@ -6,7 +6,7 @@ alt: Form fun
 slug: formFun
 createdAt: 2019-05-22T00:00:00+0000
 lastUpdated:
-status: draft
+status: archived
 ---
 
 # Form fun
