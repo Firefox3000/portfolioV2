@@ -56,8 +56,8 @@ useHead({
 </script>
 
 <template>
-  <main class="homePage">
-    <section class="grid homePage__about mt-48 mb-24">
+  <main class="homePage overflow-x-hidden">
+    <section class="grid homePage__about mt-48 mb-24 relative">
       <div
         class="glow glow-purple w-[24rem] h-[24rem] top-56 -right-20 opacity-20"
       ></div>
@@ -150,31 +150,7 @@ useHead({
 </template>
 
 <style lang="scss" scoped>
-.glow {
-  z-index: -10;
-  filter: blur(120px);
-  border-radius: 9999px;
-  position: absolute;
-
-  animation: glowMotion 6s linear infinite;
-}
-
-.glow-purple {
-  background-color: var(--primary);
-}
-
-.glow-green {
-  background-color: var(--secondary);
-}
-
-.glow-green2 {
-  background-color: var(--secondary-dark);
-}
-
 .homePage {
-  max-width: initial;
-  overflow-x: hidden;
-
   &__projects {
     .titleSide {
       @media screen and (min-width: 48rem) {

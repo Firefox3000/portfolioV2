@@ -34,6 +34,7 @@ const emit = defineEmits(['update:value']);
     <textarea
       v-if="type == 'textarea'"
       :id="name"
+      :name="name"
       :placeholder="label"
       :rows="rows"
       :required="req"
@@ -43,6 +44,7 @@ const emit = defineEmits(['update:value']);
     <input
       v-else
       :id="name"
+      :name="name"
       :placeholder="label"
       :type="type"
       :required="req"

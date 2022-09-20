@@ -48,6 +48,27 @@ main {
   background-color: rgba(59, 130, 246, 0.25);
 }
 
+.glow {
+  z-index: -10;
+  filter: blur(120px);
+  border-radius: 9999px;
+  position: absolute;
+
+  animation: glowMotion 6s linear infinite;
+}
+
+.glow-purple {
+  background-color: var(--primary);
+}
+
+.glow-green {
+  background-color: var(--secondary);
+}
+
+.glow-green2 {
+  background-color: var(--secondary-dark);
+}
+
 .aspect-1 {
   aspect-ratio: 1;
 
@@ -109,7 +130,6 @@ main {
 
 .grecaptcha-badge {
   display: none;
-  // transform: translateX(100vw);
 }
 
 @media screen and (min-width: 48rem) {

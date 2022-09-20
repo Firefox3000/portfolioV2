@@ -55,16 +55,9 @@ const message = ref('');
 
 const clicked = ref(false);
 
-// TODO vueify this
 const sendForm = (ev) => {
-  const formData = new FormData(form.value);
-
   // TODO validate inputs
-  formData.append('name', name.value);
-  formData.append('email', email.value);
-  formData.append('message', message.value);
-
-  const data = new URLSearchParams(formData);
+  const data = new URLSearchParams(new FormData(form.value).entries());
 
   // send form data
   fetch('https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc', {
@@ -81,19 +74,19 @@ const sendForm = (ev) => {
   clicked.value = true;
   setTimeout(() => {
     clicked.value = false;
-  }, 4000);
+  }, 3000);
 };
 </script>
 
 <template>
-  <main class="contactPage">
-    <section class="grid contactPage__form">
+  <main class="contactPage overflow-x-hidden pt-24">
+    <section class="grid relative">
       <h1 class="width-4/9 h2">Let's get in contact</h1>
 
       <form
         action="https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc"
         method="POST"
-        class="width-4/9"
+        class="width-4/9 mb-8"
         ref="form"
         @submit.prevent="sendForm"
       >
@@ -136,7 +129,7 @@ const sendForm = (ev) => {
     <section class="grid contactPage__social">
       <h2 class="width-4/9 h2">Find me on other platforms</h2>
 
-      <ul class="width-4/9">
+      <ul class="width-4/9 flex flex-row justify-center flex-wrap mb-24">
         <li>
           <a href="https://github.com/vuurvos1/" aria-label="Github">
             Github
@@ -177,27 +170,13 @@ const sendForm = (ev) => {
 
 <style lang="scss" scoped>
 .contactPage {
-  padding-top: 6rem;
-
   h1,
   h2 {
     font-size: 3rem;
   }
 
-  &__form {
-    margin-bottom: 2rem;
-  }
-
   &__social {
     ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-
-      flex-wrap: wrap;
-
-      margin-bottom: 3rem;
-
       li {
         font-size: 0;
         margin: 0 1rem;
@@ -273,7 +252,7 @@ button[type='submit'] {
   &.clicked {
     span {
       animation-name: sendButton;
-      animation-duration: 3.4s;
+      animation-duration: 2.8s;
     }
   }
 
