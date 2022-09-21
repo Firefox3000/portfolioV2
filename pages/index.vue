@@ -97,7 +97,7 @@ useHead({
       </div>
     </section>
 
-    <section class="grid homePage__projects relative">
+    <section class="grid homePage__projects relative mb-16">
       <div
         class="glow glow-green w-[24rem] h-[24rem] top-32 right-24 opacity-10"
       ></div>
@@ -115,7 +115,10 @@ useHead({
           </li>
         </ul>
 
-        <a class="h6 moreProjects lineHover" href="/projects">
+        <a
+          class="h6 moreProjects lineHover flex flex-row items-center ml-auto w-max px-1"
+          href="/projects"
+        >
           Explore projects
           <svg
             width="49"
@@ -133,7 +136,7 @@ useHead({
       </div>
     </section>
 
-    <section class="grid homePage__contact relative">
+    <section class="grid pb-72 relative">
       <div
         class="glow glow-purple w-[24rem] h-[24rem] top-0 left-24 opacity-20"
       ></div>
@@ -141,7 +144,7 @@ useHead({
       <div class="width-7/12">
         <h2>Like what you see?</h2>
 
-        <a href="/contact" class="button button--purple">
+        <a href="/contact" class="button button--purple w-fit">
           Lets get in contact
         </a>
       </div>
@@ -151,8 +154,6 @@ useHead({
 
 <style lang="scss" scoped>
 .homePage {
-  // max-width: 100%;
-
   &__projects {
     .titleSide {
       @media screen and (min-width: 48rem) {
@@ -169,34 +170,29 @@ useHead({
     }
 
     .moreProjects {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      margin-left: auto;
+      svg {
+        height: 0.75em;
+        width: auto;
+        margin-left: 1rem;
+        fill: currentColor;
+      }
     }
   }
 
   &__about {
-    position: relative;
-
     h1 {
       max-width: 32ch;
       line-height: 1.1;
 
       span {
+        display: inline-block;
+        overflow: hidden;
+        margin-right: calc(1em / 8);
         font-size: clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem);
       }
     }
 
-    span {
-      display: inline-block;
-      margin-right: calc(1em / 8);
-    }
-
     .mask {
-      overflow: hidden;
-
       &:nth-child(n + 2) span {
         transform: translateY(3em);
 
@@ -250,39 +246,10 @@ useHead({
   }
 
   &__about2 {
-    position: relative;
-
-    margin: 0 auto 10rem auto;
-    padding-top: 4rem;
-    margin-bottom: 4.375rem;
+    margin: 4rem auto;
 
     @media screen and (min-width: 48rem) {
-      margin-bottom: 5.2rem;
-    }
-  }
-
-  &__projects {
-    margin-bottom: 14rem;
-
-    .moreProjects {
-      width: max-content;
-      padding: 0 0.25rem;
-
-      svg {
-        height: 0.75em;
-        width: auto;
-        margin-left: 1rem;
-        fill: currentColor;
-      }
-    }
-  }
-
-  &__contact {
-    position: relative;
-    padding-bottom: 18rem;
-
-    .button {
-      width: fit-content;
+      margin-bottom: 5rem;
     }
   }
 }
