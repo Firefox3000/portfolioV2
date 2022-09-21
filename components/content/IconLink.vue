@@ -27,7 +27,7 @@ defineProps({
   font-size: 0.9rem;
   background: var(--primary);
   border-radius: 0.25rem;
-  color: #fff;
+  color: var(--text);
 
   img {
     margin: 0 0.5rem 0 0;
