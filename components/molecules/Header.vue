@@ -154,7 +154,7 @@ header {
         width: 100%;
 
         // background-color: #ff3c31;
-        background-color: var(--col-primary);
+        background-color: var(--primary);
 
         animation-duration: 0.65s;
         transform: translateX(-110%);

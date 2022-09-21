@@ -34,6 +34,7 @@ const emit = defineEmits(['update:value']);
     <textarea
       v-if="type == 'textarea'"
       :id="name"
+      :name="name"
       :placeholder="label"
       :rows="rows"
       :required="req"
@@ -43,6 +44,7 @@ const emit = defineEmits(['update:value']);
     <input
       v-else
       :id="name"
+      :name="name"
       :placeholder="label"
       :type="type"
       :required="req"
@@ -87,10 +89,10 @@ div {
     // focused
     &:focus {
       color: rgba(var(--rgbText), 0.87);
-      border-color: var(--col-primary);
+      border-color: var(--primary);
 
       & ~ label {
-        color: var(--col-primary);
+        color: var(--primary);
       }
     }
 
@@ -108,10 +110,10 @@ div {
 
     // error
     &:focus:invalid {
-      border-color: var(--col-error);
+      border-color: var(--error);
 
       & ~ label {
-        color: var(--col-error);
+        color: var(--error);
       }
     }
 

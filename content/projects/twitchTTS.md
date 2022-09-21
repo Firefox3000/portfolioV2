@@ -5,6 +5,7 @@ img: /img/twitchTTS.png
 alt: Twitch Text to speech
 slug: twitchTTS
 createdAt: 2021-02-12T00:00:00+0000
+status: public
 ---
 
 # Twitch Text to Speach

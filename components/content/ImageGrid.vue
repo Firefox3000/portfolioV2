@@ -1,6 +1,8 @@
+<script setup></script>
+
 <template>
-  <div class="nodegrid">
-    <Markdown unwrap="p" />
+  <div class="nodegrid my-10">
+    <ContentSlot :use="$slots.default"></ContentSlot>
   </div>
 </template>
 
@@ -9,12 +11,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 
-  margin-top: 2.4rem;
-  margin-bottom: 2.4rem;
-
   :deep(img) {
     margin: 0;
-    width: 100%;
     aspect-ratio: 1 / 1;
   }
 }

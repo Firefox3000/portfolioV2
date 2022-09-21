@@ -5,6 +5,7 @@ img: /img/nodevember2020/glitch.png
 alt: Nodevember 2020
 slug: nodevember
 createdAt: 2020-12-01T00:00:00+0000
+status: public
 ---
 
 # Node&shy;vember
@@ -12,31 +13,29 @@ createdAt: 2020-12-01T00:00:00+0000
 Nodevember is all about procedural awesomeness and challenging yourself to improve your procedural skills. Every day of the month there is a new theme to make a render for. For all renders no external data/images were used, only nodes and math.
 I chose to use blender 2.8x to make my renders since the node editor is very powerful and flexible.
 
-::image-grid
-
 <!-- TODO rerender these to have a more consistent background? -->
-
-![Chocolate chip](/img/nodevember2020/cookie.png)
-![Orange fruit with nodevember stickers](/img/nodevember2020/fruit.png)
-![Cherry pie](/img/nodevember2020/pastry.png)
-![Pencil ball](/img/nodevember2020/drawing.png)
-![3D printed plastic sphere](/img/nodevember2020/print.png)
-![Toilet paper roll](/img/nodevember2020/layered.png)
-![Chipped blue paint on metal](/img/nodevember2020/paint.png)
-![Dessert sand with bones](/img/nodevember2020/prehistoric.png)
-![Golden coins](/img/nodevember2020/ancient.png)
-![Medieval wall](/img/nodevember2020/medieval.png)
-![Artdeco patern](/img/nodevember2020/artDeco.png)
-![Blue metal sci-fi panels](/img/nodevember2020/cyberpunk.png)
-![Stacked tree logs](/img/nodevember2020/forrest.png)
-![Dirt farmland](/img/nodevember2020/growth.png)
-![Honey fluid](/img/nodevember2020/fluid.png)
-![Road arrow marking](/img/nodevember2020/sign.png)
-![Tiled cassettes](/img/nodevember2020/game.png)
-![Geometric stickers](/img/nodevember2020/geometric.png)
-![Glitched checkerboard texture](/img/nodevember2020/glitch.png)
-![Mandelbult 3D fractal](/img/nodevember2020/fractal.png)
-![Spinning circles optical illusion](/img/nodevember2020/illusion.png)
-::
+<image-grid>
+<img src="/img/nodevember2020/cookie.png" alt="Chocolate chip" />
+<img src="/img/nodevember2020/fruit.png" alt="Orange fruit with nodevember stickers" />
+<img src="/img/nodevember2020/pastry.png" alt="Cherry pie" />
+<img src="/img/nodevember2020/drawing.png" alt="Pencil ball">
+<img src="/img/nodevember2020/print.png" alt="3D printed plastic sphere">
+<img src="/img/nodevember2020/layered.png" alt="Toilet paper roll">
+<img src="/img/nodevember2020/paint.png" alt="Chipped blue paint on metal">
+<img src="/img/nodevember2020/prehistoric.png" alt="Dessert sand with bones">
+<img src="/img/nodevember2020/ancient.png" alt="Golden coins">
+<img src="/img/nodevember2020/medieval.png" alt="Medieval wall">
+<img src="/img/nodevember2020/artDeco.png" alt="Artdeco patern">
+<img src="/img/nodevember2020/cyberpunk.png" alt="Blue metal sci-fi panels">
+<img src="/img/nodevember2020/forrest.png" alt="Stacked tree logs">
+<img src="/img/nodevember2020/growth.png" alt="Dirt farmland">
+<img src="/img/nodevember2020/fluid.png" alt="Honey fluid">
+<img src="/img/nodevember2020/sign.png" alt="Road arrow marking">
+<img src="/img/nodevember2020/game.png" alt="Tiled cassettes">
+<img src="/img/nodevember2020/geometric.png" alt="Geometric stickers">
+<img src="/img/nodevember2020/glitch.png" alt="Glitched checkerboard texture">
+<img src="/img/nodevember2020/fractal.png" alt="Mandelbult 3D fractal">
+<img src="/img/nodevember2020/illusion.png" alt="Spinning circles optical illusion">
+</image-grid>
 
 If you want to poke around the blender files, you can. Download them from [Gumroad](https://gumroad.com/vuurvos) for free.

@@ -25,9 +25,9 @@ defineProps({
   align-items: center;
   padding: 0.3rem 1rem 0.3rem 0.75rem;
   font-size: 0.9rem;
-  background: #6200ee;
+  background: var(--primary);
   border-radius: 0.25rem;
-  color: #fff;
+  color: var(--text);
 
   img {
     margin: 0 0.5rem 0 0;

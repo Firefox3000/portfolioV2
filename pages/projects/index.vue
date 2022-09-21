@@ -1,6 +1,8 @@
 <script setup>
+// TODO add url filters
 const data = await queryContent('/projects/')
   .only(['title', 'description', 'img', 'slug', 'createdAt', 'alt'])
+  .where({ status: 'public' })
   .find();
 const articles = data.sort(
   (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
@@ -55,26 +57,37 @@ useHead({
 </script>
 
 <template>
-  <main class="grid projects">
-    <h1 class="width-3/10 heading3 titleSide">Projects</h1>
+  <main class="grid projects pt-24 pb-12 overflow-x-hidden">
+    <h1 class="width-3/10 h3 titleSide">Projects</h1>
+    <section class="width-3/10 relative">
+      <div
+        class="glow glow-purple w-[24rem] h-[24rem] top-56 left-44 opacity-20"
+      ></div>
 
-    <ul class="width-3/10 projects__grid">
-      <li
-        v-for="(article, index) of articles"
-        :key="article.slug"
-        class="projects__item aspect-1"
-      >
-        <AtomsPostItem :article="article" :loadlazy="index >= 6" />
-      </li>
-    </ul>
+      <div
+        class="glow glow-green w-[34rem] h-[34rem] bottom-36 right-56 opacity-20"
+        style="animation-delay: 2s"
+      ></div>
+      <div
+        class="glow glow-green w-[24rem] h-[24rem] -bottom-2 right-20 opacity-[0.15]"
+        style="animation-delay: 4s"
+      ></div>
+
+      <ul class="projects__grid">
+        <li
+          v-for="(article, index) of articles"
+          :key="article.slug"
+          class="projects__item aspect-1"
+        >
+          <AtomsPostItem :article="article" :loadlazy="index >= 6" />
+        </li>
+      </ul>
+    </section>
   </main>
 </template>
 
 <style lang="scss">
 .projects {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-
   .titleSide {
     grid-column: span 2;
 

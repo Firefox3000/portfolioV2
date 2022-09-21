@@ -6,10 +6,7 @@
 @import "text";
 @import "input";
 
-@import "home";
 @import "article";
-@import "contact";
-@import "partyPickle";
 
 body {
   background-color: var(--background);
@@ -28,15 +25,6 @@ main {
 
   max-width: 100rem;
   margin: 0 auto;
-}
-
-.col-2 {
-  display: flex;
-  flex-direction: column;
-
-  section:first-child {
-    background-color: var(--col-secondary);
-  }
 }
 
 :focus-visible:focus {
@@ -58,6 +46,27 @@ main {
   transform: scale(1.025);
   transform-origin: center;
   background-color: rgba(59, 130, 246, 0.25);
+}
+
+.glow {
+  z-index: -10;
+  filter: blur(120px);
+  border-radius: 9999px;
+  position: absolute;
+
+  animation: glowMotion 6s linear infinite;
+}
+
+.glow-purple {
+  background-color: var(--primary);
+}
+
+.glow-green {
+  background-color: var(--secondary);
+}
+
+.glow-green2 {
+  background-color: var(--secondary-dark);
 }
 
 .aspect-1 {
@@ -93,8 +102,7 @@ main {
     height: 2px;
     width: 100%;
 
-    // background-color: #ff3c31;
-    background-color: var(--col-primary);
+    background-color: var(--primary);
 
     animation-duration: 0.65s;
     transform: translateX(-110%);
@@ -122,33 +130,11 @@ main {
 
 .grecaptcha-badge {
   display: none;
-  // transform: translateX(100vw);
 }
 
 @media screen and (min-width: 48rem) {
-  .col-2 {
-    flex-direction: row;
-
-    section {
-      width: 50%;
-    }
-  }
 }
 
 /* Desktop */
 @media screen and (min-width: 64rem) {
-}
-
-@media (prefers-reduced-motion) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }

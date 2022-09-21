@@ -1,53 +1,61 @@
 <script setup>
-  const route = useRoute()
-  const slug  = route.params.slug;
-  const article = await queryContent('/projects/').where({slug: slug}).findOne();
+// TODO add url filters
+const route = useRoute();
+const art = await queryContent('projects')
+  .where({ slug: route.params.slug, status: { $eq: 'public' } })
+  .find();
 
-  useHead({
-      title: article.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: article.description,
-        },
-        {
-          hid: "ogtitle",
-          property: "og:title",
-          content: article.title,
-        },
-        {
-          hid: "ogdescription ",
-          property: "og:description ",
-          content: article.title,
-        },
-        {
-          hid: "ogurl",
-          property: "og:url",
-          content: `http://schelpkikker.nl/projects/${article.slug}`,
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: `http://schelpkikker.nl${article.img}`,
-        },
-        {
-          hid: "keywords",
-          property: "keywords",
-          content: article.keywords ? article.keywords : "",
-        },
-        {
-          hid: "robots",
-          name: "robots",
-          content: "index, follow",
-        },
-        {
-          hid: "googlebot",
-          name: "googlebot",
-          content: "index, follow",
-        },
-      ],
-  })
+if (!art[0]) {
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' });
+}
+
+const article = art[0]; // FIX get 0th index because nuxt content findOne() is broken
+
+useHead({
+  title: article.title,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: article.description,
+    },
+    {
+      hid: 'ogtitle',
+      property: 'og:title',
+      content: article.title,
+    },
+    {
+      hid: 'ogdescription ',
+      property: 'og:description ',
+      content: article.title,
+    },
+    {
+      hid: 'ogurl',
+      property: 'og:url',
+      content: `http://schelpkikker.nl/projects/${article.slug}`,
+    },
+    {
+      hid: 'og:image',
+      property: 'og:image',
+      content: `http://schelpkikker.nl${article.img}`,
+    },
+    {
+      hid: 'keywords',
+      property: 'keywords',
+      content: article.keywords ? article.keywords : '',
+    },
+    {
+      hid: 'robots',
+      name: 'robots',
+      content: 'index, follow',
+    },
+    {
+      hid: 'googlebot',
+      name: 'googlebot',
+      content: 'index, follow',
+    },
+  ],
+});
 </script>
 
 <template>

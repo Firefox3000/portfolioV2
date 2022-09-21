@@ -3,8 +3,10 @@ title: Form fun
 description: Een stylesheed met styling voor form elementen
 img: /img/formFun.png
 alt: Form fun
-link: formFun
+slug: formFun
 createdAt: 2019-05-22T00:00:00+0000
+lastUpdated:
+status: archived
 ---
 
 # Form fun

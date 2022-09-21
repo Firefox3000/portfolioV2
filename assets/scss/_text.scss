@@ -5,20 +5,22 @@ h4,
 h5,
 h6,
 p,
-a {
+a,
+ol,
+ul,
+li {
   color: var(--text);
 }
 
 h1,
-.heading1 {
+.h1 {
   font-size: 6rem;
   font-weight: 300;
-
   margin-bottom: 0.8em;
 }
 
 h2,
-.heading2 {
+.h2 {
   font-size: 3.75rem;
   font-weight: 600;
 
@@ -26,25 +28,25 @@ h2,
 }
 
 h3,
-.heading3 {
+.h3 {
   font-size: 3rem;
   font-weight: 400;
 }
 
 h4,
-.heading4 {
+.h4 {
   font-size: 2.125rem;
   font-weight: 700;
 }
 
 h5,
-.heading5 {
+.h5 {
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 h6,
-.heading6 {
+.h6 {
   font-size: 1.25rem;
   font-weight: 500;
 }
@@ -60,20 +62,11 @@ p,
 .body2 {
   font-size: 0.875rem;
   font-weight: normal;
-
   // margin-bottom: 1em;
-}
-
-ol,
-ul,
-li {
-  color: var(--text);
 }
 
 button,
 .button {
   font-size: 0.875rem;
   font-weight: 500;
-
-  // text-transform: uppercase;
 }

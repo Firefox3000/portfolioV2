@@ -55,16 +55,9 @@ const message = ref('');
 
 const clicked = ref(false);
 
-// TODO vueify this
 const sendForm = (ev) => {
-  const formData = new FormData(form.value);
-
   // TODO validate inputs
-  formData.append('name', name.value);
-  formData.append('email', email.value);
-  formData.append('message', message.value);
-
-  const data = new URLSearchParams(formData);
+  const data = new URLSearchParams(new FormData(form.value).entries());
 
   // send form data
   fetch('https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc', {
@@ -81,19 +74,19 @@ const sendForm = (ev) => {
   clicked.value = true;
   setTimeout(() => {
     clicked.value = false;
-  }, 4000);
+  }, 3000);
 };
 </script>
 
 <template>
-  <main class="contactPage">
-    <section class="grid contactPage__form">
-      <h1 class="width-4/9 heading2">Let's get in contact</h1>
+  <main class="contactPage overflow-x-hidden pt-24">
+    <section class="grid relative">
+      <h1 class="width-4/9 h2">Let's get in contact</h1>
 
       <form
         action="https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc"
         method="POST"
-        class="width-4/9"
+        class="width-4/9 mb-8"
         ref="form"
         @submit.prevent="sendForm"
       >
@@ -121,7 +114,11 @@ const sendForm = (ev) => {
           v-model:value="message"
         />
 
-        <button type="submit" class="button" :class="{ clicked: clicked }">
+        <button
+          type="submit"
+          class="button flex-col ml-auto"
+          :class="{ clicked: clicked }"
+        >
           <span>Send Message</span>
           <span>Sending...</span>
           <span>Done!</span>
@@ -130,9 +127,9 @@ const sendForm = (ev) => {
     </section>
 
     <section class="grid contactPage__social">
-      <h2 class="width-4/9 heading2">Find me on other platforms</h2>
+      <h2 class="width-4/9 h2">Find me on other platforms</h2>
 
-      <ul class="width-4/9">
+      <ul class="width-4/9 flex flex-row justify-center flex-wrap mb-24">
         <li>
           <a href="https://github.com/vuurvos1/" aria-label="Github">
             Github
@@ -172,32 +169,90 @@ const sendForm = (ev) => {
 </template>
 
 <style lang="scss" scoped>
+.contactPage {
+  h1,
+  h2 {
+    font-size: 3rem;
+  }
+
+  &__social {
+    ul {
+      li {
+        font-size: 0;
+        margin: 0 1rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        svg {
+          width: 3.2rem;
+          height: auto;
+          fill: var(--text);
+
+          transition: all 0.2s ease-out;
+        }
+
+        a {
+          &:hover,
+          &:focus {
+            outline: none;
+
+            svg {
+              fill: var(--primary);
+            }
+          }
+        }
+      }
+
+      &:hover {
+        a:focus svg {
+          fill: var(--text);
+        }
+
+        a:hover svg {
+          fill: var(--primary);
+        }
+      }
+    }
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 48rem) {
+  h1,
+  h2 {
+    font-size: 3.75rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 64rem) {
+}
+
 button[type='submit'] {
   display: flex;
-  flex-direction: column;
-
-  height: 2.6em;
-  overflow-y: hidden;
-
-  margin-left: auto;
-  text-align: center;
 
   span {
-    margin: 0.6em 0;
-
-    &:first-child {
-      margin-top: 0;
+    &:nth-child(2) {
+      position: absolute;
+      top: calc(1ch + 2.5rem);
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    &:nth-child(3) {
+      position: absolute;
+      top: calc(1ch + 5rem);
     }
   }
 
   &.clicked {
     span {
       animation-name: sendButton;
-      animation-duration: 3.4s;
+      animation-duration: 2.8s;
     }
   }
 
@@ -214,19 +269,19 @@ button[type='submit'] {
   }
 
   20% {
-    transform: translateY(-2.4em);
+    transform: translateY(-2.5rem);
   }
 
   40% {
-    transform: translateY(-2.4em);
+    transform: translateY(-2.5rem);
   }
 
   70% {
-    transform: translateY(-4.8em);
+    transform: translateY(-5rem);
   }
 
   90% {
-    transform: translateY(-4.8em);
+    transform: translateY(-5rem);
   }
 
   100% {

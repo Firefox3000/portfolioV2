@@ -3,7 +3,8 @@ title: Sewers Game
 description: De app die al je vragen beantwoord
 img: /img/sewersGame.png
 alt: Sewers Game
-link: sewersGame
+slug: sewersGame
+status: archived
 ---
 
 # Sewers Game

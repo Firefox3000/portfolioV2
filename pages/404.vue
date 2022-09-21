@@ -1,4 +1,10 @@
 <script setup>
+useHead({
+  title: '404 - Sam de Kanter',
+});
+
+const route = useRoute();
+
 const canvas = ref();
 
 let ctx;
@@ -14,6 +20,10 @@ function setCanvasSize() {
     ctx.canvas.width = canvas.value.offsetWidth;
     ctx.canvas.height = canvas.value.offsetHeight;
   }
+}
+
+function goBack() {
+  history.back();
 }
 
 onMounted(() => {
@@ -60,7 +70,7 @@ onMounted(() => {
       pos.y = canvas.value.height / 2;
     }
 
-    //Set size of the emoji and the font
+    // set size of the emoji and the font
     ctx.font = '64px Arial';
     // use these alignment properties for "better" positioning
     ctx.textAlign = 'center';
@@ -78,43 +88,103 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <main class="grid">
-    <h1 class="width-4/9">Page not found</h1>
+  <main class="grid pt-32">
+    <div class="width-4/9 mb-8">
+      <h1>Not found: {{ route.path }}</h1>
+      <p>An error occured, or the page you're looking for doesn't exist.</p>
+    </div>
 
-    <canvas ref="canvas" class="width-4/9"></canvas>
+    <canvas ref="canvas" class="width-4/9 w-full h-full rounded"></canvas>
 
-    <div class="link width-4/9">
-      <NuxtLink to="/"> Go back to a page that actually exsist </NuxtLink>
+    <div class="links width-4/9">
+      <div class="flex gap-4">
+        <button @click="goBack" class="flex items-center rounded px-4 py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="mr-2"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>go back</span>
+        </button>
+        <a :href="route.path" class="flex items-center rounded px-4 py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="mr-2"
+          >
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path
+              d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+            ></path>
+          </svg>
+          refresh the page
+        </a>
+        <NuxtLink to="/" class="flex items-center rounded px-4 py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="mr-2"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          go home
+        </NuxtLink>
+      </div>
     </div>
   </main>
 </template>
 
 <style lang="scss" scoped>
-main {
-  padding-top: 8rem;
-}
-
 h1 {
-  font-size: unquote('clamp(2rem, 0.875rem + 5vw, 3.5rem)');
+  font-size: clamp(2rem, 0.875rem + 5vw, 3.5rem);
+  margin-bottom: 0.25ch;
 }
 
 .grid {
   grid-template-rows: min-content;
 }
 
-.link {
+.links {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
-  text-decoration: underline;
+  color: var(--text-col);
+
+  button,
+  &:deep(a) {
+    color: var(--text);
+    border: solid 1px gray;
+  }
 }
 
 canvas {
-  width: 100%;
-  height: 100%;
-
   max-width: 50rem;
   min-height: 20rem;
-
   border: solid 1px gray;
 }
 </style>
