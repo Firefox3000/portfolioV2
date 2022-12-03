@@ -12,6 +12,8 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { static: true },
+    '/projects': { static: true },
+    '/projects/**': { static: true },
     '/contact': { static: true },
     '/api/tile': { cors: true },
   },
@@ -32,12 +34,6 @@ export default defineNuxtConfig({
   // pwa: {
   //   workbox: {
   //     /* workbox options */
-  //   },
-  // },
-
-  // nitro: {
-  //   prerender: {
-  //     routes: ['/', '/projects/', '/projects/*', '/contact'],
   //   },
   // },
 
