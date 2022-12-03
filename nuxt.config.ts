@@ -8,14 +8,15 @@ export default defineNuxtConfig({
     },
   },
 
-  // baseUrl: "/"
-
   routeRules: {
     '/': { static: true },
-    '/projects': { static: true },
-    '/projects/**': { static: true },
-    '/contact': { static: true },
     '/api/tile': { cors: true },
+  },
+
+  nitro: {
+    prerender: {
+      routes: ['/projects/', '/projects/**', '/contact'],
+    },
   },
 
   /* global CSS */
