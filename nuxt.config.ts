@@ -1,6 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  ssr: true,
+  // ssr: true,
 
   modules: ['@nuxt/content'],
 
@@ -32,6 +32,12 @@ export default defineNuxtConfig({
   //     /* workbox options */
   //   },
   // },
+
+  nitro: {
+    prerender: {
+      routes: ['/projects/', '/projects/*']
+    }
+  }
 
   /* default head */
   app: {
