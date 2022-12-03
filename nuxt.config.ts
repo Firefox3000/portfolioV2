@@ -10,8 +10,11 @@ export default defineNuxtConfig({
     },
   },
 
-  // router: {
-  //   base: '/',
+  // baseUrl: "/"
+
+  // TODO: add better route rules once released
+  // routes: {
+  //   '/projects/**': { static: true },
   // },
 
   /* global CSS */
@@ -25,7 +28,7 @@ export default defineNuxtConfig({
   },
 
   /* build modules */
-  // buildModules: ['@nuxtjs/tailwindcss'], // @nuxtjs/pwa
+  // buildModules: ['@nuxtjs/pwa'],
 
   // pwa: {
   //   workbox: {
@@ -35,9 +38,9 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/projects/', '/projects/*']
-    }
-  }
+      routes: ['/', '/projects/', '/projects/*', '/contact'],
+    },
+  },
 
   /* default head */
   app: {
