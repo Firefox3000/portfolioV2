@@ -1,7 +1,5 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  // ssr: true,
-
   modules: ['@nuxt/content'],
 
   content: {
@@ -12,10 +10,11 @@ export default defineNuxtConfig({
 
   // baseUrl: "/"
 
-  // TODO: add better route rules once released
-  // routes: {
-  //   '/projects/**': { static: true },
-  // },
+  routeRules: {
+    '/': { static: true },
+    '/contact': { static: true },
+    '/api/tile': { cors: true },
+  },
 
   /* global CSS */
   css: ['~/assets/scss/main.scss', '~/assets/css/main.css'],
@@ -36,11 +35,11 @@ export default defineNuxtConfig({
   //   },
   // },
 
-  nitro: {
-    prerender: {
-      routes: ['/', '/projects/', '/projects/*', '/contact'],
-    },
-  },
+  // nitro: {
+  //   prerender: {
+  //     routes: ['/', '/projects/', '/projects/*', '/contact'],
+  //   },
+  // },
 
   /* default head */
   app: {
