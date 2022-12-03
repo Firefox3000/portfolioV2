@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from 'nuxt';
-
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   target: 'static',
@@ -18,13 +16,18 @@ export default defineNuxtConfig({
   },
 
   /* global CSS */
-  css: ['~/assets/scss/main.scss'],
+  css: ['~/assets/scss/main.scss', '~/assets/css/main.css'],
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
 
   /* build modules */
-  buildModules: ['@nuxtjs/tailwindcss'],
-  // buildModules: ['@nuxtjs/pwa'],
+  // buildModules: ['@nuxtjs/tailwindcss'], // @nuxtjs/pwa
 
-  // might be broken?
   // pwa: {
   //   workbox: {
   //     /* workbox options */

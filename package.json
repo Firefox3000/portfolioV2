@@ -8,15 +8,19 @@
     "full-install": "pnpm i --shamefully-hoist"
   },
   "dependencies": {
-    "@fontsource/work-sans": "^4.5.11",
-    "@nuxt/content": "^2.1.1",
+    "@fontsource/work-sans": "^4.5.12",
+    "@nuxt/content": "^2.2.2",
+    "@nuxtjs/vercel-builder": "^0.24.0",
     "feather-icons": "^4.29.0",
-    "sass": "^1.54.5",
-    "vue": "^3.2.39"
+    "sass": "^1.56.1",
+    "vue": "^3.2.45"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^5.3.2",
-    "nuxt": "3.0.0-rc.10",
+    "@nuxtjs/tailwindcss": "^6.1.3",
+    "autoprefixer": "^10.4.13",
+    "nuxt": "3.0.0",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
     "vercel": "^27.4.0"
   }
 }
