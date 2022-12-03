@@ -1,6 +1,5 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  target: 'static',
   ssr: true,
 
   modules: ['@nuxt/content'],
@@ -11,9 +10,9 @@ export default defineNuxtConfig({
     },
   },
 
-  router: {
-    base: '/',
-  },
+  // router: {
+  //   base: '/',
+  // },
 
   /* global CSS */
   css: ['~/assets/scss/main.scss', '~/assets/css/main.css'],

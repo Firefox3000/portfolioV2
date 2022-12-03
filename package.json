@@ -4,8 +4,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "full-install": "pnpm i --shamefully-hoist"
+    "preview": "nuxt preview"
   },
   "dependencies": {
     "@fontsource/work-sans": "^4.5.12",
