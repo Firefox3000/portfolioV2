@@ -1,23 +1,23 @@
 import { createCanvas, GlobalFonts, loadImage } from '@napi-rs/canvas';
-// import { promises as fs } from 'node:fs';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
+
+GlobalFonts.registerFromPath(
+  './node_modules/@fontsource/noto-color-emoji/files/noto-color-emoji-all-400-normal.woff',
+  'NotoColorEmoji'
+);
+
+GlobalFonts.registerFromPath(
+  './node_modules/@fontsource/pt-serif/files/pt-serif-all-400-italic.woff',
+  'pt'
+);
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
 
   // GlobalFonts.loadFontsFromDir(')
 
-  console.log(process.cwd(), path.join('/'));
-
-  await GlobalFonts.registerFromPath(
-    './node_modules/@fontsource/noto-color-emoji/files/noto-color-emoji-all-400-normal.woff',
-    'NotoColorEmoji'
-  );
-
-  await GlobalFonts.registerFromPath(
-    './node_modules/@fontsource/pt-serif/files/pt-serif-all-400-italic.woff',
-    'pt'
-  );
+  console.log(process.cwd(), path.join('/'), await fs.readdir('/'));
 
   console.info(
     GlobalFonts.families.filter(
