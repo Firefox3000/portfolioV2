@@ -8,7 +8,11 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   console.log(query);
 
-  // const tileBuffer = await fs.readFileSync('./public/tile.jpg');
+  console.log(path.relative('/foo/bar/baz', '/foo'));
+  console.log(path.join(''), path.relative('/', ''));
+
+  const tileBuffer = await fs.readFileSync('./public/tile.jpg');
+  console.log('found tile', !!tileBuffer);
 
   // const fontSize = 72;
   // const lineHeight = fontSize + 6;
