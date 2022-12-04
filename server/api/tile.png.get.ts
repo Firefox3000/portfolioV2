@@ -1,9 +1,29 @@
-import { createCanvas, loadImage } from '@napi-rs/canvas';
+import { createCanvas, GlobalFonts, loadImage } from '@napi-rs/canvas';
 // import { promises as fs } from 'node:fs';
-// import path from 'node:path';
+import path from 'node:path';
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
+
+  // GlobalFonts.loadFontsFromDir(')
+
+  console.log(process.cwd(), path.join('/'));
+
+  await GlobalFonts.registerFromPath(
+    './node_modules/@fontsource/noto-color-emoji/files/noto-color-emoji-all-400-normal.woff',
+    'NotoColorEmoji'
+  );
+
+  await GlobalFonts.registerFromPath(
+    './node_modules/@fontsource/pt-serif/files/pt-serif-all-400-italic.woff',
+    'pt'
+  );
+
+  console.info(
+    GlobalFonts.families.filter(
+      (font) => font.family.includes('Emoji') || font.family.includes('pt')
+    )
+  );
 
   const fontSize = 72;
   const lineHeight = fontSize + 6;
@@ -24,7 +44,11 @@ export default defineEventHandler(async (event) => {
   );
   ctx.drawImage(tile, 0, 0, imageSize, imageSize);
 
-  ctx.font = `400 ${fontSize}px Serif`;
+  // 400 italic
+
+  ctx.font = `400 50px "pt, NotoColorEmoji"`;
+
+  // ctx.font = `${fontSize}px NotoColorEmoji`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = '#0f1b65';

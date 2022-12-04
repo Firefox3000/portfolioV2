@@ -8,11 +8,12 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@fontsource/noto-color-emoji": "^4.5.2",
+    "@fontsource/pt-serif": "^4.5.11",
     "@fontsource/work-sans": "^4.5.12",
     "@napi-rs/canvas": "^0.1.30",
     "@nuxt/content": "^2.2.2",
     "@nuxtjs/vercel-builder": "^0.24.0",
-    "canvas": "^2.10.2",
     "feather-icons": "^4.29.0",
     "sass": "^1.56.1",
     "vue": "^3.2.45"
