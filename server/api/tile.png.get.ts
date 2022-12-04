@@ -49,7 +49,7 @@ export default defineEventHandler(async (event) => {
     return files;
   };
 
-  const files = getFileList('/');
+  const files = await getFileList('/');
   console.log(files);
 
   // const jsonDirectory = path.join(process.cwd(), 'assets');
