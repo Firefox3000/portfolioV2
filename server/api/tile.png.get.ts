@@ -25,6 +25,8 @@ export default defineEventHandler(async (event) => {
   console.log(await fs.readdir('/'));
   console.log('---------');
   console.log(await fs.readdir('../'));
+  console.log('---------');
+  console.log(await fs.readdir('./assets'));
 
   const jsonDirectory = path.join(process.cwd(), 'assets');
   //Read the json data file data.json
