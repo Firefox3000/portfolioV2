@@ -34,8 +34,12 @@ export default defineEventHandler(async (event) => {
   const canvas = createCanvas(imageSize, imageSize);
   const ctx = canvas.getContext('2d');
 
-  const bg = await loadImage(tileDir);
-  ctx.drawImage(bg, 0, 0, imageSize, imageSize);
+  ctx.beginPath();
+  ctx.rect(20, 20, 150, 100);
+  ctx.stroke();
+
+  // const bg = await loadImage(tileDir);
+  // ctx.drawImage(bg, 0, 0, imageSize, imageSize);
 
   // ctx.font = `400 ${fontSize}px Serif`;
   // ctx.textAlign = 'center';
