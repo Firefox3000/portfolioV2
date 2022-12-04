@@ -6,7 +6,7 @@ import path from 'node:path';
 export default defineEventHandler(async (event) => {
   // const { req, res } = event;
   const query = getQuery(event);
-  console.log(query);
+  console.log('query', query);
 
   // console.log(path.relative('/', './'));
   // console.log(path.join('./'), path.relative('/', ''));
@@ -26,11 +26,12 @@ export default defineEventHandler(async (event) => {
   console.log('---------');
   console.log(await fs.readdir('../'));
   console.log('---------');
-  console.log(await fs.readdir('./assets'));
+  console.log(await fs.readdir('/opt'));
+  console.log(await fs.readdir('/opt/public'));
 
-  const jsonDirectory = path.join(process.cwd(), 'assets');
+  // const jsonDirectory = path.join(process.cwd(), 'assets');
   //Read the json data file data.json
-  const fileContents = await fs.readFile(jsonDirectory + '/data.json', 'utf8');
+  // const fileContents = await fs.readFile(jsonDirectory + '/data.json', 'utf8');
 
   // fs.readdir(process.cwd(), () => {
   //   files.forEach((file) => {
