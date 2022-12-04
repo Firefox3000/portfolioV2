@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { static: true },
-    '/api/tile': { cors: true },
+    '/api/tile.png': { cors: true },
   },
 
   nitro: {
