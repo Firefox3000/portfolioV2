@@ -26,6 +26,10 @@ export default defineEventHandler(async (event) => {
   console.log('---------');
   console.log(await fs.readdir('../'));
 
+  const jsonDirectory = path.join(process.cwd(), 'assets');
+  //Read the json data file data.json
+  const fileContents = await fs.readFile(jsonDirectory + '/data.json', 'utf8');
+
   // fs.readdir(process.cwd(), () => {
   //   files.forEach((file) => {
   //     console.log(file);
