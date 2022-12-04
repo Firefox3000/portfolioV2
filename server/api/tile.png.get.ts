@@ -1,4 +1,5 @@
-import { createCanvas, loadImage } from 'canvas';
+// import { createCanvas, loadImage } from 'canvas';
+import { createCanvas, loadImage } from '@napi-rs/canvas';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -15,6 +16,7 @@ export default defineEventHandler(async (event) => {
   const maxWidth = 540;
 
   let words = query.content || '';
+  console.log(words);
 
   // create canvas same width and height as image
   const canvas = createCanvas(imageSize, imageSize);
@@ -60,7 +62,7 @@ export default defineEventHandler(async (event) => {
   }
 
   event.res.writeHead(200, { 'Content-Type': 'image/png' });
-  event.res.end(canvas.toBuffer());
+  event.res.end(canvas.toBuffer('image/png', 100));
 
   return event.res;
 });
