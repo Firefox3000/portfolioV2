@@ -20,14 +20,16 @@ export default defineEventHandler(async (event) => {
 
   console.log(await fs.readdir(process.cwd()));
   console.log('---------');
-  console.log(await fs.readdir('./'));
+  // console.log(await fs.readdir('./'));
   console.log('---------');
   console.log(await fs.readdir('/'));
   console.log('---------');
   console.log(await fs.readdir('../'));
   console.log('---------');
-  console.log(await fs.readdir('/opt'));
-  console.log(await fs.readdir('/opt/public'));
+  console.log(await fs.readdir('/opt/'));
+  console.log('---------');
+  console.log(await fs.readdir('../opt'));
+  console.log(await fs.readdir('../opt/public'));
 
   // const jsonDirectory = path.join(process.cwd(), 'assets');
   //Read the json data file data.json
