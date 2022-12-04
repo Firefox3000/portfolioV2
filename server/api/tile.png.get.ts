@@ -33,15 +33,18 @@ export default defineEventHandler(async (event) => {
 
   const getFileList = async (dirName: string) => {
     let files: string[] = [];
-    const items = await fs.readdir(dirName, { withFileTypes: true });
 
-    for (const item of items) {
-      if (item.isDirectory() && !item.name.includes('node_modules')) {
-        files = [...files, ...(await getFileList(`${dirName}/${item.name}`))];
-      } else {
-        files.push(`${dirName}/${item.name}`);
+    try {
+      const items = await fs.readdir(dirName, { withFileTypes: true });
+
+      for (const item of items) {
+        if (item.isDirectory() && !item.name.includes('node_modules')) {
+          files = [...files, ...(await getFileList(`${dirName}/${item.name}`))];
+        } else {
+          files.push(`${dirName}/${item.name}`);
+        }
       }
-    }
+    } catch (error) {}
 
     return files;
   };
