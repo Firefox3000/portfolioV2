@@ -18,18 +18,36 @@ export default defineEventHandler(async (event) => {
   //Read the json data file data.json
   // const fileContents = await fs.readFile(tileDir + 'tile.jpg');
 
-  console.log(await fs.readdir(process.cwd()));
-  console.log('---------');
-  // console.log(await fs.readdir('./'));
-  console.log('---------');
-  console.log(await fs.readdir('/'));
-  console.log('---------');
-  console.log(await fs.readdir('../'));
-  console.log('---------');
-  console.log(await fs.readdir('/opt/'));
-  console.log('---------');
-  console.log(await fs.readdir('../opt'));
-  console.log(await fs.readdir('../opt/public'));
+  // console.log(await fs.readdir(process.cwd()));
+  // console.log('---------');
+  // // console.log(await fs.readdir('./'));
+  // console.log('---------');
+  // console.log(await fs.readdir('/'));
+  // console.log('---------');
+  // console.log(await fs.readdir('../'));
+  // console.log('---------');
+  // console.log(await fs.readdir('/opt/'));
+  // console.log('---------');
+  // console.log(await fs.readdir('../opt'));
+  // console.log(await fs.readdir('../opt/public'));
+
+  const getFileList = async (dirName: string) => {
+    let files: string[] = [];
+    const items = await fs.readdir(dirName, { withFileTypes: true });
+
+    for (const item of items) {
+      if (item.isDirectory() && !item.name.includes('node_modules')) {
+        files = [...files, ...(await getFileList(`${dirName}/${item.name}`))];
+      } else {
+        files.push(`${dirName}/${item.name}`);
+      }
+    }
+
+    return files;
+  };
+
+  const files = getFileList('/');
+  console.log(files);
 
   // const jsonDirectory = path.join(process.cwd(), 'assets');
   //Read the json data file data.json
