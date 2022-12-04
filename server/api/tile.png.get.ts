@@ -18,6 +18,12 @@ export default defineEventHandler(async (event) => {
   //Read the json data file data.json
   // const fileContents = await fs.readFile(tileDir + 'tile.jpg');
 
+  fs.readdir(process.cwd(), (err, files) => {
+    files.forEach((file) => {
+      console.log(file);
+    });
+  });
+
   const tileBuffer = await fs.readFileSync(tileDir);
   console.log('found tile', !!tileBuffer);
 
