@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   console.log(query);
 
-  console.log(path.relative('/foo/bar/baz', '/foo'));
+  console.log(path.relative('/', './'));
   console.log(path.join('./'), path.relative('/', ''));
 
   //Find the absolute path of the json directory
@@ -88,8 +88,8 @@ export default defineEventHandler(async (event) => {
   // event.res.writeHead(200, { 'Content-Type': 'image/jpeg' });
   // res.setHeader("content-type", 'image/')
   // return event.res.end(await canvas.encode('jpeg', 80));
-  return event.res.end({ foo: 'bar' });
+  // return event.res.end({ foo: 'bar' });
 
   // return res;
-  // return event.res;
+  return event.res;
 });
