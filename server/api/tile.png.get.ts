@@ -12,9 +12,9 @@ export default defineEventHandler(async (event) => {
   console.log(path.join('./'), path.relative('/', ''));
 
   //Find the absolute path of the json directory
-  const tileDir = path.join(process.cwd(), 'public/tile.jpg');
+  // const tileDir = path.join(process.cwd(), 'public/tile.jpg');
 
-  console.log(process.cwd(), tileDir);
+  console.log(process.cwd());
   //Read the json data file data.json
   // const fileContents = await fs.readFile(tileDir + 'tile.jpg');
 
@@ -24,8 +24,8 @@ export default defineEventHandler(async (event) => {
     });
   });
 
-  const tileBuffer = await fs.readFileSync(tileDir);
-  console.log('found tile', !!tileBuffer);
+  // const tileBuffer = await fs.readFileSync(tileDir);
+  // console.log('found tile', !!tileBuffer);
 
   // const fontSize = 72;
   // const lineHeight = fontSize + 6;
@@ -87,7 +87,8 @@ export default defineEventHandler(async (event) => {
 
   // event.res.writeHead(200, { 'Content-Type': 'image/jpeg' });
   // res.setHeader("content-type", 'image/')
-  return event.res.end(await canvas.encode('jpeg', 80));
+  // return event.res.end(await canvas.encode('jpeg', 80));
+  return event.res.end({ foo: 'bar' });
 
   // return res;
   // return event.res;
