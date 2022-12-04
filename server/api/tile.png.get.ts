@@ -8,21 +8,21 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   console.log(query);
 
-  console.log(path.relative('/', './'));
-  console.log(path.join('./'), path.relative('/', ''));
+  // console.log(path.relative('/', './'));
+  // console.log(path.join('./'), path.relative('/', ''));
 
   //Find the absolute path of the json directory
   // const tileDir = path.join(process.cwd(), 'public/tile.jpg');
 
-  console.log(process.cwd());
+  // console.log(process.cwd());
   //Read the json data file data.json
   // const fileContents = await fs.readFile(tileDir + 'tile.jpg');
 
-  fs.readdir(process.cwd(), (err, files) => {
-    files.forEach((file) => {
-      console.log(file);
-    });
-  });
+  // fs.readdir(process.cwd(), (err, files) => {
+  //   files.forEach((file) => {
+  //     console.log(file);
+  //   });
+  // });
 
   // const tileBuffer = await fs.readFileSync(tileDir);
   // console.log('found tile', !!tileBuffer);
@@ -85,11 +85,11 @@ export default defineEventHandler(async (event) => {
 
   // event.res.end(canvas.toBuffer('image/png', 100));
 
-  // event.res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+  event.res.writeHead(200, { 'Content-Type': 'image/jpeg' });
   // res.setHeader("content-type", 'image/')
-  // return event.res.end(await canvas.encode('jpeg', 80));
+  return event.res.end(await canvas.encode('jpeg', 80));
   // return event.res.end({ foo: 'bar' });
 
   // return res;
-  return event.res;
+  // return event.res;
 });
