@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   console.log(query);
 
   console.log(path.relative('/foo/bar/baz', '/foo'));
-  console.log(path.join(''), path.relative('/', ''));
+  console.log(path.join('./'), path.relative('/', ''));
 
   const tileBuffer = await fs.readFileSync('./public/tile.jpg');
   console.log('found tile', !!tileBuffer);
