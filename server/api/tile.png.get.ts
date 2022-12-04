@@ -23,6 +23,8 @@ export default defineEventHandler(async (event) => {
   console.log(await fs.readdir('./'));
   console.log('---------');
   console.log(await fs.readdir('/'));
+  console.log('---------');
+  console.log(await fs.readdir('./../public'));
 
   // fs.readdir(process.cwd(), () => {
   //   files.forEach((file) => {
