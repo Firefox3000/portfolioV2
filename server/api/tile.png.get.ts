@@ -1,6 +1,6 @@
 // import { createCanvas, loadImage } from 'canvas';
 import { createCanvas, loadImage } from '@napi-rs/canvas';
-import fs from 'node:fs';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
 export default defineEventHandler(async (event) => {
@@ -18,7 +18,13 @@ export default defineEventHandler(async (event) => {
   //Read the json data file data.json
   // const fileContents = await fs.readFile(tileDir + 'tile.jpg');
 
-  // fs.readdir(process.cwd(), (err, files) => {
+  console.log(await fs.readdir(process.cwd()));
+  console.log('---------');
+  console.log(await fs.readdir('./'));
+  console.log('---------');
+  console.log(await fs.readdir('/'));
+
+  // fs.readdir(process.cwd(), () => {
   //   files.forEach((file) => {
   //     console.log(file);
   //   });
