@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
   //Read the json data file data.json
   // const fileContents = await fs.readFile(tileDir + 'tile.jpg');
 
-  const tileBuffer = await fs.readFileSync(tileDir + 'tile.jpg');
+  const tileBuffer = await fs.readFileSync(tileDir);
   console.log('found tile', !!tileBuffer);
 
   // const fontSize = 72;
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
   const canvas = createCanvas(imageSize, imageSize);
   const ctx = canvas.getContext('2d');
 
-  const bg = await loadImage(tileDir + 'tile.jpg');
+  const bg = await loadImage(tileDir);
   ctx.drawImage(bg, 0, 0, imageSize, imageSize);
 
   // ctx.font = `400 ${fontSize}px Serif`;
