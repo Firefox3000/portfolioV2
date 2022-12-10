@@ -1,25 +1,29 @@
 import { createCanvas, GlobalFonts, loadImage } from '@napi-rs/canvas';
-import { promises as fs } from 'node:fs';
+// import { promises as fs } from 'node:fs';
+import fs from 'node:fs';
 // import path from 'node:path';
 
+console.log(process.cwd(), fs.readdirSync('./'));
+
 GlobalFonts.registerFromPath(
-  '../server/api/NotoColorEmoji-Regular.ttf',
+  './assets/NotoColorEmoji-Regular.ttf',
   'NotoColorEmoji'
 );
 
-GlobalFonts.registerFromPath('../server/api/PTSerif-Italic.ttf', 'pt');
+GlobalFonts.registerFromPath('./assets/PTSerif-Italic.ttf', 'pt');
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
 
-  console.log(process.cwd(), await fs.readdir('./'));
-  console.log(process.cwd(), await fs.readdir('./server/api'));
+  // console.log(process.cwd(), await fs.readdir('./'));
+  // console.log(await fs.readdir('./server/api'));
+  // console.log(await fs.readdir('./assets'));
 
-  console.info(
-    GlobalFonts.families.filter(
-      (font) => font.family.includes('Emoji') || font.family.includes('pt')
-    )
-  );
+  // console.info(
+  //   GlobalFonts.families.filter(
+  //     (font) => font.family.includes('Emoji') || font.family.includes('pt')
+  //   )
+  // );
 
   const fontSize = 72;
   const lineHeight = fontSize + 6;
