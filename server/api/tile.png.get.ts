@@ -3,11 +3,11 @@ import { promises as fs } from 'node:fs';
 // import path from 'node:path';
 
 GlobalFonts.registerFromPath(
-  './server/api/NotoColorEmoji-Regular.ttf',
+  '../server/api/NotoColorEmoji-Regular.ttf',
   'NotoColorEmoji'
 );
 
-GlobalFonts.registerFromPath('./server/api/PTSerif-Italic.ttf', 'pt');
+GlobalFonts.registerFromPath('../server/api/PTSerif-Italic.ttf', 'pt');
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
