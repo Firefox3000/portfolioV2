@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxt build && cp ./assets/NotoColorEmoji-Regular.ttf ./.output/server/ && cp ./assets/PTSerif-Italic.ttf ./.output/server/",
+    "build": "nuxt build && pwd && ls && cp ./assets/NotoColorEmoji-Regular.ttf ./.vercel/output/functions.func/ && cp ./assets/PTSerif-Italic.ttf ./.vercel/output/functions.func/",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
