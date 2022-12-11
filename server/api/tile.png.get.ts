@@ -18,11 +18,11 @@ export default defineEventHandler(async (event) => {
 
   const query = getQuery(event);
 
-  console.log(process.cwd(), await fs.readdir('./'), await fs.readdir('/'));
+  // console.log(process.cwd(), await fs.readdir('./'), await fs.readdir('/'));
 
   // console.log(process.cwd(), await fs.readdir('./'));
   // console.log(await fs.readdir('./server/api'));
-  console.log(await fs.readdir('./assets'));
+  // console.log(await fs.readdir('./assets'));
 
   // console.info(
   //   GlobalFonts.families.filter(
