@@ -16,40 +16,35 @@ export default defineEventHandler(async (event) => {
   const imageSize = 800;
   const maxWidth = 540;
 
-  let words = query.content || '';
-  words = words.split(' ');
+  const words = query?.content?.toString().split(' ') || [];
 
   // create canvas same width and height as image
   const canvas = createCanvas(imageSize, imageSize);
   const ctx = canvas.getContext('2d');
 
-  // would be better if image was loaded through fs
-  const tile = await loadImage(
-    'https://github.com/Vuurvos1/portfolio/blob/feat/tile/public/tile.jpg?raw=true'
-  );
+  const tile = await loadImage('./assets/tile.jpg');
   ctx.drawImage(tile, 0, 0, imageSize, imageSize);
 
   ctx.font = `400 ${fontSize}px pt, NotoColorEmoji`;
-
   ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
   ctx.fillStyle = '#0f1b65';
 
   // check line amount
   let line = '';
-  let lines = [];
+  const lines: string[] = [];
 
   for (const word of words) {
-    let testLine = `${line} ${word}`;
-    let testWidth = ctx.measureText(testLine).width;
+    const testLine = `${line} ${word}`;
+    const testWidth = ctx.measureText(testLine).width;
 
     if (testWidth > maxWidth) {
       // go to next line
       lines.push(line.trim());
       line = word;
-    } else {
-      line = testLine;
+      continue;
     }
+
+    line = testLine;
   }
 
   lines.push(line);
