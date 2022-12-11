@@ -1,23 +1,24 @@
 import { createCanvas, GlobalFonts, loadImage } from '@napi-rs/canvas';
-// import { promises as fs } from 'node:fs';
-import fs from 'node:fs';
+import { promises as fs } from 'node:fs';
+// import fs from 'node:fs';
 // import path from 'node:path';
 
-console.log(process.cwd(), fs.readdirSync('./'));
-
-GlobalFonts.registerFromPath(
-  './assets/NotoColorEmoji-Regular.ttf',
-  'NotoColorEmoji'
-);
-
-GlobalFonts.registerFromPath('./assets/PTSerif-Italic.ttf', 'pt');
-
 export default defineEventHandler(async (event) => {
+  GlobalFonts.registerFromPath(
+    './assets/NotoColorEmoji-Regular.ttf',
+    // 'https://github.com/Vuurvos1/portfolio/blob/feat/tile/assets/NotoColorEmoji-Regular.ttf?raw=true',
+    'NotoColorEmoji'
+  );
+
+  GlobalFonts.registerFromPath('./assets/PTSerif-Italic.ttf', 'pt');
+
   const query = getQuery(event);
+
+  console.log(process.cwd(), fs.readdir('./'), fs.readdir('/'));
 
   // console.log(process.cwd(), await fs.readdir('./'));
   // console.log(await fs.readdir('./server/api'));
-  // console.log(await fs.readdir('./assets'));
+  console.log(await fs.readdir('./assets'));
 
   // console.info(
   //   GlobalFonts.families.filter(

@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "nuxt build && cp ./assets/NotoColorEmoji-Regular.ttf ./.output/server/ && cp ./assets/PTSerif-Italic.ttf ./.output/server/",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

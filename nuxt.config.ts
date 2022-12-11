@@ -25,6 +25,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'vercel',
     prerender: {
       routes: ['/projects/', '/projects/**', '/contact'],
     },
