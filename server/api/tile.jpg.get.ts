@@ -1,34 +1,14 @@
 import { createCanvas, GlobalFonts, loadImage } from '@napi-rs/canvas';
-import { promises as fs } from 'node:fs';
-// import path from 'node:path';
 
 export default defineEventHandler(async (event) => {
   GlobalFonts.registerFromPath(
-    './NotoColorEmoji-Regular.ttf',
-    // './assets/NotoColorEmoji-Regular.ttf',
-    // 'https://github.com/Vuurvos1/portfolio/blob/feat/tile/assets/NotoColorEmoji-Regular.ttf?raw=true',
+    './assets/NotoColorEmoji-Regular.ttf',
     'NotoColorEmoji'
   );
 
-  GlobalFonts.registerFromPath(
-    // './assets/PTSerif-Italic.ttf'
-    './PTSerif-Italic.ttf',
-    'pt'
-  );
+  GlobalFonts.registerFromPath('./assets/PTSerif-Italic.ttf', 'pt');
 
   const query = getQuery(event);
-
-  // console.log(process.cwd(), await fs.readdir('./'), await fs.readdir('/'));
-
-  // console.log(process.cwd(), await fs.readdir('./'));
-  // console.log(await fs.readdir('./server/api'));
-  // console.log(await fs.readdir('./assets'));
-
-  // console.info(
-  //   GlobalFonts.families.filter(
-  //     (font) => font.family.includes('Emoji') || font.family.includes('pt')
-  //   )
-  // );
 
   const fontSize = 72;
   const lineHeight = fontSize + 6;
@@ -49,11 +29,8 @@ export default defineEventHandler(async (event) => {
   );
   ctx.drawImage(tile, 0, 0, imageSize, imageSize);
 
-  // italic
-  // "NotoColorEmoji, pt"
   ctx.font = `400 ${fontSize}px pt, NotoColorEmoji`;
 
-  // ctx.font = `${fontSize}px NotoColorEmoji`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = '#0f1b65';
@@ -83,9 +60,7 @@ export default defineEventHandler(async (event) => {
 
   for (const line of lines) {
     startX = imageSize / 2;
-    // ctx.fillText(line, startX, startY);
     ctx.fillText(line, startX, startY);
-    // ctx.fillText('😀😃😄😁😆😅😂🤣☺️😊😊😇', 50, 150);
     startY += lineHeight;
   }
 
