@@ -1,10 +1,16 @@
-import { defineNuxtConfig } from 'nuxt';
+if (
+  process.env.LD_LIBRARY_PATH == null ||
+  !process.env.LD_LIBRARY_PATH.includes(
+    `${process.env.PWD}/node_modules/canvas/build/Release:`
+  )
+) {
+  process.env.LD_LIBRARY_PATH = `${
+    process.env.PWD
+  }/node_modules/canvas/build/Release:${process.env.LD_LIBRARY_PATH || ''}`;
+}
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  target: 'static',
-  ssr: true,
-
   modules: ['@nuxt/content'],
 
   content: {
@@ -13,18 +19,31 @@ export default defineNuxtConfig({
     },
   },
 
-  router: {
-    base: '/',
+  routeRules: {
+    '/': { static: true },
+    '/api/tile.png': { cors: true },
+  },
+
+  nitro: {
+    preset: 'vercel',
+    prerender: {
+      routes: ['/projects/', '/projects/**', '/contact'],
+    },
   },
 
   /* global CSS */
-  css: ['~/assets/scss/main.scss'],
+  css: ['~/assets/scss/main.scss', '~/assets/css/main.css'],
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
 
   /* build modules */
-  buildModules: ['@nuxtjs/tailwindcss'],
   // buildModules: ['@nuxtjs/pwa'],
 
-  // might be broken?
   // pwa: {
   //   workbox: {
   //     /* workbox options */

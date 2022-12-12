@@ -1,12 +1,12 @@
-@import "reset";
-@import "variables";
-@import "mixins";
+@import 'reset';
+@import 'variables';
+@import 'mixins';
 
-@import "grid";
-@import "text";
-@import "input";
+@import 'grid';
+@import 'text';
+@import 'input';
 
-@import "article";
+@import 'article';
 
 body {
   background-color: var(--background);
@@ -34,7 +34,7 @@ main {
 }
 
 :focus-visible:focus:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -76,7 +76,7 @@ main {
   position: relative;
   @supports not (aspect-ratio: 1) {
     &::before {
-      content: "";
+      content: '';
       padding-bottom: 100%;
       display: block;
     }
@@ -94,7 +94,7 @@ main {
   overflow-x: hidden;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
 
     top: calc(50% - 2px);
