@@ -23,6 +23,6 @@ The apps does have a short startup time because it is on a free plan but perform
 Source code
 </icon-link>
 
-<icon-link href="https://twitchtts.glitch.me/" target="_blank" icon="launch">
+<icon-link href="https://twitchtts.vercel.app/?" target="_blank" icon="launch">
 See it live
 </icon-link>
