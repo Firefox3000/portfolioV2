@@ -1,9 +1,9 @@
 <script setup>
-let board = [
+const board = reactive([
   ['', '', ''],
   ['', '', ''],
   ['', '', ''],
-];
+]);
 
 const gameStatus = ref('Winner:');
 const difficulty = ref(0.5);
@@ -19,56 +19,45 @@ const scores = {
   tie: 0,
 };
 
-const playerClick = (ev) => {
-  if (currentPlayer == human) {
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-        if (
-          ev.currentTarget ==
-            document.querySelectorAll('.row')[i].children[j] &&
-          board[i][j] == ''
-        ) {
-          // update board and screen
-          document.querySelectorAll('.row')[i].children[j].innerHTML = human;
-          board[i][j] = human;
+function playerClick(x, y) {
+  if (currentPlayer != human) {
+    return;
+  }
 
-          checkWinner(true);
-          currentPlayer = ai;
+  if (board[x][y] != '') {
+    return;
+  }
 
-          let available = [];
-          for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
-              if (board[i][j] == '') {
-                available.push([i, j]);
-              }
-            }
-          }
+  board[x][y] = human;
 
-          if (available.length > 0) {
-            console.log(difficulty.value);
-            if (difficulty.value >= Math.random()) {
-              // ai move
-              computerPick();
-            } else {
-              //random move
-              // choose empty spot
-              let spot =
-                available[Math.floor(Math.random() * available.length)];
+  checkWinner(true);
+  currentPlayer = ai;
 
-              // board and visual
-              board[spot[0]][spot[1]] = ai;
-              document.querySelectorAll('.row')[spot[0]].children[
-                spot[1]
-              ].innerHTML = ai;
-            }
-          }
-          checkWinner(true);
-          currentPlayer = human;
-        }
+  let available = [];
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      if (board[i][j] == '') {
+        available.push([i, j]);
       }
     }
   }
-};
+
+  if (available.length < 1) {
+    return;
+  }
+
+  if (difficulty.value >= Math.random()) {
+    // computer move
+    computerPick();
+  } else {
+    // random move, choose empty spot
+    const spot = available[Math.floor(Math.random() * available.length)];
+    board[spot[0]][spot[1]] = ai;
+  }
+
+  checkWinner(true);
+  currentPlayer = human;
+}
 
 function equals3(a, b, c) {
   return a == b && b == c && a != '';
@@ -124,20 +113,15 @@ function checkWinner(draw) {
 }
 
 const restart = () => {
-  board = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', ''],
-  ];
+  // reset board
+  board.forEach((row) => {
+    row.forEach((_, i) => {
+      row[i] = '';
+    });
+  });
 
   currentPlayer = human;
   gameStatus.value = 'Winner:';
-
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
-      document.querySelectorAll('.row')[i].children[j].innerHTML = '';
-    }
-  }
 };
 
 function computerPick() {
@@ -172,7 +156,6 @@ function computerPick() {
 
   // draw best move
   board[move.i][move.j] = ai;
-  document.querySelectorAll('.row')[move.i].children[move.j].innerHTML = ai;
 
   currentPlayer = human;
 
@@ -180,7 +163,7 @@ function computerPick() {
 }
 
 function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
-  // alpha beta pruning seems to be 10x faster PogChamp
+  // alpha beta pruning seems to be 10x faster
   let result = checkWinner(false);
   if (result !== null) {
     return scores[result];
@@ -224,7 +207,18 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
     <p class="winner h4">{{ gameStatus }}</p>
     <div class="ticTacToe__grid">
       <div class="row" v-for="x in 3" :key="x">
-        <div class="col" @click="playerClick" v-for="y in 3" :key="y"></div>
+        <div
+          class="col"
+          @click="
+            (ev) => {
+              playerClick(x - 1, y - 1);
+            }
+          "
+          v-for="y in 3"
+          :key="y"
+        >
+          {{ board[x - 1][y - 1] }}
+        </div>
       </div>
     </div>
 
