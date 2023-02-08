@@ -5,6 +5,9 @@ let board = [
   ['', '', ''],
 ];
 
+const gameStatus = ref('Winner:');
+const difficulty = ref(0.5);
+
 const human = 'X';
 const ai = 'O';
 
@@ -42,7 +45,8 @@ const playerClick = (ev) => {
           }
 
           if (available.length > 0) {
-            if (document.querySelector('#slider').value >= Math.random()) {
+            console.log(difficulty.value);
+            if (difficulty.value >= Math.random()) {
               // ai move
               computerPick();
             } else {
@@ -109,9 +113,9 @@ function checkWinner(draw) {
   if (draw) {
     if (winner == 'X' || winner == 'O' || winner == 'tie') {
       if (winner == 'tie') {
-        document.querySelector('.winner').innerHTML = 'tie';
+        gameStatus.value = 'tie';
       } else {
-        document.querySelector('.winner').innerHTML = `Winner: ${winner}`;
+        gameStatus.value = `Winner: ${winner}`;
       }
       return;
     }
@@ -127,7 +131,7 @@ const restart = () => {
   ];
 
   currentPlayer = human;
-  document.querySelector('.winner').innerHTML = 'Winner:';
+  gameStatus.value = 'Winner:';
 
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
@@ -217,7 +221,7 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
 
 <template>
   <section class="ticTacToe">
-    <p class="winner h4">Winner:</p>
+    <p class="winner h4">{{ gameStatus }}</p>
     <div class="ticTacToe__grid">
       <div class="row" v-for="x in 3" :key="x">
         <div class="col" @click="playerClick" v-for="y in 3" :key="y"></div>
@@ -227,12 +231,12 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
     <div class="sliderContainer">
       <p>Easy</p>
       <input
+        v-model="difficulty"
         id="slider"
         class="slider"
         type="range"
         min="0"
         max="1"
-        value="0.5"
         step="0.01"
       />
       <p>Hard</p>
