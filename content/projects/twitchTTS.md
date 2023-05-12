@@ -10,8 +10,6 @@ status: public
 
 # Twitch Text to Speach
 
-# Twitch Text to Speach
-
 This project started after Twitch added channel points (points you get by watching streamers). You can then spend these points for certain rewards like chat emotes or highlighting your message, although Twitch being Twitch, the API to use the channel points is almost non-existent and I wanted a more automated system.
 
 So I decided to create my extension to the already existing Twitch API and while looking through the metadata of messages I was able to find some information about the Channel point rewards.

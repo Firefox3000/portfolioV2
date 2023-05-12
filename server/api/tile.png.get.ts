@@ -59,6 +59,6 @@ export default defineEventHandler(async (event) => {
     startY += lineHeight;
   }
 
-  event.res.writeHead(200, { 'Content-Type': 'image/png' });
-  event.res.end(canvas.toBuffer('image/png'));
+  setHeader(event, 'Content-Type', 'image/png');
+  return canvas.toBuffer('image/png');
 });
