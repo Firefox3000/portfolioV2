@@ -2,8 +2,6 @@
 
 Portfolio site build with [nuxt 3](https://v3.nuxtjs.org)
 
-NOTE: pnpm seems to be broken for deployment
-
 ## Setup
 
 Make sure to install the dependencies:
