@@ -1,15 +1,6 @@
 import { createCanvas, GlobalFonts, loadImage } from '@napi-rs/canvas';
-import path from 'node:path';
-import fs from 'node:fs';
 
 export default defineEventHandler(async (event) => {
-  console.log(
-    process.cwd(),
-    path.join('/'),
-    path.join('./'),
-    fs.readdirSync('./')
-  );
-
   GlobalFonts.registerFromPath(
     './assets/NotoColorEmoji-Regular.ttf',
     'NotoColorEmoji'
