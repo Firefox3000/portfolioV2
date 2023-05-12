@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxt build && mkdirp ./.vercel/output/functions/__nitro.func/assets && cp ./assets/tile.jpg ./assets/NotoColorEmoji-Regular.ttf ./assets/PTSerif-Italic.ttf ./.vercel/output/functions.func/assets/",
+    "build": "nuxt build && mkdirp ./.vercel/output/functions/__nitro.func/assets && cp ./assets/tile.jpg ./assets/NotoColorEmoji-Regular.ttf ./assets/PTSerif-Italic.ttf ./.vercel/output/functions/__nitro.func/assets/",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
