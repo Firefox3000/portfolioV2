@@ -156,7 +156,7 @@ useHead({
 .homePage {
   &__projects {
     .titleSide {
-      @media screen and (min-width: 48rem) {
+      @screen md {
         position: absolute;
         top: 0;
         left: -3.5rem;
@@ -164,9 +164,6 @@ useHead({
         writing-mode: vertical-rl;
         text-orientation: mixed;
       }
-
-      /* @media screen and (min-width: 64rem) {
-      } */
     }
 
     .moreProjects {
@@ -249,7 +246,7 @@ useHead({
   &__about2 {
     margin: 4rem auto;
 
-    @media screen and (min-width: 48rem) {
+    @screen md {
       margin-bottom: 5rem;
     }
   }
@@ -263,7 +260,7 @@ useHead({
 
   margin-bottom: 1.6rem;
 
-  @media screen and (min-width: 48rem) {
+  @screen md {
     grid-template-columns: repeat(3, 1fr);
   }
 }

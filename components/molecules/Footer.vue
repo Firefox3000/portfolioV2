@@ -57,14 +57,9 @@ footer {
       }
     }
 
-    /* tablet */
-    @media screen and (min-width: 48rem) {
+    @screen md {
       flex-direction: row;
       padding: 2rem 0;
-    }
-
-    /* dekstop */
-    @media screen and (min-width: 64rem) {
     }
   }
 }

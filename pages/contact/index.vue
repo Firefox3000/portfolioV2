@@ -222,16 +222,11 @@ const sendForm = (ev) => {
   }
 }
 
-/* Tablet */
-@media screen and (min-width: 48rem) {
+@screen md {
   h1,
   h2 {
     font-size: 3.75rem;
   }
-}
-
-/* Desktop */
-@media screen and (min-width: 64rem) {
 }
 
 button[type='submit'] {

@@ -171,7 +171,7 @@ header {
     }
   }
 
-  @media screen and (min-width: 48rem) {
+  @screen md {
     label {
       display: none;
     }

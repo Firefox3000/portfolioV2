@@ -229,12 +229,12 @@ onUnmounted(() => {
   padding-bottom: 6rem;
   background: linear-gradient(#ffcb57 70%, rgba(0, 0, 0, 0) 0 100%);
 
-  @media screen and (min-width: 48rem) {
+  @screen md {
     width: auto;
     margin-left: 0;
   }
 
-  @media screen and (min-width: 64rem) {
+  @screen lg {
     background: linear-gradient(#ffcb57 65%, rgba(0, 0, 0, 0) 0 100%);
   }
 }

@@ -333,7 +333,7 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
     }
   }
 
-  @media screen and (min-width: 48rem) {
+  @screen md {
     width: auto;
     margin-left: 0;
   }
