@@ -42,13 +42,7 @@ export default defineNuxtConfig({
   },
 
   /* build modules */
-  // buildModules: ['@nuxtjs/pwa'],
-
-  // pwa: {
-  //   workbox: {
-  //     /* workbox options */
-  //   },
-  // },
+  // buildModules: [],
 
   /* default head */
   app: {

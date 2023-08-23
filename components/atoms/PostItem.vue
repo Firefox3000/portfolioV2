@@ -13,7 +13,7 @@ defineProps({
 
 <template>
   <NuxtLink :to="{ name: 'projects-slug', params: { slug: article.slug } }">
-    <!-- <nuxt-picture -->
+    <!-- nuxt-picture -->
     <img
       width="512"
       height="512"
