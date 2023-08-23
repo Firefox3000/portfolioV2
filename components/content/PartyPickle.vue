@@ -17,7 +17,7 @@ let etenReset = 1;
 
 let intervalId;
 
-//Animate pickle on click
+// Animate pickle on click
 function newPos() {
   newPosition[0] = Math.floor(Math.random() * 157) + 'px';
   newPosition[1] = Math.floor(Math.random() * 101) + 'px';
@@ -31,7 +31,7 @@ const pickleNew = () => {
 
   document.querySelector('img.pickle').animate(
     [
-      //keyframes
+      // keyframes
       {
         top: prevNH,
         left: prevNW,
@@ -42,7 +42,7 @@ const pickleNew = () => {
       },
     ],
     {
-      //timing ms
+      // timing ms
       duration: 1000,
       easing: 'ease-in-out',
     }
@@ -51,7 +51,7 @@ const pickleNew = () => {
     'top:' + newPosition[1] + ';left:' + newPosition[0];
 };
 
-//Pot kapot maken
+// Pot kapot maken
 const clearTouches = () => {
   touches = 0;
   clearTouchTrack = 0;
@@ -75,14 +75,14 @@ const potRepareren = () => {
   drainSpeed = 7;
 };
 
-//Water Refill mechanic
+// Water Refill mechanic
 const waterTimout = () => {
   refillActive = true;
 };
 
 const addWater = () => {
   if (refillActive == true) {
-    //max vloeistof 300
+    // max vloeistof 300
     if (vloeistofLevel < 275) {
       vloeistofLevel += 25;
       refillActive = false;
@@ -95,7 +95,7 @@ const addWater = () => {
   }
 };
 
-//pot openen
+// pot openen
 const openPot = () => {
   if (potOpen == true) {
     document.querySelector('div.deksel').classList.add('dekselAnimateClose');
@@ -108,7 +108,7 @@ const openPot = () => {
   }
 };
 
-//eten geven
+// eten geven
 const removeEtenAni = () => {
   var divEten = document.querySelectorAll('.eten');
 
@@ -148,14 +148,14 @@ const geefEten = () => {
   }
 };
 
-//animatie klass deksel openen we halen
+// animatie klass deksel openen we halen
 const removeOpenPot = () => {
   document.querySelector('div.deksel').classList.add('dekselOpen');
   document.querySelector('div.deksel').classList.remove('dekselAnimate');
 };
 
 onMounted(() => {
-  //vloeistof minder worden
+  // vloeistof minder worden
   function vloeistof() {
     x++;
     if (x >= drainSpeed) {
@@ -220,7 +220,7 @@ onUnmounted(() => {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .partyPickle {
   width: 100vw;
   margin-left: -1.5rem;
@@ -244,11 +244,11 @@ onUnmounted(() => {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  // user-drag: none;
+  /* user-drag: none; */
 }
 
 .selectNone {
-  // No text select
+  /* No text select */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

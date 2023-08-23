@@ -168,7 +168,7 @@ const sendForm = (ev) => {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .contactPage {
   h1,
   h2 {
@@ -285,7 +285,7 @@ button[type='submit'] {
   }
 
   100% {
-    // transform: translateY(-4.8em);
+    /* transform: translateY(-4.8em); */
   }
 }
 </style>

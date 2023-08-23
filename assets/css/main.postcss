@@ -1,12 +1,11 @@
-@import 'reset';
-@import 'variables';
-@import 'mixins';
+@import './reset.postcss';
+@import './variables.postcss';
 
-@import 'grid';
-@import 'text';
-@import 'input';
+@import './grid.postcss';
+@import './text.postcss';
+@import './input.postcss';
 
-@import 'article';
+@import './article.postcss';
 
 body {
   background-color: var(--background);
@@ -72,7 +71,7 @@ main {
 .aspect-1 {
   aspect-ratio: 1;
 
-  // fallback for browsers that don't support aspect-ratio
+  /* fallback for browsers that don't support aspect-ratio */
   position: relative;
   @supports not (aspect-ratio: 1) {
     &::before {

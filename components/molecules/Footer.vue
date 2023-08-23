@@ -33,7 +33,7 @@ const year = new Date().getFullYear();
   </footer>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 footer {
   div {
     display: flex;
@@ -57,13 +57,13 @@ footer {
       }
     }
 
-    // tablet
+    /* tablet */
     @media screen and (min-width: 48rem) {
       flex-direction: row;
       padding: 2rem 0;
     }
 
-    // dekstop
+    /* dekstop */
     @media screen and (min-width: 64rem) {
     }
   }

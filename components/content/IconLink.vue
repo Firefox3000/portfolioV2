@@ -18,7 +18,7 @@ defineProps({
   </a>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .iconLink {
   display: inline-flex;
   flex-direction: row;

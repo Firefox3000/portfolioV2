@@ -56,7 +56,7 @@ useHead({
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 article {
   margin-top: 6ch;
 }

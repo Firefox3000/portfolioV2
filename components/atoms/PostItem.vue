@@ -40,7 +40,7 @@ defineProps({
   </NuxtLink>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 h2,
 a:deep(img) {
   transition: transform 0.2s ease-out;
@@ -88,7 +88,7 @@ svg {
 }
 
 a {
-  // outline: none;
+  /* outline: none; */
   overflow: hidden;
 
   &:hover,
@@ -111,7 +111,7 @@ a {
     &:hover,
     &:focus {
       img {
-        // don't scale image with reduced motion
+        /* don't scale image with reduced motion */
         transform: scale(1);
       }
     }

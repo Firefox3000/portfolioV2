@@ -65,19 +65,19 @@ function equals3(a, b, c) {
 
 function checkWinner(draw) {
   let winner = null;
-  //horizontal && vertical
+  // horizontal && vertical
   for (let i = 0; i < 3; i++) {
     if (equals3(board[i][0], board[i][1], board[i][2])) {
       winner = board[i][0];
     }
 
-    //vertical
+    // vertical
     if (equals3(board[0][i], board[1][i], board[2][i])) {
       winner = board[0][i];
     }
   }
 
-  //diagonal
+  // diagonal
   if (equals3(board[0][0], board[1][1], board[2][2])) {
     winner = board[0][0];
   }
@@ -242,7 +242,7 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .ticTacToe {
   width: 100vw;
 
@@ -283,7 +283,7 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
         font-size: 3rem;
         font-weight: 400;
 
-        // remove unnecessary grid lines
+        /* remove unnecessary grid lines */
         &:first-child {
           border-left: 0;
         }
@@ -293,7 +293,7 @@ function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
         }
       }
 
-      // remove unnecessary grid lines
+      /* remove unnecessary grid lines */
       &:nth-child(1) div {
         border-top: 0;
       }

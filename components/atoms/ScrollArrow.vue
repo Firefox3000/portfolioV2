@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .arrow {
   display: block;
   position: relative;
@@ -15,7 +15,7 @@
 
   &::before {
     content: '';
-    // animation: elasticus 1.5s cubic-bezier(1, 0, 0, 1) infinite;
+    /* animation: elasticus 1.5s cubic-bezier(1, 0, 0, 1) infinite; */
     animation: scroll 4s cubic-bezier(0.77, 0, 0.175, 1) infinite both;
     position: absolute;
     background-color: currentColor;

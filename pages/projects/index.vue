@@ -86,7 +86,7 @@ useHead({
   </main>
 </template>
 
-<style lang="scss">
+<style lang="postcss">
 .projects {
   .titleSide {
     grid-column: span 2;
@@ -115,7 +115,7 @@ useHead({
   }
 
   &__item {
-    // move this css to PostItem?
+    /* move this css to PostItem? */
     overflow: hidden;
   }
 }

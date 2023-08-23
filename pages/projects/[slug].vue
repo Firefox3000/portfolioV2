@@ -80,7 +80,7 @@ useHead({
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .back {
   display: flex;
   flex-direction: row;

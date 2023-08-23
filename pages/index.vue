@@ -152,7 +152,7 @@ useHead({
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .homePage {
   &__projects {
     .titleSide {
@@ -165,8 +165,8 @@ useHead({
         text-orientation: mixed;
       }
 
-      // @media screen and (min-width: 64rem) {
-      // }
+      /* @media screen and (min-width: 64rem) {
+      } */
     }
 
     .moreProjects {
@@ -182,12 +182,13 @@ useHead({
   &__about {
     h1 {
       max-width: 32ch;
-      line-height: 1.1;
+      line-height: 0.75;
 
       span {
         display: inline-block;
         overflow: hidden;
         margin-right: calc(1em / 8);
+        height: 1.25em;
         font-size: clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem);
       }
     }
@@ -240,8 +241,8 @@ useHead({
     }
 
     @media screen and (min-width: 48rem) {
-      // margin-top: 14rem;
-      // margin-bottom: 6rem;
+      /* margin-top: 14rem; */
+      /* margin-bottom: 6rem; */
     }
   }
 

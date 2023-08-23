@@ -9,7 +9,7 @@ if (
   }/node_modules/canvas/build/Release:${process.env.LD_LIBRARY_PATH || ''}`;
 }
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/content'],
 
@@ -32,10 +32,12 @@ export default defineNuxtConfig({
   },
 
   /* global CSS */
-  css: ['~/assets/scss/main.scss', '~/assets/css/main.css'],
+  css: ['~/assets/css/main.postcss', '~/assets/css/main.css'],
 
   postcss: {
     plugins: {
+      'postcss-import': {},
+      'tailwindcss/nesting': {},
       tailwindcss: {},
       autoprefixer: {},
     },
