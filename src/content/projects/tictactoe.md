@@ -1,0 +1,28 @@
+---
+title: Tic Tac Toe
+description: A tic tac toe ai with varying difficultie
+img: /img/ticTacToe.png
+alt: Tic tac toe
+slug: tictactoe
+createdAt: 2021-01-10T00:00:00+0000
+status: public
+---
+
+# Tic Tac Toe
+
+This project started as a JavaScript exercise and a way to challenge myself to get better at coding / JS. But once I finished the base logic of Tic Tac Toe I had no one to play against so I decided to add a robot to play against.
+
+Tic Tac Toe has 196839 (3^9) possible positions which might sound like a lot of ways to play the game. But for a computer, this number is quite low. It is quite easy to brute force your way through all the possible positions and calculate the best move from there.
+
+<tic-tac-toe></tic-tac-toe>
+
+## But how?
+
+Using the Minimax algorithm you can search through the entire game tree to look for the best possible move given a certain board position.
+Once a winning position is reached or all board squares are filled I evaluate the board and assign it a score. If the position is winning for the computer it gets a score of +1, if the position is winning for the human it gets a score of -1 and if the game is a draw it gets a score of 0. After having looked through all the possible positions it picks the move with the highest chance of winning.
+
+Later I updated this project to include alpha-beta pruning. Once fully implemented this sped up the search for the best move by about 10 times, which is truly crazy. Alpha-beta pruning works by not having to examine game positions that are determined to be worse than a previously looked at move.
+
+<icon-link href="https://github.com/Vuurvos1/tictactoe" target="_blank" icon="github">
+Source code
+</icon-link>

@@ -1,0 +1,132 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  max-width: 120rem;
+}
+
+.grid--inner {
+  margin: 0;
+}
+
+.width-1\/12 {
+  grid-column: 1 / 13;
+}
+
+.width-2\/12 {
+  grid-column: span 2;
+}
+
+.width-6\/12 {
+  grid-column: span 4;
+}
+
+/* More of the same... */
+
+.width-12\/12 {
+  grid-column: span 12;
+}
+
+.width-4\/9 {
+  grid-column: span 2;
+}
+
+.width-2\/4-small {
+  grid-column: 2 / 4;
+}
+
+.span-4 {
+  grid-column: span 2;
+}
+
+.width-2\/10 {
+  grid-column: span 2;
+}
+
+.width-3\/10 {
+  grid-column: span 2;
+}
+
+.width-7\/12 {
+  grid-column: span 2;
+}
+
+/* Tablet */
+@screen md {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .width-2\/10 {
+    grid-column: 1 / 8;
+  }
+
+  .width-3\/10 {
+    grid-column: 2 / 8;
+  }
+
+  .width-7\/12 {
+    grid-column: 5 / 9;
+  }
+
+  .width-4\/9 {
+    grid-column: 2 / 8;
+  }
+
+  .width-5\/12 {
+    grid-column: 6 / 9;
+  }
+}
+
+/* Desktop */
+
+@screen lg {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .width-6\/12 {
+    grid-column: span 6;
+  }
+
+  .width-4\/9 {
+    grid-column: 4 / 10;
+  }
+
+  .width-2\/10 {
+    grid-column: 2 / 10;
+  }
+
+  .width-3\/10 {
+    grid-column: 3 / 11;
+  }
+
+  .width-7\/12 {
+    grid-column: 7 / 13;
+  }
+}
+
+/* @media (min-width: 48em) {
+  .width-1\/12\@m {
+    grid-column: span 1;
+  }
+} */
+
+/* @media (min-width: 48em) {
+  .width-2\/12\@m {
+    grid-column: span 2;
+  }
+} */
+
+/* More of the same... */
+
+/* @media (min-width: 48em) {
+  .width-12\/12\@m {
+    grid-column: span 12;
+  }
+} */
