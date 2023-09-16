@@ -1,0 +1,183 @@
+---
+// const closeMenu = () => {
+//   document.querySelector('#toggleMenu').checked = false;
+// };
+---
+
+<header class="z-20 fixed sm:sticky top-0 left-0">
+  <nav class="menu flex flex-row justify-end items-center">
+    <input id="toggleMenu" type="checkbox" class="sr-only" />
+    <label
+      for="toggleMenu"
+      class="flex z-10 px-8 py-4 items-center sm:hidden cursor-pointer text-lg"
+    >
+      Menu
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        class="ml-4"
+      >
+        <rect class="line" x="3" y="6" width="18" height="2"></rect>
+        <rect class="line" x="3" y="11" width="18" height="2"></rect>
+        <rect class="line" x="3" y="16" width="18" height="2"></rect>
+      </svg>
+    </label>
+
+    <ul class="menu__list">
+      <!-- @click="closeMenu" -->
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <!-- @click="closeMenu" -->
+      <li>
+        <a href="/projects">Projects</a>
+      </li>
+      <!-- @click="closeMenu" -->
+      <li>
+        <a href="/contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style lang="postcss">
+  header {
+    background: #161b22;
+  }
+  
+  .menu {
+    label {    
+      color: var(--white);
+  
+      svg {
+        fill: var(--white);
+
+        .line {
+          transition: all 0.3s ease;
+        }
+      }
+    }
+  
+    {
+      input:checked {
+        ~ .menu__list {
+          transform: translateX(0);
+        }
+  
+        ~ label svg {
+          .line:nth-of-type(1) {
+            transform-origin: 0 0;
+            transform: rotate(45deg) translate(5px, -7px);
+          }
+          .line:nth-of-type(2) {
+            opacity: 0;
+            transform-origin: 50%;
+          }
+          .line:nth-of-type(3) {
+            transform-origin: 0 0;
+            transform: rotate(-45deg) translate(-12px, 0px);
+          }
+        }
+      }
+    }
+  
+    &__list {
+      position: absolute;
+      z-index: 5;
+  
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 80vw;
+      max-width: 26rem;
+      display: flex;
+      flex-direction: column;
+  
+      transition: all 0.3s ease-out;
+      transform: translateX(100%);
+  
+      background-color: #161b22;
+  
+      li {
+        margin-bottom: 2.625rem;
+        text-align: center;
+  
+        transition: all 0.2s ease;
+        position: relative;
+  
+        overflow-x: hidden;
+  
+        padding-left: 0.6ch;
+        padding-right: 0.6ch;
+  
+        width: min-content;
+        margin-left: auto;
+        margin-right: auto;
+  
+        a {
+          color: var(--white);
+        }
+  
+        &:first-child {
+          margin-top: 6.25rem;
+        }
+  
+        &::before {
+          content: '';
+          position: absolute;
+  
+          top: calc(50% - 2px);
+  
+          height: 2px;
+          width: 100%;
+  
+          background-color: var(--primary);
+  
+          animation-duration: 0.65s;
+          transform: translateX(-110%);
+  
+          pointer-events: none;
+        }
+  
+        &:hover {
+          &::before {
+            animation-name: hoverBar;
+            animation-timing-function: ease;
+          }
+        }
+      }
+    }
+  
+    @screen sm {
+      &__list {
+        flex-direction: row;
+        position: initial;
+        height: initial;
+        width: initial;
+        transform: translateX(0);
+  
+        padding: 1rem 2rem;
+  
+        li {
+          margin: 0 0 0 2.5rem;
+  
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+  
+  @keyframes hoverBar {
+    0% {
+      transform: translateX(-110%);
+    }
+  
+    100% {
+      transform: translateX(110%);
+    }
+  }
+</style>
