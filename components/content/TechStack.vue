@@ -116,7 +116,7 @@ defineProps({
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .techStack {
   margin-bottom: 2rem;
 

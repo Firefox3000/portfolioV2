@@ -12,13 +12,13 @@ defineProps({
 </script>
 
 <template>
-  <a class="iconLink" :href="href">
+  <a class="iconLink text-white" :href="href">
     <img v-if="icon" :src="`/icons/${icon}.svg?inline`" />
     <slot>Link</slot>
   </a>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .iconLink {
   display: inline-flex;
   flex-direction: row;
@@ -27,7 +27,6 @@ defineProps({
   font-size: 0.9rem;
   background: var(--primary);
   border-radius: 0.25rem;
-  color: var(--text);
 
   img {
     margin: 0 0.5rem 0 0;

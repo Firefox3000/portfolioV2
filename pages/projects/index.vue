@@ -62,16 +62,16 @@ useHead({
     <section class="width-3/10 relative">
       <div
         class="glow glow-purple w-[24rem] h-[24rem] top-56 left-44 opacity-20"
-      ></div>
+      />
 
       <div
         class="glow glow-green w-[34rem] h-[34rem] bottom-36 right-56 opacity-20"
         style="animation-delay: 2s"
-      ></div>
+      />
       <div
         class="glow glow-green w-[24rem] h-[24rem] -bottom-2 right-20 opacity-[0.15]"
         style="animation-delay: 4s"
-      ></div>
+      />
 
       <ul class="projects__grid">
         <li
@@ -86,18 +86,18 @@ useHead({
   </main>
 </template>
 
-<style lang="scss">
+<style lang="postcss">
 .projects {
   .titleSide {
     grid-column: span 2;
 
-    @media screen and (min-width: 48rem) {
+    @screen md {
       grid-column: 1;
       writing-mode: vertical-rl;
       text-orientation: mixed;
     }
 
-    @media screen and (min-width: 64rem) {
+    @screen lg {
       grid-column: 2;
     }
   }
@@ -108,14 +108,14 @@ useHead({
     row-gap: 1.5rem;
     grid-template-columns: 1fr;
 
-    @media screen and (min-width: 48rem) {
+    @screen md {
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       grid-auto-rows: min-content;
     }
   }
 
   &__item {
-    // move this css to PostItem?
+    /* move this css to PostItem? */
     overflow: hidden;
   }
 }

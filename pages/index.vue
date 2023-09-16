@@ -116,7 +116,7 @@ useHead({
         </ul>
 
         <a
-          class="h6 moreProjects lineHover flex flex-row items-center ml-auto w-max px-1"
+          class="h6 moreProjects lineHover dark:text-white flex flex-row items-center ml-auto w-max px-1"
           href="/projects"
         >
           Explore projects
@@ -142,21 +142,21 @@ useHead({
       ></div>
 
       <div class="width-7/12">
-        <h2>Like what you see?</h2>
+        <h2 class="font-bold text-6xl mb-4 leading-normal">
+          Like what you see?
+        </h2>
 
-        <a href="/contact" class="button button--purple w-fit">
-          Lets get in contact
-        </a>
+        <a href="/contact" class="button w-fit">Lets get in contact</a>
       </div>
     </section>
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .homePage {
   &__projects {
     .titleSide {
-      @media screen and (min-width: 48rem) {
+      @screen md {
         position: absolute;
         top: 0;
         left: -3.5rem;
@@ -164,9 +164,6 @@ useHead({
         writing-mode: vertical-rl;
         text-orientation: mixed;
       }
-
-      // @media screen and (min-width: 64rem) {
-      // }
     }
 
     .moreProjects {
@@ -182,12 +179,13 @@ useHead({
   &__about {
     h1 {
       max-width: 32ch;
-      line-height: 1.1;
+      line-height: 0.75;
 
       span {
         display: inline-block;
         overflow: hidden;
         margin-right: calc(1em / 8);
+        height: 1.25em;
         font-size: clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem);
       }
     }
@@ -240,15 +238,15 @@ useHead({
     }
 
     @media screen and (min-width: 48rem) {
-      // margin-top: 14rem;
-      // margin-bottom: 6rem;
+      /* margin-top: 14rem; */
+      /* margin-bottom: 6rem; */
     }
   }
 
   &__about2 {
     margin: 4rem auto;
 
-    @media screen and (min-width: 48rem) {
+    @screen md {
       margin-bottom: 5rem;
     }
   }
@@ -262,7 +260,7 @@ useHead({
 
   margin-bottom: 1.6rem;
 
-  @media screen and (min-width: 48rem) {
+  @screen md {
     grid-template-columns: repeat(3, 1fr);
   }
 }

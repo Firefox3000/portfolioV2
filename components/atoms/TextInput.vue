@@ -55,7 +55,7 @@ const emit = defineEmits(['update:value']);
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 div {
   margin-bottom: 2rem;
   position: relative;
@@ -68,7 +68,9 @@ div {
     left: 0;
     transform-origin: top left;
     transform: translate(0, 1.05rem) scale(1);
-    transition: all 0.1s ease-out; //speed
+
+    /* speed */
+    transition: all 0.1s ease-out;
 
     color: rgba(var(--rgbText), 1);
   }
@@ -86,7 +88,7 @@ div {
     border-radius: 0.25rem;
     border: 1px solid rgba(var(--rgbText), 0.5);
 
-    // focused
+    /* focused */
     &:focus {
       color: rgba(var(--rgbText), 0.87);
       border-color: var(--primary);
@@ -96,19 +98,19 @@ div {
       }
     }
 
-    // placeholder base
+    /* placeholder base */
     &::placeholder {
       opacity: 0;
       color: rgba(var(--rgbText), 0.6);
       transition: all 0.1s ease-out;
     }
 
-    // show placeholder top on focus
+    /* show placeholder top on focus */
     &:focus::placeholder {
       opacity: 1;
     }
 
-    // error
+    /* error */
     &:focus:invalid {
       border-color: var(--error);
 
@@ -117,7 +119,7 @@ div {
       }
     }
 
-    // if label active or text is filled
+    /* if label active or text is filled */
     &:focus ~ label,
     &:not(:placeholder-shown) ~ label {
       transform: translateY(-0.35rem) scale(0.75);
@@ -125,7 +127,7 @@ div {
     }
   }
 
-  // input { }
+  /* input { } */
 
   textarea {
     resize: none;

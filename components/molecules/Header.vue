@@ -38,7 +38,7 @@ const closeMenu = () => {
   </header>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 header {
   z-index: 10;
   position: fixed;
@@ -153,7 +153,7 @@ header {
         height: 2px;
         width: 100%;
 
-        // background-color: #ff3c31;
+        /* background-color: #ff3c31; */
         background-color: var(--primary);
 
         animation-duration: 0.65s;
@@ -171,7 +171,7 @@ header {
     }
   }
 
-  @media screen and (min-width: 48rem) {
+  @screen md {
     label {
       display: none;
     }

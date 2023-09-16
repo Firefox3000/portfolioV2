@@ -168,7 +168,7 @@ const sendForm = (ev) => {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .contactPage {
   h1,
   h2 {
@@ -222,16 +222,11 @@ const sendForm = (ev) => {
   }
 }
 
-/* Tablet */
-@media screen and (min-width: 48rem) {
+@screen md {
   h1,
   h2 {
     font-size: 3.75rem;
   }
-}
-
-/* Desktop */
-@media screen and (min-width: 64rem) {
 }
 
 button[type='submit'] {
@@ -285,7 +280,7 @@ button[type='submit'] {
   }
 
   100% {
-    // transform: translateY(-4.8em);
+    /* transform: translateY(-4.8em); */
   }
 }
 </style>

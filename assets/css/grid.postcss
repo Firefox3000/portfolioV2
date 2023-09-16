@@ -26,7 +26,7 @@
   grid-column: span 4;
 }
 
-// More of the same...
+/* More of the same... */
 
 .width-12\/12 {
   grid-column: span 12;
@@ -57,7 +57,7 @@
 }
 
 /* Tablet */
-@media screen and (min-width: 48rem) {
+@screen md {
   .grid {
     grid-template-columns: repeat(8, 1fr);
   }
@@ -84,7 +84,8 @@
 }
 
 /* Desktop */
-@media screen and (min-width: 64rem) {
+
+@screen lg {
   .grid {
     grid-template-columns: repeat(12, 1fr);
   }
@@ -110,22 +111,22 @@
   }
 }
 
-// @media (min-width: 48em) {
-//   .width-1\/12\@m {
-//     grid-column: span 1;
-//   }
-// }
+/* @media (min-width: 48em) {
+  .width-1\/12\@m {
+    grid-column: span 1;
+  }
+} */
 
-// @media (min-width: 48em) {
-//   .width-2\/12\@m {
-//     grid-column: span 2;
-//   }
-// }
+/* @media (min-width: 48em) {
+  .width-2\/12\@m {
+    grid-column: span 2;
+  }
+} */
 
-// // More of the same...
+/* More of the same... */
 
-// @media (min-width: 48em) {
-//   .width-12\/12\@m {
-//     grid-column: span 12;
-//   }
-// }
+/* @media (min-width: 48em) {
+  .width-12\/12\@m {
+    grid-column: span 12;
+  }
+} */

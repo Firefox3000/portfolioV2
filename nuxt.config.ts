@@ -9,7 +9,7 @@ if (
   }/node_modules/canvas/build/Release:${process.env.LD_LIBRARY_PATH || ''}`;
 }
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/content'],
 
@@ -27,28 +27,24 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel',
     prerender: {
-      routes: ['/projects/', '/projects/**', '/contact'],
+      routes: ['/', '/projects/', '/contact'],
     },
   },
 
   /* global CSS */
-  css: ['~/assets/scss/main.scss', '~/assets/css/main.css'],
+  css: ['~/assets/css/main.postcss', '~/assets/css/main.css'],
 
   postcss: {
     plugins: {
+      'postcss-import': {},
+      'tailwindcss/nesting': {},
       tailwindcss: {},
       autoprefixer: {},
     },
   },
 
   /* build modules */
-  // buildModules: ['@nuxtjs/pwa'],
-
-  // pwa: {
-  //   workbox: {
-  //     /* workbox options */
-  //   },
-  // },
+  // buildModules: [],
 
   /* default head */
   app: {

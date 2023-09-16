@@ -1,36 +1,11 @@
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 * {
   scroll-behavior: smooth;
-}
-
-li[class] {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-button,
-input[type="submit"] {
-  cursor: pointer;
-  background: none;
-  outline: none;
-  border: none;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
   *,
   *::before,

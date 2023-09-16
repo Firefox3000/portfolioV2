@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .nodegrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));

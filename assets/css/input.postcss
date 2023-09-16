@@ -1,9 +1,9 @@
-// buttons
+/* buttons */
 .button {
   display: inline-block;
   text-transform: uppercase;
   font-weight: bold;
-  color: var(--primary);
+  @apply text-[var(--primary)] dark:text-purple-500;
   border: 1px solid rgba(var(--rgbText), 0.5);
   padding: 0.5rem 0.8rem;
   border-radius: 0.25rem;
@@ -12,8 +12,8 @@
   transition: all 0.1s ease-out;
 
   &::before {
-    content: "";
-    background: rgba(98, 0, 238, 0.12);
+    content: '';
+    background-color: rgba(98, 0, 238, 0.12);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -36,11 +36,11 @@
 
   &:focus {
     outline: none;
-    background: rgba(98, 0, 238, 0.12);
+    background-color: rgba(98, 0, 238, 0.12);
   }
 }
 
-// slider
+/* slider */
 .slidecontainer {
   display: flex;
   flex-direction: row;
@@ -54,7 +54,7 @@
 .slider {
   -webkit-appearance: none;
   appearance: none;
-  // width: 200px;
+  /* width: 200px; */
   height: 2px;
   border-radius: 1rem;
   background-color: rgba(98, 0, 238, 0.38);
@@ -80,7 +80,7 @@
   opacity: 0.8;
 }
 
-/** Firefox support*/
+/* Firefox support */
 .slider::-moz-range-progress {
   background-color: var(--primary);
   border-radius: 20rem 0 0 20rem;

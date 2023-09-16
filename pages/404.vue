@@ -160,7 +160,7 @@ onUnmounted(() => {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 h1 {
   font-size: clamp(2rem, 0.875rem + 5vw, 3.5rem);
   margin-bottom: 0.25ch;
