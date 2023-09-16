@@ -116,7 +116,7 @@ useHead({
         </ul>
 
         <a
-          class="h6 moreProjects lineHover flex flex-row items-center ml-auto w-max px-1"
+          class="h6 moreProjects lineHover dark:text-white flex flex-row items-center ml-auto w-max px-1"
           href="/projects"
         >
           Explore projects
@@ -142,11 +142,11 @@ useHead({
       ></div>
 
       <div class="width-7/12">
-        <h2>Like what you see?</h2>
+        <h2 class="font-bold text-6xl mb-4 leading-normal">
+          Like what you see?
+        </h2>
 
-        <a href="/contact" class="button button--purple w-fit">
-          Lets get in contact
-        </a>
+        <a href="/contact" class="button w-fit">Lets get in contact</a>
       </div>
     </section>
   </main>
