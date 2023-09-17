@@ -81,7 +81,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="">
-  <main class="contactPage overflow-x-hidden pt-24">
+  <main class="contactPage pt-24 container">
     <section class="grid relative">
       <h1 class="width-4/9 h2">Let's get in contact</h1>
 
@@ -116,7 +116,7 @@ import Layout from '../layouts/Layout.astro';
         v-model:value="message"
       /> -->
 
-        <button type="submit" class="button flex-col ml-auto">
+        <button type="submit" class="button flex flex-col ml-auto">
           <!-- :class="{ clicked: clicked }" -->
           <span>Send Message</span>
           <!-- <span>Sending...</span>
@@ -229,7 +229,6 @@ import Layout from '../layouts/Layout.astro';
   }
   
   button[type='submit'] {
-    display: flex;
   
     span {
       &:nth-child(2) {

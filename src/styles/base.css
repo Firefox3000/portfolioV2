@@ -1,0 +1,17 @@
+/* @import '@fontsource/work-sans/variable.css'; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .orientation-mixed {
+    text-orientation: mixed;
+  }
+
+  .writing-vertical {
+    writing-mode: vertical-rl;
+  }
+
+  /* TODO: add side title */
+}

@@ -63,8 +63,10 @@ const posts = (await getCollection('projects'))
 ---
 
 <Layout title="">
-  <main class="grid projects pt-24 pb-12 overflow-x-hidden">
-    <h1 class="width-3/10 h3 titleSide col-span-2">Projects</h1>
+  <main
+    class="grid projects pt-24 pb-12 overflow-x-hidden md:grid-cols-8 lg:grid-cols-12 container"
+  >
+    <h1 class="width-3/10 h3 titleSide col-span-2 span">Projects</h1>
     <section class="width-3/10 relative">
       <div
         class="glow glow-purple w-[24rem] h-[24rem] top-56 left-44 opacity-20"
@@ -83,30 +85,22 @@ const posts = (await getCollection('projects'))
       </div>
 
       <ul
-        class="projects__grid grid gap-6 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(20rem,1fr))]"
+        class="grid md:grid-flow-row-dense gap-6 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]"
       >
         {
           posts.map((post) => (
-            <li class="projects__item aspect-1">
+            <li class="aspect-1 overflow-hidden">
               <ProjectCard {...post} />
             </li>
           ))
         }
       </ul>
-      <!-- // <AtomsPostItem :article="article" :loadlazy="index >= 6" /> -->
     </section>
-
-    <!-- <pre class="text-white">
-      {JSON.stringify(posts, null, 2)}
-    </pre> -->
   </main>
 </Layout>
 
 <style lang="postcss">
-  .projects {
-    .titleSide {
-      /* grid-column: span 2; */
-  
+    .titleSide {  
       @screen md {
         grid-column: 1;
         writing-mode: vertical-rl;
@@ -116,23 +110,5 @@ const posts = (await getCollection('projects'))
       @screen lg {
         grid-column: 2;
       }
-    }
-  
-    &__grid {
-      /* display: grid;
-      column-gap: 1.5rem;
-      row-gap: 1.5rem; */
-      /* grid-template-columns: 1fr; */
-  
-      @screen md {
-        /* grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); */
-        grid-auto-rows: min-content;
-      }
-    }
-  
-    &__item {
-      /* move this css to PostItem? */
-      overflow: hidden;
-    }
   }
   </style>
