@@ -16,8 +16,8 @@ const posts = (await getCollection('projects'))
 ---
 
 <Layout title="">
-  <main class="homePage container">
-    <section class="grid homePage__about mt-48 mb-24 relative">
+  <main class="max-w-full overflow-x-hidden">
+    <section class="mt-48 mb-24 relative max-w-full">
       <div
         class="glow glow-purple w-[24rem] h-[24rem] top-56 -right-20 opacity-20"
       >
@@ -33,24 +33,30 @@ const posts = (await getCollection('projects'))
       >
       </div>
 
-      <div class="relative width-3/10">
-        <h1 class="h2 leading-[0.75]">
-          <span class="mask"><span>Hey, I'm Sam.</span></span>
-          <span class="mask" style="--order: 1"><span>I'm</span></span>
-          <span class="mask" style="--order: 2"><span>a</span></span>
-          <span class="mask" style="--order: 3"><span>front</span></span>
-          <span class="mask" style="--order: 4"><span>end</span></span>
-          <span class="mask" style="--order: 5"><span>developer</span></span>
-          <span class="mask" style="--order: 6"><span>creating</span></span>
-          <span class="mask" style="--order: 7"><span>digital</span></span>
-          <span class="mask" style="--order: 8"><span>experiences</span></span>
-        </h1>
+      <div class="grid container">
+        <div class="relative width-3/10">
+          <h1 class="h2 leading-[0.75]">
+            <span class="mask"><span>Hey, I'm Sam.</span></span>
+            <span class="mask" style="--order: 1"><span>I'm</span></span>
+            <span class="mask" style="--order: 2"><span>a</span></span>
+            <span class="mask" style="--order: 3"><span>front</span></span>
+            <span class="mask" style="--order: 4"><span>end</span></span>
+            <span class="mask" style="--order: 5"><span>developer</span></span>
+            <span class="mask" style="--order: 6"><span>creating</span></span>
+            <span class="mask" style="--order: 7"><span>digital</span></span>
+            <span class="mask" style="--order: 8"><span>experiences</span></span
+            >
+          </h1>
 
-        <a class="scroll" href="#whatIdo">scroll</a>
+          <a class="scroll" href="#whatIdo">scroll</a>
+        </div>
       </div>
     </section>
 
-    <section id="whatIdo" class="grid relative md: mb-20 mx-auto my-16">
+    <section
+      id="whatIdo"
+      class="grid relative mb-20 mx-auto my-16 max-w-full container"
+    >
       <div class="width-4/9">
         <h2 class="h3">What do I do</h2>
         <p>
@@ -60,81 +66,80 @@ const posts = (await getCollection('projects'))
       </div>
     </section>
 
-    <section class="grid homePage__projects relative mb-16">
+    <section class="grid homePage__projects relative mb-16 max-w-full">
       <div
         class="glow glow-green w-[24rem] h-[24rem] top-32 right-24 opacity-10"
       >
       </div>
 
-      <div class="relative width-3/10">
-        <h2
-          class="h5 titleSide md:absolute md:top-0 md:-left-14 orientation-mixed writing-vertical"
-        >
-          Recent projects
-        </h2>
-
-        <ul class="grid grid-cols-1 sm:grid-cols-2 mb-6 md:grid-cols-3 gap-y-6">
-          {
-            posts.map((post) => (
-              <li class="aspect-1 overflow-hidden">
-                <ProjectCard {...post} />
-              </li>
-            ))
-          }
-        </ul>
-
-        <a
-          class="h6 moreProjects lineHover dark:text-white flex flex-row items-center ml-auto w-max px-1"
-          href="/projects"
-        >
-          Explore projects
-          <svg
-            width="49"
-            height="32"
-            viewBox="0 0 49 32"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-3 w-auto ml-4 fill-current"
+      <div class="grid container relative">
+        <div class="width-3/10">
+          <h2
+            class="h5 titleSide md:absolute md:top-0 mb-4 md:-left-14 md:orientation-mixed md:mb-0 md:writing-vertical"
           >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M32.3182 0L48.1385 15.5691L32.3182 31.1382L30.2139 29L42.3373 17.0691H0V14.0691H42.3373L30.2139 2.13823L32.3182 0Z"
-            ></path>
-          </svg>
-        </a>
+            Recent projects
+          </h2>
+
+          <ul
+            class="grid grid-cols-1 sm:grid-cols-2 mb-6 md:grid-cols-3 gap-y-6"
+          >
+            {
+              posts.map((post) => (
+                <li class="aspect-1 overflow-hidden">
+                  <ProjectCard {...post} />
+                </li>
+              ))
+            }
+          </ul>
+
+          <a
+            class="h6 moreProjects lineHover dark:text-white flex flex-row items-center ml-auto w-max px-1"
+            href="/projects"
+          >
+            Explore projects
+            <svg
+              width="49"
+              height="32"
+              viewBox="0 0 49 32"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-3 w-auto ml-4 fill-current"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M32.3182 0L48.1385 15.5691L32.3182 31.1382L30.2139 29L42.3373 17.0691H0V14.0691H42.3373L30.2139 2.13823L32.3182 0Z"
+              ></path>
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="grid pb-52 relative">
+    <section class="pb-52 relative max-w-full">
       <div
         class="glow glow-purple w-[24rem] h-[24rem] top-0 left-24 opacity-20"
       >
       </div>
 
-      <div class="width-7/12">
-        <h2 class="font-bold text-6xl mb-4 leading-normal">
-          Like what you see?
-        </h2>
+      <div class="grid container">
+        <div class="width-7/12">
+          <h2 class="font-bold text-6xl mb-4 leading-normal">
+            Like what you see?
+          </h2>
 
-        <a href="/contact" class="button w-fit">Lets get in contact</a>
+          <a href="/contact" class="button w-fit">Lets get in contact</a>
+        </div>
       </div>
     </section>
   </main>
-</Layout>
 
-<style lang="postcss">
-	.glow {
-		/* z-index: 10; */
-	}
-
-	.homePage__about {
-			h1 span {
+  <style lang="postcss">
+	 h1 span {
 					display: inline-block;
 					overflow: hidden;
 					margin-right: calc(1em / 8);
 					height: 1.25em;
 					font-size: clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem);
-				}
 	}
 
 	.mask {
@@ -211,3 +216,4 @@ const posts = (await getCollection('projects'))
 		}
 	}
 </style>
+</Layout>
