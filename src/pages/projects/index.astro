@@ -1,14 +1,18 @@
 ---
-// // TODO add url filters
-// const data = await queryContent('/projects/')
-//   .only(['title', 'description', 'img', 'slug', 'createdAt', 'alt'])
-//   .where({ status: 'public' })
-//   .find();
-// const articles = data.sort(
-//   (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-// );
-
+import ProjectCard from '../../components/ProjectCard.astro';
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// import BaseHead from '../../components/BaseHead.astro';
+
+// TODO add optional url filters?
+const posts = (await getCollection('projects'))
+  .filter((post) => post.data.status === 'public')
+  .sort(
+    (a, b) =>
+      new Date(b.data.createdAt).getTime() -
+      new Date(a.data.createdAt).getTime()
+  );
 
 // useHead({
 //   title: 'Projects',
@@ -79,17 +83,22 @@ import Layout from '../../layouts/Layout.astro';
       </div>
 
       <ul
-        class="projects__grid grid gap-6 grid-cols-1 grid-cols-[repeat(auto-fit, minmax(20rem, 1fr)]"
+        class="projects__grid grid gap-6 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(20rem,1fr))]"
       >
-        <li
-          v-for="(article, index) of articles"
-          :key="article.slug"
-          class="projects__item aspect-1"
-        >
-          <!-- <AtomsPostItem :article="article" :loadlazy="index >= 6" /> -->
-        </li>
+        {
+          posts.map((post) => (
+            <li class="projects__item aspect-1">
+              <ProjectCard {...post} />
+            </li>
+          ))
+        }
       </ul>
+      <!-- // <AtomsPostItem :article="article" :loadlazy="index >= 6" /> -->
     </section>
+
+    <!-- <pre class="text-white">
+      {JSON.stringify(posts, null, 2)}
+    </pre> -->
   </main>
 </Layout>
 

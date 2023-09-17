@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+// import Card from '../components/ProjectCard.astro';
 ---
 
 <Layout title="">
@@ -58,11 +58,8 @@ import Card from '../components/Card.astro';
         <h2 class="h5 titleSide">Recent projects</h2>
 
         <ul class="highlighted">
-          <li
-            v-for="article of articles"
-            :key="article.slug"
-            class="projects__item aspect-1"
-          >
+          <!-- map over li -->
+          <li class="projects__item aspect-1">
             <!-- <AtomsPostItem :article="article" /> -->
           </li>
         </ul>

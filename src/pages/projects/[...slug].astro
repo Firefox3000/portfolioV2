@@ -1,0 +1,26 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import IconLink from '../../components/IconLink.astro';
+import TechStack from '../../components/TechStack.astro';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('projects');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<'projects'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title="">
+  <main class="my-10">
+    <article class="prose dark:prose-invert container">
+      <Content components={{ IconLink, TechStack }} />
+    </article>
+  </main>
+</Layout>
