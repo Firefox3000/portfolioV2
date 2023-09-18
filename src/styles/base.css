@@ -5,13 +5,17 @@
 @tailwind utilities;
 
 @layer base {
-  .orientation-mixed {
-    text-orientation: mixed;
-  }
+	.orientation-mixed {
+		text-orientation: mixed;
+	}
 
-  .writing-vertical {
-    writing-mode: vertical-rl;
-  }
+	.writing-vertical {
+		writing-mode: vertical-rl;
+	}
 
-  /* TODO: add side title */
+	.text-balance {
+		text-wrap: balance;
+	}
+
+	/* TODO: add side title */
 }

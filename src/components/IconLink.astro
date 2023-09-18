@@ -1,23 +1,16 @@
 ---
 interface Props {
-  icon: string;
-  href: string;
+	icon: string;
+	href: string;
 }
 
 const { icon, href } = Astro.props;
 ---
 
 <a
-  class="py-1.5 pr-4 pl-3 no-underline not-prose hover:bg-purple-700 transition-colors hover:no-underline cursor-pointer hover:text-white bg-purple-600 text-white inline-flex flex-row items-center text-base rounded mr-2"
-  href={href}
+	class="py-1.5 pr-4 pl-3 no-underline not-prose hover:bg-purple-700 transition-colors hover:no-underline cursor-pointer hover:text-white bg-purple-600 text-white inline-flex flex-row items-center text-base rounded mr-2"
+	href={href}
 >
-  {
-    icon && (
-      <img
-        src={`/icons/${icon}.svg?inline`}
-        class="w-auto m-0 h-5 mr-2 invert-[1]"
-      />
-    )
-  }
-  <slot>Link</slot>
+	{icon && <img src={`/icons/${icon}.svg?inline`} class="w-auto m-0 h-5 mr-2 invert-[1]" />}
+	<slot>Link</slot>
 </a>
