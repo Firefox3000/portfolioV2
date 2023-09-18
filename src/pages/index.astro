@@ -6,215 +6,198 @@ import { getCollection } from 'astro:content';
 // import BaseHead from '../../components/BaseHead.astro';
 
 const posts = (await getCollection('projects'))
-  .filter((post) => post.data.status === 'public')
-  .sort(
-    (a, b) =>
-      new Date(b.data.createdAt).getTime() -
-      new Date(a.data.createdAt).getTime()
-  )
-  .slice(0, 3);
+	.filter((post) => post.data.status === 'public')
+	.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime())
+	.slice(0, 3);
 ---
 
 <Layout title="">
-  <!-- TODO: fix overflow y issue on smaller screens -->
-  <main class="max-w-full overflow-x-hidden">
-    <section class="mt-48 mb-24 relative max-w-full">
-      <div
-        class="glow glow-purple w-[24rem] h-[24rem] top-56 -right-20 opacity-20"
-      >
-      </div>
-      <div
-        class="glow glow-green w-[24rem] h-[24rem] top-96 left-36 opacity-20"
-        style="animation-delay: 2s"
-      >
-      </div>
-      <div
-        class="glow glow-green2 w-[34rem] h-[34rem] -top-20 -left-44 opacity-20"
-        style="animation-delay: 4s"
-      >
-      </div>
+	<!-- TODO: fix overflow y issues -->
+	<main class="max-w-full overflow-x-hidden">
+		<section class="mt-48 mb-24 relative max-w-full">
+			<div class="container">
+				<div class="glow glow-purple w-[24rem] h-[24rem] top-56 -right-20 opacity-20"></div>
+				<div
+					class="glow glow-green w-[24rem] h-[24rem] top-96 left-36 opacity-20"
+					style="animation-delay: 2s"
+				>
+				</div>
+				<div
+					class="glow glow-green2 w-[34rem] h-[34rem] -top-20 -left-44 opacity-20"
+					style="animation-delay: 4s"
+				>
+				</div>
 
-      <div class="grid container">
-        <div class="relative width-3/10">
-          <h1 class="h2 leading-[0.75]">
-            <span class="mask"><span>Hey, I'm Sam.</span></span>
-            <span class="mask" style="--order: 1"><span>I'm</span></span>
-            <span class="mask" style="--order: 2"><span>a</span></span>
-            <span class="mask" style="--order: 3"><span>front</span></span>
-            <span class="mask" style="--order: 4"><span>end</span></span>
-            <span class="mask" style="--order: 5"><span>developer</span></span>
-            <span class="mask" style="--order: 6"><span>creating</span></span>
-            <span class="mask" style="--order: 7"><span>digital</span></span>
-            <span class="mask" style="--order: 8"><span>experiences</span></span
-            >
-          </h1>
+				<div class="grid md:grid-cols-8 lg:grid-cols-12">
+					<div class="relative width-3/10">
+						<h1 class="h2 leading-[0.75]">
+							<span class="mask"><span>Hey, I'm Sam.</span></span>
+							<span class="mask" style="--order: 1"><span>I'm</span></span>
+							<span class="mask" style="--order: 2"><span>a</span></span>
+							<span class="mask" style="--order: 3"><span>front</span></span>
+							<span class="mask" style="--order: 4"><span>end</span></span>
+							<span class="mask" style="--order: 5"><span>developer</span></span>
+							<span class="mask" style="--order: 6"><span>creating</span></span>
+							<span class="mask" style="--order: 7"><span>digital</span></span>
+							<span class="mask" style="--order: 8"><span>experiences</span></span>
+						</h1>
 
-          <a class="scroll" href="#whatIdo">scroll</a>
-        </div>
-      </div>
-    </section>
+						<a class="scroll" href="#whatIdo">scroll</a>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    <section
-      id="whatIdo"
-      class="grid relative mb-20 mx-auto my-16 max-w-full container"
-    >
-      <div class="width-4/9">
-        <h2 class="h3">What do I do</h2>
-        <p>
-          Apart from Front end development, I am also intrested things like game
-          development, programming, and 3D modeling
-        </p>
-      </div>
-    </section>
+		<section id="whatIdo" class="relative mb-20 mt-16 max-w-full">
+			<div class="container">
+				<div class="w-full md:w-5/12 mx-auto">
+					<h2 class="h3 font-medium mb-2">What do I do</h2>
+					<p>
+						Apart from Front end development, I am also intrested things like game development,
+						programming, and 3D modeling
+					</p>
+				</div>
+			</div>
+		</section>
 
-    <section class="grid homePage__projects relative mb-16 max-w-full">
-      <div
-        class="glow glow-green w-[24rem] h-[24rem] top-32 right-24 opacity-10"
-      >
-      </div>
+		<section class="homePage__projects relative mb-16 max-w-full">
+			<div class="glow glow-green w-[24rem] h-[24rem] top-32 right-24 opacity-10"></div>
 
-      <div class="grid container relative">
-        <div class="width-3/10">
-          <h2
-            class="h5 titleSide md:absolute md:top-0 mb-4 md:-left-14 md:orientation-mixed md:mb-0 md:writing-vertical"
-          >
-            Recent projects
-          </h2>
+			<div class="grid md:grid-cols-8 lg:grid-cols-12 container relative">
+				<div class="grid width-3/10">
+					<h2
+						class="h5 titleSide md:absolute md:top-0 mb-4 md:-left-14 md:mb-0 md:orientation-mixed md:writing-vertical"
+					>
+						Recent projects
+					</h2>
 
-          <ul
-            class="grid grid-cols-1 sm:grid-cols-2 mb-6 md:grid-cols-3 gap-y-6"
-          >
-            {
-              posts.map((post) => (
-                <li class="aspect-1 overflow-hidden">
-                  <ProjectCard {...post} />
-                </li>
-              ))
-            }
-          </ul>
+					<ul class="grid grid-cols-1 sm:grid-cols-2 mb-6 md:grid-cols-3 gap-y-6">
+						{
+							posts.map((post) => (
+								<li class="aspect-1 overflow-hidden">
+									<ProjectCard {...post} />
+								</li>
+							))
+						}
+					</ul>
 
-          <a
-            class="h6 moreProjects lineHover dark:text-white flex flex-row items-center ml-auto w-max px-1"
-            href="/projects"
-          >
-            Explore projects
-            <svg
-              width="49"
-              height="32"
-              viewBox="0 0 49 32"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-3 w-auto ml-4 fill-current"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M32.3182 0L48.1385 15.5691L32.3182 31.1382L30.2139 29L42.3373 17.0691H0V14.0691H42.3373L30.2139 2.13823L32.3182 0Z"
-              ></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
+					<a
+						class="h6 moreProjects lineHover dark:text-white flex flex-row items-center ml-auto w-max px-1"
+						href="/projects"
+					>
+						Explore projects
+						<svg
+							width="49"
+							height="32"
+							viewBox="0 0 49 32"
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-3 w-auto ml-4 fill-current"
+						>
+							<path
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+								d="M32.3182 0L48.1385 15.5691L32.3182 31.1382L30.2139 29L42.3373 17.0691H0V14.0691H42.3373L30.2139 2.13823L32.3182 0Z"
+							></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</section>
 
-    <section class="pb-52 relative max-w-full">
-      <div
-        class="glow glow-purple w-[24rem] h-[24rem] top-0 left-24 opacity-20"
-      >
-      </div>
+		<section class="pb-52 relative max-w-full overflow-visible">
+			<!-- <div class="glow glow-purple w-[24rem] h-[24rem] top-0 left-24 opacity-20"></div> -->
 
-      <div class="grid container">
-        <div class="width-7/12">
-          <h2 class="font-bold text-6xl mb-4 leading-normal">
-            Like what you see?
-          </h2>
+			<div class="grid container md:grid-cols-8 lg:grid-cols-12">
+				<div class="width-7/12">
+					<h2 class="font-bold text-6xl mb-4 leading-normal">Like what you see?</h2>
 
-          <a href="/contact" class="button w-fit">Lets get in contact</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <style lang="postcss">
-	 h1 span {
-					display: inline-block;
-					overflow: hidden;
-					margin-right: calc(1em / 8);
-					height: 1.25em;
-					font-size: clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem);
-	}
-
-	.mask {
-				&:nth-child(n + 2) span {
-					transform: translateY(3em);
-	
-					animation: dropIn 1s ease forwards;
-					animation-delay: calc(var(--order) * 100ms);
-	
-					@media (prefers-reduced-motion) {
-						animation-delay: 0s;
-					}
-				}
-			}
-
-	.scroll {
-				display: block;
-				width: max-content;
-	
-				position: relative;
-				margin: 0 auto;
-				color: var(--text);
-	
-				&::before {
-					content: '';
-					position: absolute;
-					background-color: currentColor;
-	
-					width: 150%;
-					height: 1px;
-	
-					border-radius: 1rem;
-					transition: all 0.2s ease-out;
-	
-					left: -22.5%;
-					bottom: -0.3rem;
-				}
-	
-				&:hover,
-				&:focus {
-					outline: none;
-	
-					&::before {
-						transform: translateX(-12.5%);
-						width: 200%;
-					}
-				}
-			}
-	
-	@keyframes dropIn {
-		from {
-			transform: translateY(3em);
-		}
-		to {
-			transform: translateY(0);
-		}
-	}
-	
-	@keyframes glowMotion {
-		0% {
-			transform: translateZ(0) scale(1);
-		}
-	
-		33% {
-			transform: translate3d(20px, -10px, 0) scale(1.01);
-		}
-	
-		66% {
-			transform: translate3d(-20px, 20px, 0) scale(0.95);
-		}
-	
-		100% {
-			transform: tranlate3d(0, 0, 0) scale(1);
-		}
-	}
-</style>
+					<a href="/contact" class="button w-fit">Lets get in contact</a>
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<style lang="postcss">
+h1 span {
+  display: inline-block;
+  overflow: hidden;
+  margin-right: calc(1em / 8);
+  height: 1.25em;
+  font-size: clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem);
+}
+
+.mask {
+  &:nth-child(n + 2) span {
+    transform: translateY(3em);
+
+    animation: dropIn 1s ease forwards;
+    animation-delay: calc(var(--order) * 100ms);
+
+    @media (prefers-reduced-motion) {
+      animation-delay: 0s;
+    }
+  }
+}
+
+.scroll {
+  display: block;
+  width: max-content;
+
+  position: relative;
+  margin: 0 auto;
+  color: var(--text);
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: currentColor;
+
+    width: 150%;
+    height: 1px;
+
+    border-radius: 1rem;
+    transition: all 0.2s ease-out;
+
+    left: -22.5%;
+    bottom: -0.3rem;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+
+    &::before {
+      transform: translateX(-12.5%);
+      width: 200%;
+    }
+  }
+}
+	
+@keyframes dropIn {
+  from {
+    transform: translateY(3em);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowMotion {
+  0% {
+    transform: translateZ(0) scale(1);
+  }
+
+  33% {
+    transform: translate3d(20px, -10px, 0) scale(1.01);
+  }
+
+  66% {
+    transform: translate3d(-20px, 20px, 0) scale(0.95);
+  }
+
+  100% {
+    transform: tranlate3d(0, 0, 0) scale(1);
+  }
+}
+</style>
