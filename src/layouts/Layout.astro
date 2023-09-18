@@ -1,88 +1,93 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import '../styles/main.postcss';
 import '../styles/base.css';
+import BaseHead from '../components/BaseHead.astro';
 
 interface Props {
-  title: string;
+	title: string;
+	description?: string;
+	image?: string;
 }
 
-const { title } = Astro.props;
+const { title, description, image } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body class="overflow-x-hidden">
-    <Header />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta name="generator" content={Astro.generator} />
+		<BaseHead {title} {description} {image} />
+		<ViewTransitions />
+	</head>
+	<body class="overflow-x-hidden">
+		<Header />
 
-    <slot />
+		<slot />
 
-    <Footer />
-  </body>
+		<Footer />
+		<style is:global>
+			:root {
+				--black: #000;
+				--white: #fff;
+
+				--medium-black: #292929;
+				--light-black: #121212;
+
+				--purple-500: #6200ee;
+				--purple-700: #3700b3;
+				--green-500: #03dac6;
+				--green-700: #018786;
+
+				--primary: var(--purple-500);
+				--primary-dark: var(--purple-700);
+				--secondary: var(--green-500);
+				--secondary-dark: var(--green-700);
+
+				--surface: #fff;
+				--text: #111517;
+				--rgbText: 0, 0, 0;
+				--error: #b00020;
+				--background: var(--white);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--surface: #121212;
+					--text: var(--white);
+					--rgbText: 255, 255, 255;
+					--error: #cf6679;
+					--background: #0d1117;
+				}
+			}
+
+			.dark {
+				--background: #0d1117;
+				--text: var(--white);
+			}
+
+			html {
+				font-family: system-ui, sans-serif;
+				background: #13151a;
+			}
+			code {
+				font-family:
+					Menlo,
+					Monaco,
+					Lucida Console,
+					Liberation Mono,
+					DejaVu Sans Mono,
+					Bitstream Vera Sans Mono,
+					Courier New,
+					monospace;
+			}
+		</style>
+	</body>
 </html>
-<style is:global>
-  :root {
-    --black: #000;
-    --white: #fff;
-
-    --medium-black: #292929;
-    --light-black: #121212;
-
-    --purple-500: #6200ee;
-    --purple-700: #3700b3;
-    --green-500: #03dac6;
-    --green-700: #018786;
-
-    --primary: var(--purple-500);
-    --primary-dark: var(--purple-700);
-    --secondary: var(--green-500);
-    --secondary-dark: var(--green-700);
-
-    --surface: #fff;
-    --text: #111517;
-    --rgbText: 0, 0, 0;
-    --error: #b00020;
-    --background: var(--white);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --surface: #121212;
-      --text: var(--white);
-      --rgbText: 255, 255, 255;
-      --error: #cf6679;
-      --background: #0d1117;
-    }
-  }
-
-  .dark {
-    --background: #0d1117;
-    --text: var(--white);
-  }
-
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>
