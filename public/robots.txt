@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://<YOUR SITE>/sitemap-index.xml
+Sitemap: https://schelpkikker.nl/sitemap-index.xml
