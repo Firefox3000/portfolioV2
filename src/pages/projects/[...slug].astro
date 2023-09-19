@@ -17,7 +17,7 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout title={post.data.title} description={post.data.description} image={post.data.img}>
+<Layout title={post.data.title} description={post.data.description} image={post.data.img} follow>
 	<main class="my-10 container">
 		<article class="prose dark:prose-invert container">
 			<Content components={{ IconLink, TechStack }} />

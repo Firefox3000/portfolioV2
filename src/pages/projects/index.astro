@@ -3,112 +3,56 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-// import BaseHead from '../../components/BaseHead.astro';
-
 // TODO add optional url filters?
 const posts = (await getCollection('projects'))
-  .filter((post) => post.data.status === 'public')
-  .sort(
-    (a, b) =>
-      new Date(b.data.createdAt).getTime() -
-      new Date(a.data.createdAt).getTime()
-  );
-
-// useHead({
-//   title: 'Projects',
-//   meta: [
-//     {
-//       hid: 'ogtitle',
-//       property: 'og:title',
-//       content: 'Projects',
-//     },
-//     {
-//       hid: 'description',
-//       name: 'description',
-//       content: 'See all my recent projects',
-//     },
-//     {
-//       hid: 'ogdescription ',
-//       property: 'og:description ',
-//       content: 'See all my recent projects',
-//     },
-
-//     {
-//       hid: 'ogurl',
-//       property: 'og:url',
-//       content: 'http://schelpkikker.nl/projects',
-//     },
-//     {
-//       hid: 'og:image',
-//       property: 'og:image',
-//       content: 'http://schelpkikker.nl/logo.png',
-//     },
-//     {
-//       hid: 'keywords',
-//       property: 'keywords',
-//       content: 'Projects',
-//     },
-//     {
-//       hid: 'robots',
-//       name: 'robots',
-//       content: 'index, follow',
-//     },
-//     {
-//       hid: 'googlebot',
-//       name: 'googlebot',
-//       content: 'index, follow',
-//     },
-//   ],
-// });
+	.filter((post) => post.data.status === 'public')
+	.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime());
 ---
 
-<Layout title="">
-  <main
-    class="grid projects pt-24 pb-12 overflow-x-hidden md:grid-cols-8 lg:grid-cols-12 container"
-  >
-    <h1 class="width-3/10 h3 titleSide col-span-2 span">Projects</h1>
-    <section class="width-3/10 relative">
-      <div
-        class="glow glow-purple w-[24rem] h-[24rem] top-56 left-44 opacity-20"
-      >
-      </div>
+<Layout
+	title="Projects"
+	description="See all my recent projects"
+	image="http://schelpkikker.nl/logo.png"
+	follow
+>
+	<main class="pt-24 pb-12 overflow-x-hidden">
+		<section class="relative container max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto">
+			<h1 class="h3 titleSide mb-4 md:mb-0">Projects</h1>
 
-      <div
-        class="glow glow-green w-[34rem] h-[34rem] bottom-36 right-56 opacity-20"
-        style="animation-delay: 2s"
-      >
-      </div>
-      <div
-        class="glow glow-green w-[24rem] h-[24rem] -bottom-2 right-20 opacity-[0.15]"
-        style="animation-delay: 4s"
-      >
-      </div>
+			<div class="glow glow-purple w-[24rem] h-[24rem] top-56 left-44 opacity-20"></div>
 
-      <ul
-        class="grid md:grid-flow-row-dense gap-6 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]"
-      >
-        {
-          posts.map((post) => (
-            <li class="aspect-1 overflow-hidden">
-              <ProjectCard {...post} />
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-  </main>
+			<div
+				class="glow glow-green w-[34rem] h-[34rem] bottom-36 right-56 opacity-20"
+				style="animation-delay: 2s"
+			>
+			</div>
+			<div
+				class="glow glow-green w-[24rem] h-[24rem] -bottom-2 right-20 opacity-[0.15]"
+				style="animation-delay: 4s"
+			>
+			</div>
+
+			<ul
+				class="grid md:grid-flow-row-dense gap-6 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(18rem,1fr))]"
+			>
+				{
+					posts.map((post) => (
+						<li class="aspect-1 overflow-hidden">
+							<ProjectCard {...post} />
+						</li>
+					))
+				}
+			</ul>
+		</section>
+	</main>
 </Layout>
 
 <style lang="postcss">
     .titleSide {  
       @screen md {
-        grid-column: 1;
         writing-mode: vertical-rl;
         text-orientation: mixed;
-      }
-  
-      @screen lg {
-        grid-column: 2;
+        @apply absolute -left-[1em] top-0;
       }
   }
   </style>

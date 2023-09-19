@@ -6,27 +6,9 @@ import TextInput from '../components/TextInput.astro';
 const title = 'Contact';
 const description = 'Where to find me on other platforms, or contact me if you have any questions';
 const image = '/logo.png';
-
-//     {
-//       hid: 'keywords',
-//       property: 'keywords',
-//       content: 'Contact, mail',
-//     },
-//     {
-//       hid: 'robots',
-//       name: 'robots',
-//       content: 'index, follow',
-//     },
-//     {
-//       hid: 'googlebot',
-//       name: 'googlebot',
-//       content: 'index, follow',
-//     },
-//   ],
-// });
 ---
 
-<Layout {title} {description} {image}>
+<Layout {title} {description} {image} follow>
 	<main class="contactPage pt-24 container">
 		<section class="w-full sm:w-3/4 md:w-1/2 mx-auto">
 			<h1 class="h2 max-w-2xl text-5xl md:text-6xl">Let's get in contact</h1>

@@ -3,18 +3,21 @@ import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 
-// import BaseHead from '../../components/BaseHead.astro';
-
 const posts = (await getCollection('projects'))
 	.filter((post) => post.data.status === 'public')
 	.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime())
 	.slice(0, 3);
 ---
 
-<Layout title="">
+<Layout
+	title="Portfolio | Sam de Kanter"
+	description="Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam."
+	image="http://schelpkikker.nl/logo.png"
+	follow
+>
 	<!-- TODO: fix overflow y issues -->
 	<main class="max-w-full overflow-x-hidden">
-		<section class="mt-48 mb-24 relative max-w-full">
+		<section class="mt-44 mb-24 relative max-w-full">
 			<div class="container">
 				<div class="glow glow-purple w-[24rem] h-[24rem] top-56 -right-20 opacity-20"></div>
 				<div
@@ -28,45 +31,41 @@ const posts = (await getCollection('projects'))
 				>
 				</div>
 
-				<div class="grid md:grid-cols-8 lg:grid-cols-12">
-					<div class="relative width-3/10">
-						<h1 class="h2 leading-[0.75]">
-							<span class="mask"><span>Hey, I'm Sam.</span></span>
-							<span class="mask" style="--order: 1"><span>I'm</span></span>
-							<span class="mask" style="--order: 2"><span>a</span></span>
-							<span class="mask" style="--order: 3"><span>front</span></span>
-							<span class="mask" style="--order: 4"><span>end</span></span>
-							<span class="mask" style="--order: 5"><span>developer</span></span>
-							<span class="mask" style="--order: 6"><span>creating</span></span>
-							<span class="mask" style="--order: 7"><span>digital</span></span>
-							<span class="mask" style="--order: 8"><span>experiences</span></span>
-						</h1>
+				<div class="max-w-3xl sm:ml-[10%]">
+					<h1 class="h2 leading-[0.75]">
+						<span class="mask"><span>Hey, I'm Sam.</span></span>
+						<span class="mask" style="--order: 1"><span>I'm</span></span>
+						<span class="mask" style="--order: 2"><span>a</span></span>
+						<span class="mask" style="--order: 3"><span>front</span></span>
+						<span class="mask" style="--order: 4"><span>end</span></span>
+						<span class="mask" style="--order: 5"><span>developer</span></span>
+						<span class="mask" style="--order: 6"><span>creating</span></span>
+						<span class="mask" style="--order: 7"><span>digital</span></span>
+						<span class="mask" style="--order: 8"><span>experiences</span></span>
+					</h1>
 
-						<a class="scroll" href="#whatIdo">scroll</a>
-					</div>
+					<a class="scroll" href="#whatIdo">scroll</a>
 				</div>
 			</div>
 		</section>
 
-		<section id="whatIdo" class="relative mb-20 mt-16 max-w-full">
-			<div class="container">
-				<div class="w-full md:w-5/12 mx-auto">
-					<h2 class="h3 font-medium mb-2">What do I do</h2>
-					<p>
-						Apart from Front end development, I am also intrested things like game development,
-						programming, and 3D modeling
-					</p>
-				</div>
+		<section id="whatIdo" class="relative mb-20 mt-16 max-w-full container">
+			<div class="w-full md:w-5/12 mx-auto">
+				<h2 class="h3 font-medium mb-2">What do I do</h2>
+				<p>
+					Apart from Front end development, I am also intrested things like game development,
+					programming, and 3D modeling
+				</p>
 			</div>
 		</section>
 
 		<section class="homePage__projects relative mb-16 max-w-full">
 			<div class="glow glow-green w-[24rem] h-[24rem] top-32 right-24 opacity-10"></div>
 
-			<div class="grid md:grid-cols-8 lg:grid-cols-12 container relative">
-				<div class="grid width-3/10">
+			<div class="container">
+				<div class="max-w-5xl mx-auto relative">
 					<h2
-						class="h5 titleSide md:absolute md:top-0 mb-4 md:-left-14 md:mb-0 md:orientation-mixed md:writing-vertical"
+						class="h5 titleSide md:absolute md:top-0 mb-4 md:-left-12 md:mb-0 md:orientation-mixed md:writing-vertical"
 					>
 						Recent projects
 					</h2>
@@ -104,15 +103,13 @@ const posts = (await getCollection('projects'))
 			</div>
 		</section>
 
-		<section class="pb-52 relative max-w-full overflow-visible">
+		<section class="pb-52 relative max-w-full overflow-visible container">
 			<!-- <div class="glow glow-purple w-[24rem] h-[24rem] top-0 left-24 opacity-20"></div> -->
 
-			<div class="grid container md:grid-cols-8 lg:grid-cols-12">
-				<div class="width-7/12">
-					<h2 class="font-bold text-6xl mb-4 leading-normal">Like what you see?</h2>
+			<div class="ml-auto md:w-1/2">
+				<h2 class="font-bold text-6xl mb-4 leading-normal">Like what you see?</h2>
 
-					<a href="/contact" class="button w-fit">Lets get in contact</a>
-				</div>
+				<a href="/contact" class="button w-fit">Lets get in contact</a>
 			</div>
 		</section>
 	</main>

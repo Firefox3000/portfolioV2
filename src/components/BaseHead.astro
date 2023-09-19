@@ -3,12 +3,13 @@ interface Props {
 	title: string;
 	description?: string;
 	image?: string;
+	follow?: boolean;
 }
 
 // const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // image = '/blog-placeholder-1.jpg'
-const { title, description = '', image = '/favicon.svg' } = Astro.props;
+const { title, description = '', image = '/favicon.svg', follow = false } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -55,3 +56,7 @@ const { title, description = '', image = '/favicon.svg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Follow -->
+{follow && <meta name="robots" content="index, follow" />}
+{follow && <meta name="googlebot" content="index, follow" />}
