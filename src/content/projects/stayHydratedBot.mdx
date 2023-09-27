@@ -1,0 +1,28 @@
+---
+title: Stay Hydrated Bot
+description: De Twitch chat bot die je helpt met genoeg drinken
+img: /img/stayHydratedBot.png
+alt: Stay hydrated bot
+slug: stayhydratedbot
+createdAt: 2020-08-16T00:00:00+0000
+status: public
+---
+
+# Stay hydrated bot
+
+Stay Hydrated Fox is a Twitch Bot helping streamers maintain optimal hydration. It does this by sending hourly hydration reminders in the Twitch chat with the amount of water the streamer should have consumed since they started streaming.
+
+An average human should consume about 120mL an hour even though many do not. Why 120 mL you may ask, well do I have an answer for you, assuming the average human is awake for 16 hours a day and needs to consume approximately 2 Liters of that delicious dihydrogen oxide. If you were to divide 2 litres by 16 hours you would get close to 120 mL of water an hour, the optimal hydration amount.
+
+Stay Hydrated Fox is made using Node js, [tmi.js](https://www.npmjs.com/package/tmi.js) and the Twitch API. To interface with the Twitch chat I use tmi.js, this allows you to easily connect to a channels chat, read messages and send messages.
+The Twitch API is used to get information about which channels are currently live and when they started streaming. Using this information it can calculate the optimum amount of water to have consumed during a stream.
+
+I currently host the bot on a Raspberry Pi taped under my desk using [PM2](https://pm2.keymetrics.io/) so I can run multiple Node js processes at the same time and can take advantage of the auto restarting and startup scripts from PM2 if something were to go wrong.
+
+<IconLink
+  href="https://github.com/Vuurvos1/stayHydratedFox"
+  target="_blank"
+  icon="github"
+>
+  {'Source'}
+</IconLink>

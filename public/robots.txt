@@ -1,5 +1,5 @@
 User-agent: *
+Allow: /
 Disallow: /api/
-Disallow: /css/
-Disallow: /js/
-Disallow: /cgi-bin/
+
+Sitemap: https://schelpkikker.nl/sitemap-index.xml

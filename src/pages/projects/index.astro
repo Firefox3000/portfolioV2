@@ -1,0 +1,58 @@
+---
+import ProjectCard from '../../components/ProjectCard.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// TODO add optional url filters?
+const posts = (await getCollection('projects'))
+	.filter((post) => post.data.status === 'public')
+	.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime());
+---
+
+<Layout
+	title="Projects"
+	description="See all my recent projects"
+	image="http://schelpkikker.nl/logo.png"
+	follow
+>
+	<main class="pt-24 pb-12 overflow-x-hidden">
+		<section class="relative container max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto">
+			<h1 class="h3 titleSide mb-4 md:mb-0">Projects</h1>
+
+			<div class="glow glow-purple w-[24rem] h-[24rem] top-56 left-44 opacity-20"></div>
+
+			<div
+				class="glow glow-green w-[34rem] h-[34rem] bottom-36 right-56 opacity-20"
+				style="animation-delay: 2s"
+			>
+			</div>
+			<div
+				class="glow glow-green w-[24rem] h-[24rem] -bottom-2 right-20 opacity-[0.15]"
+				style="animation-delay: 4s"
+			>
+			</div>
+
+			<ul
+				class="grid md:grid-flow-row-dense gap-6 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(18rem,1fr))]"
+			>
+				{
+					posts.map((post) => (
+						<li class="aspect-1 overflow-hidden">
+							<ProjectCard {...post} />
+						</li>
+					))
+				}
+			</ul>
+		</section>
+	</main>
+</Layout>
+
+<style lang="postcss">
+    .titleSide {  
+      @screen md {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        @apply absolute -left-[1em] top-0;
+      }
+  }
+  </style>
