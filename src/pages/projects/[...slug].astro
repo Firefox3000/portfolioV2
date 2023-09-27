@@ -1,0 +1,40 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import IconLink from '../../components/IconLink.astro';
+import TechStack from '../../components/TechStack.astro';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('projects');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post
+	}));
+}
+type Props = CollectionEntry<'projects'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.description} image={post.data.img} follow>
+	<main class="my-10 container">
+		<a class="prose mx-auto flex flex-row gap-3 items-center dark:text-white mb-4" href="/projects">
+			<svg
+				class="fill-current -rotate-90"
+				xmlns="http://www.w3.org/2000/svg"
+				enable-background="new 0 0 24 24"
+				height="24"
+				viewBox="0 0 24 24"
+				width="24"
+			>
+				<path d="M5,9l1.41,1.41L11,5.83V22H13V5.83l4.59,4.59L19,9l-7-7L5,9z"></path>
+			</svg>
+			 Back
+		</a>
+
+		<article class="prose dark:prose-invert mx-auto">
+			<Content components={{ IconLink, TechStack }} />
+		</article>
+	</main>
+</Layout>

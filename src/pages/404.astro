@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 - Sam de Kanter" description="Page not found">
+	<main class="pt-32 container">
+		<div class="md:mx-auto md:w-8/12">
+			<div class="mb-8">
+				<h1 class="mb-2">Page not found</h1>
+				<p>An error occured, or the page you're looking for doesn't exist.</p>
+			</div>
+
+			<canvas class="w-full h-full rounded max-w-3xl min-h-[20rem] border"></canvas>
+
+			<div class="links">
+				<div class="flex gap-4">
+					<button id="backButton" class="flex items-center rounded px-4 py-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="mr-2"
+						>
+							<line x1="19" y1="12" x2="5" y2="12"></line>
+							<polyline points="12 19 5 12 12 5"></polyline>
+						</svg>
+						<span>go back</span>
+					</button>
+
+					<a href="/" class="flex items-center rounded px-4 py-2">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="mr-2"
+						>
+							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+							<polyline points="9 22 9 12 15 12 15 22"></polyline>
+						</svg>
+						 go home
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<script lang="ts">
+const canvas = document.querySelector('canvas');
+
+let ctx;
+
+function random(a, b) {
+  if (b === undefined) return Math.random() * a;
+  return a + Math.random() * (b - a);
+}
+
+function setCanvasSize() {
+  if (ctx) {
+    ctx.canvas.width = canvas.offsetWidth;
+    ctx.canvas.height = canvas.offsetHeight;
+  }
+}
+
+function goBack() {
+  history.back();
+}
+
+document.querySelector('#backButton').addEventListener('click', goBack);
+
+window.addEventListener('resize', setCanvasSize);
+
+ctx = canvas.getContext('2d');
+
+ctx.canvas.width = canvas.offsetWidth;
+ctx.canvas.height = canvas.offsetHeight;
+
+const speed = { x: 2, y: 2 };
+const pos = {
+  x: random(64, canvas.width - 64),
+  y: random(64, canvas.height - 64)
+};
+
+let frame = requestAnimationFrame(loop);
+
+function loop() {
+  frame = requestAnimationFrame(loop);
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  pos.x += speed.x;
+  pos.y += speed.y;
+
+  // collisions
+  if (pos.x <= 32 || pos.x + 32 >= canvas.width) {
+    speed.x *= -1;
+  }
+
+  if (pos.y <= 32 || pos.y + 28 >= canvas.height) {
+    speed.y *= -1;
+  }
+
+  // oob
+  if (pos.x < 0 || pos.x > canvas.width || pos.y < 0 || pos.y > canvas.height) {
+    pos.x = canvas.width / 2;
+    pos.y = canvas.height / 2;
+  }
+
+  // set size of the emoji and the font
+  ctx.font = '64px Arial';
+  // use these alignment properties for "better" positioning
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  // draw the emoji
+  ctx.fillText('🦝', pos.x, pos.y);
+}
+
+// onUnmounted(() => {
+// window.removeEventListener(setCanvasSize);
+// cancelAnimationFrame(frame);
+// });
+</script>
+
+<style lang="postcss">
+  h1 {
+    font-size: clamp(2rem, 0.875rem + 5vw, 3.5rem);
+  }
+  
+  .links {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-col);
+  
+    button,
+    a {
+      color: var(--text);
+      border: solid 1px gray;
+    }
+  }
+  </style>
