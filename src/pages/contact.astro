@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Textarea from '../components/Textarea.astro';
-import TextInput from '../components/TextInput.astro';
+import Layout from '@layouts/Layout.astro';
+import Textarea from '@components/Textarea.astro';
+import TextInput from '@components/TextInput.astro';
 
 const title = 'Contact';
 const description = 'Where to find me on other platforms, or contact me if you have any questions';
@@ -87,47 +87,47 @@ const image = '/logo.png';
 </Layout>
 
 <script lang="ts">
-let loading = false;
+	let loading = false;
 
-/**
- * @param {FormSubmitEvent} ev
- */
-async function sendForm(ev) {
-	ev.preventDefault();
-	if (loading) return;
+	/**
+	 * @param {FormSubmitEvent} ev
+	 */
+	async function sendForm(ev) {
+		ev.preventDefault();
+		if (loading) return;
 
-	const submitButton = document.querySelector('#submit');
-	loading = true; // sending state
+		const submitButton = document.querySelector('#submit');
+		loading = true; // sending state
 
-	submitButton.style = '--offset: 1';
+		submitButton.style = '--offset: 1';
 
-	// TODO: validate inputs
-	// TODO: animate button text
+		// TODO: validate inputs
+		// TODO: animate button text
 
-	// send form data
-	await fetch('https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc', {
-		method: 'POST',
-		body: new URLSearchParams(new FormData(ev.target))
-	});
+		// send form data
+		await fetch('https://getform.io/f/7269afe1-d68e-4ecd-9138-b939abb663dc', {
+			method: 'POST',
+			body: new URLSearchParams(new FormData(ev.target))
+		});
 
-	submitButton.style = '--offset: 0';
+		submitButton.style = '--offset: 0';
 
-	// done state
+		// done state
 
-	// reset form values
-	ev.target.reset();
+		// reset form values
+		ev.target.reset();
 
-	loading = false;
+		loading = false;
 
-	setTimeout(() => {
-		//   clicked.value = false;
-		submitButton.style = '--offset: 2';
-	}, 3000);
+		setTimeout(() => {
+			//   clicked.value = false;
+			submitButton.style = '--offset: 2';
+		}, 3000);
 
-	// reset state
-}
+		// reset state
+	}
 
-document.querySelector('#form').addEventListener('submit', sendForm);
+	document.querySelector('#form').addEventListener('submit', sendForm);
 </script>
 
 <style lang="postcss">
