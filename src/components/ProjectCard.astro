@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 type Props = CollectionEntry<'projects'>['data'];
@@ -10,7 +11,7 @@ const { slug, data } = Astro.props;
 <a href={'projects/' + slug} class="group overflow-hidden">
 	<!-- :loading="loadlazy ? 'lazy' : null" -->
 	<!-- sizes="sm:100vw md:50vw lg:512px" -->
-	<img
+	<Image
 		width="512"
 		height="512"
 		src={data.img}
