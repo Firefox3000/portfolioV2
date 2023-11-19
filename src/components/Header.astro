@@ -5,7 +5,7 @@
 ---
 
 <!-- fixed --><!-- right-0 w-full --><!-- top-0 left-0 --><!-- top-0 left-0 --><!-- sm:right-auto sm:left-auto -->
-<header class="fixed sm:sticky top-0 left-0 right-0 z-50 sm:w-full">
+<header class="fixed sm:sticky top-0 left-0 right-0 z-50 sm:w-full bg-zinc-900">
 	<nav class="menu flex flex-row justify-end items-center">
 		<input id="toggleMenu" type="checkbox" class="sr-only" />
 		<label
@@ -26,7 +26,7 @@
 			</svg>
 		</label>
 
-		<ul class="menu__list">
+		<ul class="menu__list flex flex-col transition duration-300 bg-zinc-900">
 			<!-- @click="closeMenu" -->
 			<li>
 				<a href="/">Home</a>
@@ -37,6 +37,10 @@
 			</li>
 			<!-- @click="closeMenu" -->
 			<li>
+				<a href="/uses">Uses</a>
+			</li>
+			<!-- @click="closeMenu" -->
+			<li>
 				<a href="/contact">Contact</a>
 			</li>
 		</ul>
@@ -44,10 +48,6 @@
 </header>
 
 <style lang="postcss">
-header {
-  background: #161b22;
-}
-
 label {    
     color: var(--white);
 
@@ -90,15 +90,8 @@ label {
     right: 0;
     height: 100vh;
     width: 80vw;
-    max-width: 26rem;
-    display: flex;
-    flex-direction: column;
 
-    transition: all 0.3s ease-out;
     transform: translateX(100%);
-
-    background-color: #161b22;
-
     li {
       margin-bottom: 2.625rem;
       text-align: center;
