@@ -52,12 +52,12 @@
   };
 
   // Pot kapot maken
-  const clearTouches = () => {
+  function clearTouches () {
     touches = 0;
     clearTouchTrack = 0;
   };
 
-  const potKapot = () => {
+  function potKapot() {
     touches++;
     if (touches > 25) {
       document.querySelector('img.jar').src = '/img/partyPickle/jarKapot.png';
@@ -70,7 +70,7 @@
     }
   };
 
-  const potRepareren = () => {
+  function potRepareren() {
     document.querySelector('img.jar').src = '/img/partyPickle/jar.png';
     drainSpeed = 7;
   };
@@ -80,7 +80,7 @@
     refillActive = true;
   };
 
-  const addWater = () => {
+  function addWater () {
     if (refillActive == true) {
       // max vloeistof 300
       if (vloeistofLevel < 275) {
@@ -96,7 +96,7 @@
   };
 
   // pot openen
-  const openPot = () => {
+  function openPot () {
     if (potOpen == true) {
       document.querySelector('div.deksel').classList.add('dekselAnimateClose');
       document.querySelector('div.deksel').classList.remove('dekselAnimate');
@@ -111,7 +111,7 @@
   };
 
   // eten geven
-  const removeEtenAni = () => {
+  function removeEtenAni() {
     var divEten = document.querySelectorAll('.eten');
 
     for (let i = 0; i < divEten.length; i++) {
@@ -120,7 +120,7 @@
     etenReset = 1;
   };
 
-  const geefEten = () => {
+  function geefEten() {
     if (potOpen == true && etenReset == 1) {
       var divEten = document.querySelectorAll('.eten');
 
@@ -152,7 +152,7 @@
   };
 
   // animatie klass deksel openen we halen
-  const removeOpenPot = () => {
+  function removeOpenPot() {
     document.querySelector('div.deksel').classList.add('dekselOpen');
     document.querySelector('div.deksel').classList.remove('dekselAnimate');
   };
@@ -224,19 +224,18 @@
 <style lang="postcss">
   .partyPickle {
     width: 100vw;
-    margin-left: -1.5rem;
+		margin: 3rem calc(50% - 50vw);
 
     padding-top: 44rem;
     padding-bottom: 6rem;
     background: linear-gradient(#ffcb57 70%, rgba(0, 0, 0, 0) 0 100%);
 
-    @screen md {
-      width: auto;
-      margin-left: 0;
-    }
-
     @screen lg {
       background: linear-gradient(#ffcb57 65%, rgba(0, 0, 0, 0) 0 100%);
+
+			width: auto;
+			margin-left: -12rem;
+			margin-right: -12rem;
     }
   }
 
@@ -250,11 +249,9 @@
 
   .partyPickle {
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     min-height: 42rem;
     overflow-x: hidden;
-
-    margin-top: 2rem;
 
     .pickle {
       position: absolute;
@@ -325,21 +322,21 @@
     animation-fill-mode: forwards;
   }
 
-  .dekselAnimate {
+  :global(.dekselAnimate) {
     animation-name: dekselAn;
     animation-duration: 2s;
   }
 
-  .dekselAnimateClose {
+  :global(.dekselAnimateClose) {
     animation-name: dekselAnClose;
     animation-duration: 3s;
   }
 
-  .dekselOpen {
+  :global(.dekselOpen) {
     transform: rotate(-90deg);
   }
 
-  .eten {
+  :global(.eten) {
     border-radius: 50%;
     position: absolute;
 
@@ -349,7 +346,7 @@
     transition: all 0.3s ease-out;
   }
 
-  .etenAnimate {
+  :global(.etenAnimate) {
     animation-name: etenDrop;
     animation-duration: 3.2s;
   }
