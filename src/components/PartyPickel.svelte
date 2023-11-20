@@ -187,7 +187,7 @@
     <div class="positionMove">
       <div class="moveSpace">
         <img
-          class="pickle grabNone selectNone"
+          class="pickle grabNone select-none"
           src="/img/partyPickle/pickle.png"
           alt="Augurk"
           on:click={pickleNew}
@@ -198,7 +198,7 @@
 
     <div class="deksel" on:click={openPot} on:animationend={removeOpenPot} />
     <img
-      class="jar grabNone selectNone"
+      class="jar grabNone select-none"
       src="/img/partyPickle/jar.png"
       alt="Augurken pot"
       on:mouseenter={potKapot}
@@ -213,11 +213,11 @@
       on:animationend={removeEtenAni}
     />
 
-    <div class="knoppen">
-      <div id="drink" class="button selectNone" on:click={addWater}>
+    <div class="flex flex-row w-full justify-center gap-4">
+      <div class="button select-none" on:click={addWater}>
         Give Juice
       </div>
-      <div id="eten" class="button selectNone" on:click={geefEten}>Give Food</div>
+      <div class="button select-none" on:click={geefEten}>Give Food</div>
     </div>
   </section>
 
@@ -245,17 +245,7 @@
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
-    /* user-drag: none; */
-  }
-
-  .selectNone {
-    /* No text select */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    user-drag: none;
   }
 
   .partyPickle {
@@ -305,20 +295,6 @@
       z-index: -1;
 
       border-radius: 0 0 22px 22px;
-    }
-
-    .knoppen {
-      display: flex;
-      width: 100%;
-      flex-direction: row;
-      justify-content: center;
-      cursor: pointer;
-
-      z-index: 2;
-
-      .button {
-        margin: 0 1rem;
-      }
     }
 
     .jar {
