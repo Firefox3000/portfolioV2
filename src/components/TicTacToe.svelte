@@ -1,319 +1,332 @@
 <script lang="ts">
-  let board = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', ''],
-  ];
+	let board = [
+		['', '', ''],
+		['', '', ''],
+		['', '', '']
+	];
 
-  let gameStatus = 'Winner:';
-  let difficulty = 0.5;
+	let gameStatus = 'Winner:';
+	let difficulty = 0.5;
 
-  const human = 'X';
-  const ai = 'O';
+	const human = 'X';
+	const ai = 'O';
 
-  let currentPlayer = human;
+	let currentPlayer = human;
 
-  const scores = {
-    O: 1,
-    X: -1,
-    tie: 0,
-  };
+	const scores = {
+		O: 1,
+		X: -1,
+		tie: 0
+	};
 
-  function playerClick(x: number, y: number) {
-    if (currentPlayer != human) {
-      return;
-    }
+	function playerClick(x: number, y: number) {
+		if (currentPlayer != human) return;
 
-    if (board[x][y] != '') {
-      return;
-    }
+		if (board[x][y] != '') return;
 
-    board[x][y] = human;
+		if (checkWinner(false)) return;
 
-    checkWinner(true);
-    currentPlayer = ai;
+		board[x][y] = human;
 
-    let available = [];
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-        if (board[i][j] == '') {
-          available.push([i, j]);
-        }
-      }
-    }
+		checkWinner(true);
+		currentPlayer = ai;
 
-    if (available.length < 1) {
-      return;
-    }
+		let available = [];
+		for (let i = 0; i < 3; i++) {
+			for (let j = 0; j < 3; j++) {
+				if (board[i][j] == '') {
+					available.push([i, j]);
+				}
+			}
+		}
 
-    if (difficulty >= Math.random()) {
-      // computer move
-      computerPick();
-    } else {
-      // random move, choose empty spot
-      const spot = available[Math.floor(Math.random() * available.length)];
-      board[spot[0]][spot[1]] = ai;
-    }
+		if (available.length < 1) {
+			return;
+		}
 
-    checkWinner(true);
-    currentPlayer = human;
-  }
+		if (difficulty >= Math.random()) {
+			// computer move
+			computerPick();
+		} else {
+			// random move, choose empty spot
+			const spot = available[Math.floor(Math.random() * available.length)];
+			board[spot[0]][spot[1]] = ai;
+		}
 
-  function equals3(a, b, c) {
-    return a == b && b == c && a != '';
-  }
+		checkWinner(true);
+		currentPlayer = human;
+	}
 
-  function checkWinner(draw) {
-    let winner = null;
-    // horizontal && vertical
-    for (let i = 0; i < 3; i++) {
-      if (equals3(board[i][0], board[i][1], board[i][2])) {
-        winner = board[i][0];
-      }
+	function equals3(a, b, c) {
+		return a == b && b == c && a != '';
+	}
 
-      // vertical
-      if (equals3(board[0][i], board[1][i], board[2][i])) {
-        winner = board[0][i];
-      }
-    }
+	function checkWinner(draw) {
+		let winner = null;
+		// horizontal && vertical
+		for (let i = 0; i < 3; i++) {
+			if (equals3(board[i][0], board[i][1], board[i][2])) {
+				winner = board[i][0];
+			}
 
-    // diagonal
-    if (equals3(board[0][0], board[1][1], board[2][2])) {
-      winner = board[0][0];
-    }
+			// vertical
+			if (equals3(board[0][i], board[1][i], board[2][i])) {
+				winner = board[0][i];
+			}
+		}
 
-    if (equals3(board[0][2], board[1][1], board[2][0])) {
-      winner = board[0][2];
-    }
+		// diagonal
+		if (equals3(board[0][0], board[1][1], board[2][2])) {
+			winner = board[0][0];
+		}
 
-    let openSpots = 0;
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-        if (board[i][j] == '') {
-          openSpots++;
-        }
-      }
-    }
+		if (equals3(board[0][2], board[1][1], board[2][0])) {
+			winner = board[0][2];
+		}
 
-    if (winner == null && openSpots == 0) {
-      winner = 'tie';
-    }
+		let openSpots = 0;
+		for (let i = 0; i < 3; i++) {
+			for (let j = 0; j < 3; j++) {
+				if (board[i][j] == '') {
+					openSpots++;
+				}
+			}
+		}
 
-    if (draw) {
-      if (winner == 'X' || winner == 'O' || winner == 'tie') {
-        if (winner == 'tie') {
-          gameStatus = 'tie';
-        } else {
-          gameStatus = `Winner: ${winner}`;
-        }
-        return;
-      }
-    }
-    return winner;
-  }
+		if (winner == null && openSpots == 0) {
+			winner = 'tie';
+		}
 
-  const restart = () => {
-    // reset board
-    board.forEach((row) => {
-      row.forEach((_, i) => {
-        row[i] = '';
-      });
-    });
-    board = board;
+		if (draw) {
+			if (winner == 'X' || winner == 'O' || winner == 'tie') {
+				if (winner == 'tie') {
+					gameStatus = 'tie';
+				} else {
+					gameStatus = `Winner: ${winner}`;
+				}
+				return;
+			}
+		}
+		return winner;
+	}
 
-    currentPlayer = human;
-    gameStatus = 'Winner:';
-  };
+	const restart = () => {
+		// reset board
+		board.forEach((row) => {
+			row.forEach((_, i) => {
+				row[i] = '';
+			});
+		});
+		board = board;
 
-  function computerPick() {
-    let bestScore = -Infinity;
+		currentPlayer = human;
+		gameStatus = 'Winner:';
+	};
 
-    let moves = [];
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-        if (board[i][j] == '') {
-          moves.push([i, j]);
-        }
-      }
-    }
+	function computerPick() {
+		let bestScore = -Infinity;
 
-    // randomize array for more diverse outcomes
-    moves.sort(() => 0.5 - Math.random());
-    let move = {};
+		let moves = [];
+		for (let i = 0; i < 3; i++) {
+			for (let j = 0; j < 3; j++) {
+				if (board[i][j] == '') {
+					moves.push([i, j]);
+				}
+			}
+		}
 
-    for (const i of moves) {
-      board[i[0]][i[1]] = ai;
-      let score = alphaBetaMiniMax(board, 0, -Infinity, +Infinity, false);
-      board[i[0]][i[1]] = '';
+		// randomize array for more diverse outcomes
+		moves.sort(() => 0.5 - Math.random());
+		let move = {};
 
-      if (score > bestScore) {
-        bestScore = score;
-        move = {
-          i: i[0],
-          j: i[1],
-        };
-      }
-    }
+		for (const i of moves) {
+			board[i[0]][i[1]] = ai;
+			let score = alphaBetaMiniMax(board, 0, -Infinity, +Infinity, false);
+			board[i[0]][i[1]] = '';
 
-    // draw best move
-    board[move.i][move.j] = ai;
+			if (score > bestScore) {
+				bestScore = score;
+				move = {
+					i: i[0],
+					j: i[1]
+				};
+			}
+		}
 
-    currentPlayer = human;
+		// draw best move
+		board[move.i][move.j] = ai;
 
-    checkWinner(true);
-  }
+		currentPlayer = human;
 
-  function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
-    // alpha beta pruning seems to be 10x faster
-    let result = checkWinner(false);
-    if (result !== null) {
-      return scores[result];
-    }
+		checkWinner(true);
+	}
 
-    let bestScore = isMaximizing ? -Infinity : +Infinity;
+	function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
+		// alpha beta pruning seems to be 10x faster
+		let result = checkWinner(false);
+		if (result !== null) {
+			return scores[result];
+		}
 
-    let moves = [];
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-        if (board[i][j] == '') {
-          moves.push([i, j]);
-        }
-      }
-    }
+		let bestScore = isMaximizing ? -Infinity : +Infinity;
 
-    for (const i of moves) {
-      board[i[0]][i[1]] = isMaximizing ? ai : human;
-      let score = alphaBetaMiniMax(
-        board,
-        depth + 1,
-        alpha,
-        beta,
-        !isMaximizing
-      );
-      board[i[0]][i[1]] = '';
+		let moves = [];
+		for (let i = 0; i < 3; i++) {
+			for (let j = 0; j < 3; j++) {
+				if (board[i][j] == '') {
+					moves.push([i, j]);
+				}
+			}
+		}
 
-      if (isMaximizing) {
-        bestScore = Math.max(score, bestScore);
-        alpha = Math.max(alpha, score);
-      } else {
-        bestScore = Math.min(score, bestScore);
-        beta = Math.min(beta, score);
-      }
+		for (const i of moves) {
+			board[i[0]][i[1]] = isMaximizing ? ai : human;
+			let score = alphaBetaMiniMax(board, depth + 1, alpha, beta, !isMaximizing);
+			board[i[0]][i[1]] = '';
 
-      if (alpha >= beta) {
-        break;
-      }
-    }
+			if (isMaximizing) {
+				bestScore = Math.max(score, bestScore);
+				alpha = Math.max(alpha, score);
+			} else {
+				bestScore = Math.min(score, bestScore);
+				beta = Math.min(beta, score);
+			}
 
-    return bestScore;
-  }
+			if (alpha >= beta) {
+				break;
+			}
+		}
+
+		return bestScore;
+	}
 </script>
 
-  <section class="ticTacToe">
-    <p class="winner h4 text-center">{ gameStatus }</p>
-    <div class="ticTacToe__grid">
-      {#each {length: 3} as _, x}
-      <div class="row">
-        {#each {length: 3} as _, y}
-        <div
-          class="col"
-          on:click={() => playerClick(x, y)}
-        >
-          { board[x][y] }
-        </div>
-        {/each}
-      </div>
-      {/each}
-    </div>
+<!-- TODO: animate winning line -->
+<section class="ticTacToe">
+	<p class="winner h4 text-center">{gameStatus}</p>
+	<div class="ticTacToe__grid">
+		{#each { length: 3 } as _, x}
+			<div class="row">
+				{#each { length: 3 } as _, y}
+					<div class="col" on:click={() => playerClick(x, y)}>
+						{#if board[x][y] == 'X'}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="1em"
+								height="1em"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class=""
+								><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"
+								></line></svg
+							>
+						{:else if board[x][y] == 'O'}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="1em"
+								height="1em"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class=""><circle cx="12" cy="12" r="10"></circle></svg
+							>
+						{/if}
+					</div>
+				{/each}
+			</div>
+		{/each}
+		<!-- <div class="absolute bg-pink-400 h-4/5 w-1 left-[16.5%] top-[16.5%] /-rotate-45 origin-top-left" /> -->
+	</div>
 
-    <div class="flex flex-row items-center justify-center gap-4">
-      <p>Easy</p>
-      <input
-        bind:value={difficulty}
-        id="slider"
-        class="slider"
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-      />
-      <p>Hard</p>
-    </div>
+	<div class="flex flex-row items-center justify-center gap-4">
+		<p>Easy</p>
+		<input
+			bind:value={difficulty}
+			id="slider"
+			class="slider"
+			type="range"
+			min="0"
+			max="1"
+			step="0.01"
+		/>
+		<p>Hard</p>
+	</div>
 
-    <button class="button restart mx-auto block" on:click={restart}>
-      Restart game
-    </button>
-  </section>
+	<button class="button restart mx-auto block" on:click={restart}> Restart game </button>
+</section>
 
 <style lang="postcss">
-.ticTacToe {
-  /* width: 100vw; */
+	.ticTacToe {
+		display: block;
 
-  margin-top: 3rem;
-  margin-bottom: 2.4rem;
-  /* margin-left: -1.5rem; */
+		padding: 2.25rem 1.5rem;
+		background-color: var(--secondary);
 
-  padding: 2.4rem 1.5rem;
-  background-color: var(--secondary);
+		width: 100vw;
+		margin: 3rem calc(50% - 50vw);
 
-  &__grid {
-    margin: 0 auto 2rem auto;
+		&__grid {
+			margin: 0 auto 2rem auto;
 
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
+			display: grid;
+			position: relative;
+			grid-template-rows: repeat(3, 1fr);
 
-    width: 85vw;
-    max-width: 25rem;
-    height: 85vw;
-    max-height: 25rem;
+			width: 85vw;
+			max-width: 25rem;
+			height: 85vw;
+			max-height: 25rem;
 
-    div {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
+			div {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+			}
 
-    .row {
-      div {
-        display: flex;
+			.row {
+				div {
+					border-color: rgba(0, 0, 0, 0.4);
+					border-width: 4px;
+					border-style: solid;
 
-        justify-content: center;
-        align-items: center;
+					@apply flex items-center justify-center text-5xl;
 
-        border-color: rgba(0, 0, 0, 0.4);
-        border-width: 4px;
-        border-style: solid;
+					/* remove unnecessary grid lines */
+					&:first-child {
+						border-left: 0;
+					}
 
-        font-size: 3rem;
-        font-weight: 400;
+					&:last-child {
+						border-right: 0;
+					}
+				}
 
-        /* remove unnecessary grid lines */
-        &:first-child {
-          border-left: 0;
-        }
+				/* remove unnecessary grid lines */
+				&:nth-child(1) div {
+					border-top: 0;
+				}
 
-        &:last-child {
-          border-right: 0;
-        }
-      }
+				&:nth-child(3) div {
+					border-bottom: 0;
+				}
+			}
 
-      /* remove unnecessary grid lines */
-      &:nth-child(1) div {
-        border-top: 0;
-      }
+			.col:hover {
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+		}
 
-      &:nth-child(3) div {
-        border-bottom: 0;
-      }
-    }
-
-    .col:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
-  }
-
-  @screen md {
-    width: auto;
-    margin-left: 0;
-  }
-}
+		@screen lg {
+			width: auto;
+			max-width: 100vw;
+			margin-left: -12rem;
+			margin-right: -12rem;
+		}
+	}
 </style>
