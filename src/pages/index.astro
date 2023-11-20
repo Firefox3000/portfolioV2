@@ -7,11 +7,23 @@ const posts = (await getCollection('projects'))
 	.filter((post) => post.data.status === 'public')
 	.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime())
 	.slice(0, 3);
+
+const headingText = [
+	'Hey, I\'m Sam.',
+	'I\'m',
+	'a',
+	'front',
+	'end',
+	'developer',
+	'creating',
+	'digital',
+	'experiences'
+];
 ---
 
 <Layout
 	title="Portfolio | Sam de Kanter"
-	description="Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam."
+	description="Sam is a Front end Developer creating digital experience"
 	image="http://schelpkikker.nl/logo.png"
 	follow
 >
@@ -32,16 +44,10 @@ const posts = (await getCollection('projects'))
 				</div>
 
 				<div>
-					<h1 class="max-w-3xl sm:ml-[10%] h2 leading-[0.75]">
-						<span class="mask"><span>Hey, I'm Sam.</span></span>
-						<span class="mask" style="--order: 1"><span>I'm</span></span>
-						<span class="mask" style="--order: 2"><span>a</span></span>
-						<span class="mask" style="--order: 3"><span>front</span></span>
-						<span class="mask" style="--order: 4"><span>end</span></span>
-						<span class="mask" style="--order: 5"><span>developer</span></span>
-						<span class="mask" style="--order: 6"><span>creating</span></span>
-						<span class="mask" style="--order: 7"><span>digital</span></span>
-						<span class="mask" style="--order: 8"><span>experiences</span></span>
+					<h1 class="sm:ml-[10%] h2 leading-[0.75] balance">
+						{headingText.map((text, i) => (
+							<span class="mask mr-3.5" style={`--order: ${i}`}><span>{text}</span></span>
+						))}
 					</h1>
 
 					<a class="scroll" href="#whatIdo">scroll</a>
@@ -119,7 +125,6 @@ const posts = (await getCollection('projects'))
 h1 span {
   display: inline-block;
   overflow: hidden;
-  margin-right: calc(1em / 8);
   height: 1.25em;
   font-size: clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem);
 }
