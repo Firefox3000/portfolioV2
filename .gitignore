@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 .vercel
 tmp/
+
+# rust and vercel related
+target/
