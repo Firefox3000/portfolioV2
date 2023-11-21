@@ -44,27 +44,27 @@
 			return;
 		}
 
-		if (difficulty >= Math.random()) {
-			// computer move
-			computerPick();
-		} else {
-			// random move, choose empty spot
-			const spot = available[Math.floor(Math.random() * available.length)];
-			board[spot[0]][spot[1]] = ai;
-		}
+		// randomly pick optimal or random move based on difficulty
+		const spot = difficulty >= Math.random() ? computerPick() : available[Math.floor(Math.random() * available.length)];
+		board[spot[0]][spot[1]] = ai;
 
 		checkWinner(true);
 		currentPlayer = human;
 	}
 
 	function equals3(a, b, c) {
-		return a == b && b == c && a != '';
+		return a === b && b === c && a !== '';
 	}
 
-	function checkWinner(draw) {
+	/**
+	 * Check if there is a winner
+	 * @param draw - if should update ui
+	*/
+	function checkWinner(draw: boolean) {
 		let winner = null;
-		// horizontal && vertical
+
 		for (let i = 0; i < 3; i++) {
+			// horizontal
 			if (equals3(board[i][0], board[i][1], board[i][2])) {
 				winner = board[i][0];
 			}
@@ -75,7 +75,7 @@
 			}
 		}
 
-		// diagonal
+		// diagonals
 		if (equals3(board[0][0], board[1][1], board[2][2])) {
 			winner = board[0][0];
 		}
@@ -98,20 +98,19 @@
 		}
 
 		if (draw) {
-			if (winner == 'X' || winner == 'O' || winner == 'tie') {
-				if (winner == 'tie') {
-					gameStatus = 'tie';
-				} else {
-					gameStatus = `Winner: ${winner}`;
-				}
-				return;
+			if (winner === 'tie') {
+				gameStatus = 'tie';
+			}
+
+			if (winner === 'X' || winner === 'O') {
+				gameStatus = `Winner: ${winner}`;
 			}
 		}
 		return winner;
 	}
 
-	const restart = () => {
-		// reset board
+	/** Reset the board */
+	function restart() {
 		board.forEach((row) => {
 			row.forEach((_, i) => {
 				row[i] = '';
@@ -153,12 +152,10 @@
 			}
 		}
 
-		// draw best move
-		board[move.i][move.j] = ai;
-
 		currentPlayer = human;
-
 		checkWinner(true);
+
+		return move;
 	}
 
 	function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
@@ -264,8 +261,6 @@
 
 <style lang="postcss">
 	.ticTacToe {
-		display: block;
-
 		padding: 2.25rem 1.5rem;
 		background-color: var(--secondary);
 
