@@ -4,7 +4,7 @@ export default {
 	singleQuote: true,
 	trailingComma: "none",
 	printWidth: 100,
-	plugins: ["prettier-plugin-astro", "prettier-plugin-svelte", "prettier-plugin-tailwind"],
+	plugins: ["prettier-plugin-astro", "prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
 	overrides: [
 		{ "files": "*.svelte", "options": { "parser": "svelte" } },
 		{
