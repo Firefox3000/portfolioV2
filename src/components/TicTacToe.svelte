@@ -45,7 +45,10 @@
 		}
 
 		// randomly pick optimal or random move based on difficulty
-		const spot = difficulty >= Math.random() ? computerPick() : available[Math.floor(Math.random() * available.length)];
+		const spot =
+			difficulty >= Math.random()
+				? computerPick()
+				: available[Math.floor(Math.random() * available.length)];
 		board[spot[0]][spot[1]] = ai;
 
 		checkWinner(true);
@@ -59,7 +62,7 @@
 	/**
 	 * Check if there is a winner
 	 * @param draw - if should update ui
-	*/
+	 */
 	function checkWinner(draw: boolean) {
 		let winner = null;
 
@@ -120,7 +123,7 @@
 
 		currentPlayer = human;
 		gameStatus = 'Winner:';
-	};
+	}
 
 	function computerPick() {
 		let bestScore = -Infinity;
