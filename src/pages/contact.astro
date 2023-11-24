@@ -8,9 +8,9 @@ const description = 'Where to find me on other platforms, or contact me if you h
 const image = '/logo.png';
 ---
 
-<Layout {title} {description} {image} follow>
-	<main class="contactPage pt-24 container">
-		<section class="w-full sm:w-3/4 md:w-1/2 mx-auto">
+<Layout {title} {description} {image}>
+	<main class="contactPage container pt-24">
+		<section class="mx-auto w-full sm:w-3/4 md:w-1/2">
 			<h1 class="h2 max-w-2xl text-5xl md:text-6xl">Let's get in contact</h1>
 
 			<form
@@ -29,7 +29,7 @@ const image = '/logo.png';
 					type="submit"
 					id="submit"
 					style="--offset: 2"
-					class="button ml-auto flex flex-col gap-y-6 relative text-sm h-[calc(1.25rem_+_1.125rem)]"
+					class="button relative ml-auto flex h-[calc(1.25rem_+_1.125rem)] flex-col gap-y-6 text-sm"
 				>
 					<!-- <span class="transition">Done!</span> -->
 					<!-- <span class="">Sending...</span> -->
@@ -38,14 +38,14 @@ const image = '/logo.png';
 			</form>
 		</section>
 
-		<section class="contactPage__social w-full sm:w-3/4 md:w-1/2 mx-auto">
+		<section class="contactPage__social mx-auto w-full sm:w-3/4 md:w-1/2">
 			<h2 class="h2 text-4xl md:text-5xl">Find me on other platforms</h2>
 
-			<ul class="flex flex-row justify-center gap-4 md:gap-8 flex-wrap mb-24 text-[var(--text)]">
+			<ul class="mb-24 flex flex-row flex-wrap justify-center gap-4 text-[var(--text)] md:gap-8">
 				<li>
 					<a class="group" href="https://github.com/vuurvos1/" aria-label="Github">
 						<svg
-							class="w-12 md:w-16 transition fill-current group-hover:fill-[var(--primary)] group-focus:fill-[var(--primary)]"
+							class="w-12 fill-current transition group-hover:fill-[var(--primary)] group-focus:fill-[var(--primary)] md:w-16"
 							viewBox="0 0 79 79"
 							xmlns="http://www.w3.org/2000/svg"
 						>
@@ -58,7 +58,7 @@ const image = '/logo.png';
 				<li>
 					<a class="group" href="https://codepen.io/Vuurvos" aria-label="CodePen">
 						<svg
-							class="w-12 md:w-16 transition fill-current group-hover:fill-[var(--primary)] group-focus:fill-[var(--primary)]"
+							class="w-12 fill-current transition group-hover:fill-[var(--primary)] group-focus:fill-[var(--primary)] md:w-16"
 							viewBox="0 0 78 78"
 							xmlns="http://www.w3.org/2000/svg"
 						>
@@ -71,7 +71,7 @@ const image = '/logo.png';
 				<li>
 					<a class="group" href="https://www.linkedin.com/in/samdekanter" aria-label="LinkedIn">
 						<svg
-							class="w-12 md:w-16 transition fill-current group-hover:fill-[var(--primary)] group-focus:fill-[var(--primary)]"
+							class="w-12 fill-current transition group-hover:fill-[var(--primary)] group-focus:fill-[var(--primary)] md:w-16"
 							viewBox="0 0 79 79"
 							xmlns="http://www.w3.org/2000/svg"
 						>
