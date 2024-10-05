@@ -29,6 +29,9 @@
 		board[x][y] = human;
 
 		checkWinner(true);
+
+		if (checkWinner(true)) return;
+
 		currentPlayer = ai;
 
 		let available = [];
@@ -143,15 +146,12 @@
 
 		for (const i of moves) {
 			board[i[0]][i[1]] = ai;
-			let score = alphaBetaMiniMax(board, 0, -Infinity, +Infinity, false);
+			const score = alphaBetaMiniMax(board, 0, -Infinity, +Infinity, false);
 			board[i[0]][i[1]] = '';
 
 			if (score > bestScore) {
 				bestScore = score;
-				move = {
-					i: i[0],
-					j: i[1]
-				};
+				move = [i[0], i[1]];
 			}
 		}
 
@@ -220,10 +220,10 @@
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
-								class=""
-								><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"
-								></line></svg
 							>
+								<line x1="18" y1="6" x2="6" y2="18"></line>
+								<line x1="6" y1="6" x2="18" y2="18"></line>
+							</svg>
 						{:else if board[x][y] == 'O'}
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -235,8 +235,9 @@
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
-								class=""><circle cx="12" cy="12" r="10"></circle></svg
 							>
+								<circle cx="12" cy="12" r="10"></circle>
+							</svg>
 						{/if}
 					</div>
 				{/each}
