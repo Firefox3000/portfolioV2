@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout title="404 - Sam de Kanter" description="Page not found">
@@ -58,80 +58,80 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script lang="ts">
-const canvas = document.querySelector('canvas');
+	const canvas = document.querySelector('canvas');
 
-let ctx;
+	let ctx;
 
-function random(a, b) {
-  if (b === undefined) return Math.random() * a;
-  return a + Math.random() * (b - a);
-}
+	function random(a, b) {
+		if (b === undefined) return Math.random() * a;
+		return a + Math.random() * (b - a);
+	}
 
-function setCanvasSize() {
-  if (ctx) {
-    ctx.canvas.width = canvas.offsetWidth;
-    ctx.canvas.height = canvas.offsetHeight;
-  }
-}
+	function setCanvasSize() {
+		if (ctx) {
+			ctx.canvas.width = canvas.offsetWidth;
+			ctx.canvas.height = canvas.offsetHeight;
+		}
+	}
 
-function goBack() {
-  history.back();
-}
+	function goBack() {
+		history.back();
+	}
 
-document.querySelector('#backButton').addEventListener('click', goBack);
+	document.querySelector('#backButton').addEventListener('click', goBack);
 
-window.addEventListener('resize', setCanvasSize);
+	window.addEventListener('resize', setCanvasSize);
 
-ctx = canvas.getContext('2d');
+	ctx = canvas.getContext('2d');
 
-ctx.canvas.width = canvas.offsetWidth;
-ctx.canvas.height = canvas.offsetHeight;
+	ctx.canvas.width = canvas.offsetWidth;
+	ctx.canvas.height = canvas.offsetHeight;
 
-const speed = { x: 2, y: 2 };
-const pos = {
-  x: random(64, canvas.width - 64),
-  y: random(64, canvas.height - 64)
-};
+	const speed = { x: 2, y: 2 };
+	const pos = {
+		x: random(64, canvas.width - 64),
+		y: random(64, canvas.height - 64)
+	};
 
-let frame = requestAnimationFrame(loop);
+	let frame = requestAnimationFrame(loop);
 
-function loop() {
-  frame = requestAnimationFrame(loop);
+	function loop() {
+		frame = requestAnimationFrame(loop);
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  pos.x += speed.x;
-  pos.y += speed.y;
+		pos.x += speed.x;
+		pos.y += speed.y;
 
-  // collisions
-  if (pos.x <= 32 || pos.x + 32 >= canvas.width) {
-    speed.x *= -1;
-  }
+		// collisions
+		if (pos.x <= 32 || pos.x + 32 >= canvas.width) {
+			speed.x *= -1;
+		}
 
-  if (pos.y <= 32 || pos.y + 28 >= canvas.height) {
-    speed.y *= -1;
-  }
+		if (pos.y <= 32 || pos.y + 28 >= canvas.height) {
+			speed.y *= -1;
+		}
 
-  // oob
-  if (pos.x < 0 || pos.x > canvas.width || pos.y < 0 || pos.y > canvas.height) {
-    pos.x = canvas.width / 2;
-    pos.y = canvas.height / 2;
-  }
+		// oob
+		if (pos.x < 0 || pos.x > canvas.width || pos.y < 0 || pos.y > canvas.height) {
+			pos.x = canvas.width / 2;
+			pos.y = canvas.height / 2;
+		}
 
-  // set size of the emoji and the font
-  ctx.font = '64px Arial';
-  // use these alignment properties for "better" positioning
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
+		// set size of the emoji and the font
+		ctx.font = '64px Arial';
+		// use these alignment properties for "better" positioning
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
 
-  // draw the emoji
-  ctx.fillText('🦝', pos.x, pos.y);
-}
+		// draw the emoji
+		ctx.fillText('🦝', pos.x, pos.y);
+	}
 
-// onUnmounted(() => {
-// window.removeEventListener(setCanvasSize);
-// cancelAnimationFrame(frame);
-// });
+	// onUnmounted(() => {
+	// window.removeEventListener(setCanvasSize);
+	// cancelAnimationFrame(frame);
+	// });
 </script>
 
 <style lang="postcss">

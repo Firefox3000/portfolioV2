@@ -1,17 +1,19 @@
 ---
+type Tool = 'glitch' | 'nodejs' | 'surge' | 'svelte' | 'vercel' | 'mongodb' | 'heroku';	
+
 interface Props {
-	tools: string[];
+	tools: Tool[];
 }
 
 const { tools } = Astro.props;
 ---
 
 <div class="mb-8">
-	<h2>Tech stack used</h2>
-	<ul class="flex flex-row not-prose">
+	<h3>Tech stack used</h3>
+	<ul class="flex flex-row not-prose gap-4">
 		{
 			tools.map((item) => (
-				<li class="gap-4">
+				<li class="">
 					<span class="sr-only">{item}</span>
 					{item === 'glitch' && (
 						<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
@@ -79,23 +81,8 @@ const { tools } = Astro.props;
 	</ul>
 </div>
 
-<style lang="postcss" > 
-ul {
-  list-style: none;
-
-  li {
-    margin-left: 1rem;
-
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-
+<style lang="postcss"> 
   svg {
-    width: 2.8rem;
-    height: 2.8rem;
-
-    fill: var(--text);
-  }
-}
-  </style>
+		@apply w-12 h-12 fill-white;
+	}
+</style>

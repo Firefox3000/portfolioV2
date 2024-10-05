@@ -1,16 +1,16 @@
 ---
-// const closeMenu = () => {
-//   document.querySelector('#toggleMenu').checked = false;
-// };
+
 ---
 
-<!-- fixed --><!-- right-0 w-full --><!-- top-0 left-0 --><!-- top-0 left-0 --><!-- sm:right-auto sm:left-auto -->
-<header class="fixed sm:sticky top-0 left-0 right-0 z-50 sm:w-full">
-	<nav class="menu flex flex-row justify-end items-center">
+<header
+	transition:persist
+	class="menu fixed left-0 right-0 top-0 z-50 bg-zinc-900 sm:sticky sm:w-full"
+>
+	<nav class="menu flex flex-row items-center justify-end">
 		<input id="toggleMenu" type="checkbox" class="sr-only" />
 		<label
 			for="toggleMenu"
-			class="flex z-10 px-8 py-4 items-center sm:hidden cursor-pointer text-lg"
+			class="z-10 flex cursor-pointer items-center px-8 py-4 text-lg sm:hidden"
 		>
 			Menu
 			<svg
@@ -26,16 +26,16 @@
 			</svg>
 		</label>
 
-		<ul class="menu__list">
-			<!-- @click="closeMenu" -->
+		<ul class="menu__list flex flex-col bg-zinc-900 transition duration-300">
 			<li>
 				<a href="/">Home</a>
 			</li>
-			<!-- @click="closeMenu" -->
 			<li>
 				<a href="/projects">Projects</a>
 			</li>
-			<!-- @click="closeMenu" -->
+			<li>
+				<a href="/uses">Uses</a>
+			</li>
 			<li>
 				<a href="/contact">Contact</a>
 			</li>
@@ -43,11 +43,23 @@
 	</nav>
 </header>
 
-<style lang="postcss">
-header {
-  background: #161b22;
-}
+<script>
+	document.addEventListener(
+		'astro:page-load',
+		() => {
+			// This only runs once.
+			document.querySelectorAll('.menu li a').forEach((el) =>
+				el.addEventListener('click', () => {
+					const toggleMenu = document.querySelector('#toggleMenu') as HTMLInputElement | null;
+					if (toggleMenu) toggleMenu.checked = false;
+				})
+			);
+		},
+		{ once: true }
+	);
+</script>
 
+<style lang="postcss">
 label {    
     color: var(--white);
 
@@ -90,15 +102,8 @@ label {
     right: 0;
     height: 100vh;
     width: 80vw;
-    max-width: 26rem;
-    display: flex;
-    flex-direction: column;
 
-    transition: all 0.3s ease-out;
     transform: translateX(100%);
-
-    background-color: #161b22;
-
     li {
       margin-bottom: 2.625rem;
       text-align: center;

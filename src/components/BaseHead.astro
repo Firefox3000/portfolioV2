@@ -3,13 +3,11 @@ interface Props {
 	title: string;
 	description?: string;
 	image?: string;
-	follow?: boolean;
 }
 
-// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-// image = '/blog-placeholder-1.jpg'
-const { title, description = '', image = '/favicon.svg', follow = false } = Astro.props;
+const { title = 'portfolio', description = '', image = '/favicon.svg' } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -19,24 +17,8 @@ const { title, description = '', image = '/favicon.svg', follow = false } = Astr
 <meta name="generator" content={Astro.generator} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 
-<!-- Font preloads -->
-<!-- <link
-  rel="preload"
-  href="/fonts/atkinson-regular.woff"
-  as="font"
-  type="font/woff"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="/fonts/atkinson-bold.woff"
-  as="font"
-  type="font/woff"
-  crossorigin
-/> -->
-
 <!-- Canonical URL -->
-<!-- <link rel="canonical" href={canonicalURL} /> -->
+<link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -56,7 +38,3 @@ const { title, description = '', image = '/favicon.svg', follow = false } = Astr
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
-
-<!-- Follow -->
-{follow && <meta name="robots" content="index, follow" />}
-{follow && <meta name="googlebot" content="index, follow" />}

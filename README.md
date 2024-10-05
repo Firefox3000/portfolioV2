@@ -22,4 +22,4 @@ All commands are run from the root of the project, from a terminal:
 ### tile.png
 
 An endpoint to generate tiles with text and/or emojis. \
-To use this endpoint goto [schelpkikker.nl/api/tile.png?content=lorem%20ipsum](https://schelpkikker.nl/api/tile.png?content=lorem%20ipsum) where everything after the `?content=` can be an [uri encoded](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI) string
+To use this endpoint goto [schelpkikker.nl/api/tile?content=lorem%20ipsum](https://schelpkikker.nl/api/tile?content=lorem%20ipsum) where everything after the `?content=` can be an [uri encoded](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI) string

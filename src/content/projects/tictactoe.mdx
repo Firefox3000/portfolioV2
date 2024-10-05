@@ -1,6 +1,6 @@
 ---
 title: Tic Tac Toe
-description: A tic tac toe ai with varying difficultie
+description: A tic tac toe ai with varying difficulty
 img: /img/ticTacToe.png
 alt: Tic tac toe
 slug: tictactoe
@@ -14,8 +14,7 @@ This project started as a JavaScript exercise and a way to challenge myself to g
 
 Tic Tac Toe has 196839 (3^9) possible positions which might sound like a lot of ways to play the game. But for a computer, this number is quite low. It is quite easy to brute force your way through all the possible positions and calculate the best move from there.
 
-
-import TicTacToe from '../../components/TicTacToe.svelte'
+import TicTacToe from '@/components/TicTacToe.svelte';
 
 <TicTacToe client:load></TicTacToe>
 
@@ -26,10 +25,9 @@ Once a winning position is reached or all board squares are filled I evaluate th
 
 Later I updated this project to include alpha-beta pruning. Once fully implemented this sped up the search for the best move by about 10 times, which is truly crazy. Alpha-beta pruning works by not having to examine game positions that are determined to be worse than a previously looked at move.
 
-<IconLink
-  href="https://github.com/Vuurvos1/tictactoe"
-  target="_blank"
-  icon="github"
->
-  {'Source'}
+{/* TODO: maybe have some graphic and explainer about the branching paths of a tictactoe game */}
+{/* TODO: maybe also further speed up the algorithem and have a little writeup about that */}
+
+<IconLink href="https://github.com/Vuurvos1/tictactoe" target="_blank" icon="github">
+	{'Source'}
 </IconLink>

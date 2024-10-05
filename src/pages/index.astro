@@ -1,47 +1,56 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import Layout from '@layouts/Layout.astro';
+import ProjectCard from '@components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('projects'))
 	.filter((post) => post.data.status === 'public')
 	.sort((a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime())
 	.slice(0, 3);
+
+const headingText = [
+	"Hey, I'm Sam.",
+	"I'm",
+	'a',
+	'front',
+	'end',
+	'developer',
+	'creating',
+	'digital',
+	'experiences'
+];
 ---
 
 <Layout
 	title="Portfolio | Sam de Kanter"
-	description="Sam is a Front end Developer creating digital experiences currently studying Communication and multimedia design in Amsterdam."
+	description="Sam is a Front end Developer creating digital experience"
 	image="http://schelpkikker.nl/logo.png"
-	follow
 >
 	<!-- TODO: fix overflow y issues -->
 	<main class="max-w-full overflow-x-hidden">
-		<section class="mt-44 mb-24 relative max-w-full">
+		<section class="relative mb-24 mt-44 max-w-full">
 			<div class="container">
-				<div class="glow glow-purple w-[24rem] h-[24rem] top-56 -right-20 opacity-20"></div>
+				<div class="glow glow-purple -right-20 top-56 h-[24rem] w-[24rem] opacity-20"></div>
 				<div
-					class="glow glow-green w-[24rem] h-[24rem] top-96 left-36 opacity-20"
+					class="glow glow-green left-36 top-96 h-[24rem] w-[24rem] opacity-20"
 					style="animation-delay: 2s"
 				>
 				</div>
 				<div
-					class="glow glow-green2 w-[34rem] h-[34rem] -top-20 -left-44 opacity-20"
+					class="glow glow-green2 -left-44 -top-20 h-[34rem] w-[34rem] opacity-20"
 					style="animation-delay: 4s"
 				>
 				</div>
 
 				<div>
-					<h1 class="max-w-3xl sm:ml-[10%] h2 leading-[0.75]">
-						<span class="mask"><span>Hey, I'm Sam.</span></span>
-						<span class="mask" style="--order: 1"><span>I'm</span></span>
-						<span class="mask" style="--order: 2"><span>a</span></span>
-						<span class="mask" style="--order: 3"><span>front</span></span>
-						<span class="mask" style="--order: 4"><span>end</span></span>
-						<span class="mask" style="--order: 5"><span>developer</span></span>
-						<span class="mask" style="--order: 6"><span>creating</span></span>
-						<span class="mask" style="--order: 7"><span>digital</span></span>
-						<span class="mask" style="--order: 8"><span>experiences</span></span>
+					<h1 class="h2 balance leading-[0.75] sm:ml-[10%]">
+						{
+							headingText.map((text, i) => (
+								<span class="mask mr-3.5" style={`--order: ${i}`}>
+									<span>{text}</span>
+								</span>
+							))
+						}
 					</h1>
 
 					<a class="scroll" href="#whatIdo">scroll</a>
@@ -49,9 +58,9 @@ const posts = (await getCollection('projects'))
 			</div>
 		</section>
 
-		<section id="whatIdo" class="relative mb-20 mt-16 max-w-full container">
-			<div class="w-full md:w-5/12 mx-auto">
-				<h2 class="h3 font-medium mb-2">What do I do</h2>
+		<section id="whatIdo" class="container relative mb-20 mt-16 max-w-full">
+			<div class="mx-auto w-full md:w-5/12">
+				<h2 class="h3 mb-2 font-medium">What do I do</h2>
 				<p>
 					Apart from Front end development, I am also intrested things like game development,
 					programming, and 3D modeling
@@ -60,17 +69,17 @@ const posts = (await getCollection('projects'))
 		</section>
 
 		<section class="homePage__projects relative mb-16 max-w-full">
-			<div class="glow glow-green w-[24rem] h-[24rem] top-32 right-24 opacity-10"></div>
+			<div class="glow glow-green right-24 top-32 h-[24rem] w-[24rem] opacity-10"></div>
 
 			<div class="container">
-				<div class="max-w-5xl mx-auto relative">
+				<div class="relative mx-auto max-w-5xl">
 					<h2
-						class="h5 titleSide md:absolute md:top-0 mb-4 md:-left-12 md:mb-0 md:orientation-mixed md:writing-vertical"
+						class="h5 titleSide md:orientation-mixed md:writing-vertical mb-4 md:absolute md:-left-12 md:top-0 md:mb-0"
 					>
 						Recent projects
 					</h2>
 
-					<ul class="grid grid-cols-1 sm:grid-cols-2 mb-6 md:grid-cols-3 gap-y-6">
+					<ul class="mb-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 md:grid-cols-3">
 						{
 							posts.map((post) => (
 								<li class="aspect-1 overflow-hidden">
@@ -81,7 +90,7 @@ const posts = (await getCollection('projects'))
 					</ul>
 
 					<a
-						class="h6 moreProjects lineHover dark:text-white flex flex-row items-center ml-auto w-max px-1"
+						class="h6 moreProjects lineHover ml-auto flex w-max flex-row items-center px-1 dark:text-white"
 						href="/projects"
 					>
 						Explore projects
@@ -90,7 +99,7 @@ const posts = (await getCollection('projects'))
 							height="32"
 							viewBox="0 0 49 32"
 							xmlns="http://www.w3.org/2000/svg"
-							class="h-3 w-auto ml-4 fill-current"
+							class="ml-4 h-3 w-auto fill-current"
 						>
 							<path
 								fill-rule="evenodd"
@@ -103,11 +112,11 @@ const posts = (await getCollection('projects'))
 			</div>
 		</section>
 
-		<section class="pb-52 relative max-w-full overflow-visible container">
+		<section class="container relative max-w-full overflow-visible pb-52">
 			<!-- <div class="glow glow-purple w-[24rem] h-[24rem] top-0 left-24 opacity-20"></div> -->
 
 			<div class="ml-auto md:w-1/2">
-				<h2 class="font-bold text-6xl mb-4 leading-normal">Like what you see?</h2>
+				<h2 class="mb-4 text-6xl font-bold leading-normal">Like what you see?</h2>
 
 				<a href="/contact" class="button w-fit">Lets get in contact</a>
 			</div>
@@ -119,7 +128,6 @@ const posts = (await getCollection('projects'))
 h1 span {
   display: inline-block;
   overflow: hidden;
-  margin-right: calc(1em / 8);
   height: 1.25em;
   font-size: clamp(2.5rem, 1.5625rem + 4.1667vw, 3.75rem);
 }

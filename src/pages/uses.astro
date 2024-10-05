@@ -1,0 +1,128 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+const title = 'Uses';
+const description = 'A list of things I love to use when building software';
+const image = '/logo.png';
+
+const uses = {
+	Web: [
+		{
+			name: 'Svelte',
+			url: 'https://svelte.dev/',
+			description: 'Framework'
+		},
+		{
+			name: 'Svelte Kit',
+			url: 'https://kit.svelte.dev/',
+			description: 'Meta-framework'
+		},
+		{
+			name: 'Astro',
+			url: 'https://astro.build/',
+			description: 'Static'
+		},
+		{ name: 'Tailwind CSS', url: 'https://tailwindcss.com/', description: 'Styling' }
+	],
+	Software: [
+		{
+			name: 'Figma',
+			url: 'https://figma.com/',
+			description: 'Design'
+		},
+		{
+			name: 'Visual Studio Code',
+			url: 'https://code.visualstudio.com/',
+			description: 'Code Editor'
+		},
+		{
+			name: 'Brave',
+			url: 'https://brave.com/',
+			description: 'Browser'
+		},
+		{
+			name: 'Obsidian',
+			url: 'https://obsidian.md/',
+			description: 'Notes'
+		},
+		{
+			name: 'Alacritty',
+			url: 'https://alacritty.org/',
+			description: 'Terminal'
+		},
+		{
+			name: 'Starship',
+			url: 'https://starship.rs/',
+			description: 'Shell'
+		},
+		{
+			name: 'Godot',
+			url: 'https://godotengine.org/',
+			description: 'Game Engine'
+		}
+	],
+	Gear: [
+		{
+			name: 'G502 Wireless',
+			url: 'https://www.logitechg.com/en-us/products/gaming-mice/g502-x-wireless-lightforce',
+			description: 'Mouse'
+		},
+		{
+			name: 'Mx Vertical',
+			url: 'https://www.logitech.com/en-us/products/mice/mx-vertical-ergonomic-mouse',
+			description: 'Mouse'
+		},
+		{
+			name: 'Keycron Q1',
+			url: 'https://www.keychron.com/products/keychron-q1',
+			description: 'Keyboard'
+		},
+		{
+			name: 'IBM Model M',
+			url: 'https://en.wikipedia.org/wiki/Model_M_keyboard',
+			description: 'Keyboard'
+		},
+		{
+			name: 'Moyu RS3M 2020',
+			url: 'https://speedcubeshop.com/products/moyu-rs3-m-2020-3x3-magnetic',
+			description: 'Speedcube'
+		}
+	]
+};
+---
+
+<Layout {title} {description} {image}>
+	<main class="container prose mx-auto max-w-xl pt-24 dark:prose-invert">
+		<h1 class="balance">A list of things I love to use when building software</h1>
+
+		<p>
+			I use these to build websites, software, and other things. They help me to make my life
+			easier, to procrastinate or just to have fun.
+		</p>
+
+		<ul class="not-prose group mb-24 grid gap-4 divide-y dark:text-gray-500 lg:gap-6">
+			{
+				Object.entries(uses).map(([use, items]) => (
+					<li class="grid sm:grid-cols-3">
+						<h3 class="py-3 text-lg font-medium text-gray-500">{use}</h3>
+						<ul class="col-span-2 divide-y">
+							{items.map((item) => (
+								<li class="group/item flex flex-row justify-between py-3 motion-safe:group-hover:text-gray-500 dark:text-gray-500 motion-safe:dark:hover:text-white ">
+									<a
+										class="text-lg font-medium transition motion-safe:group-hover/item:!text-black motion-safe:group-hover:text-gray-500 dark:text-white motion-safe:dark:group-hover/item:!text-white"
+										href={item.url}
+									>
+										{item.name}
+									</a>
+									<p class="text-lg text-gray-500 transition motion-safe:group-hover/item:!text-black motion-safe:dark:group-hover/item:!text-white">
+										{item.description}
+									</p>
+								</li>
+							))}
+						</ul>
+					</li>
+				))
+			}
+		</ul>
+	</main>
+</Layout>
