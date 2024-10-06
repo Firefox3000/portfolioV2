@@ -1,17 +1,20 @@
 <script lang="ts">
-	let board = [
+	import { scale } from 'svelte/transition';
+
+	enum Player {
+		Human = 'X',
+		Bot = 'O'
+	}
+
+	let board: (Player | '')[][] = [
 		['', '', ''],
 		['', '', ''],
 		['', '', '']
 	];
 
-	let gameStatus = 'Winner:';
+	let gameWinner: Player | 'tie' | null = null;
 	let difficulty = 0.5;
-
-	const human = 'X';
-	const ai = 'O';
-
-	let currentPlayer = human;
+	let currentPlayer = Player.Human;
 
 	const scores = {
 		O: 1,
@@ -20,19 +23,14 @@
 	};
 
 	function playerClick(x: number, y: number) {
-		if (currentPlayer != human) return;
+		if (currentPlayer == Player.Bot || board[x][y] != '' || checkWinner()) return;
 
-		if (board[x][y] != '') return;
+		board[x][y] = Player.Human;
 
-		if (checkWinner(false)) return;
+		gameWinner = checkWinner();
+		if (gameWinner) return;
 
-		board[x][y] = human;
-
-		checkWinner(true);
-
-		if (checkWinner(true)) return;
-
-		currentPlayer = ai;
+		currentPlayer = Player.Bot;
 
 		let available = [];
 		for (let i = 0; i < 3; i++) {
@@ -52,42 +50,36 @@
 			difficulty >= Math.random()
 				? computerPick()
 				: available[Math.floor(Math.random() * available.length)];
-		board[spot[0]][spot[1]] = ai;
+		board[spot[0]][spot[1]] = Player.Bot;
 
-		checkWinner(true);
-		currentPlayer = human;
+		gameWinner = checkWinner();
+		currentPlayer = Player.Human;
 	}
 
 	function equals3(a, b, c) {
 		return a === b && b === c && a !== '';
 	}
 
-	/**
-	 * Check if there is a winner
-	 * @param draw - if should update ui
-	 */
-	function checkWinner(draw: boolean) {
-		let winner = null;
-
+	function checkWinner(): keyof typeof scores | null {
 		for (let i = 0; i < 3; i++) {
 			// horizontal
 			if (equals3(board[i][0], board[i][1], board[i][2])) {
-				winner = board[i][0];
+				return board[i][0];
 			}
 
 			// vertical
 			if (equals3(board[0][i], board[1][i], board[2][i])) {
-				winner = board[0][i];
+				return board[0][i];
 			}
 		}
 
 		// diagonals
 		if (equals3(board[0][0], board[1][1], board[2][2])) {
-			winner = board[0][0];
+			return board[0][0];
 		}
 
 		if (equals3(board[0][2], board[1][1], board[2][0])) {
-			winner = board[0][2];
+			return board[0][2];
 		}
 
 		let openSpots = 0;
@@ -99,23 +91,14 @@
 			}
 		}
 
-		if (winner == null && openSpots == 0) {
-			winner = 'tie';
+		if (openSpots == 0) {
+			return 'tie';
 		}
 
-		if (draw) {
-			if (winner === 'tie') {
-				gameStatus = 'tie';
-			}
-
-			if (winner === 'X' || winner === 'O') {
-				gameStatus = `Winner: ${winner}`;
-			}
-		}
-		return winner;
+		return null;
 	}
 
-	/** Reset the board */
+	// Reset the board
 	function restart() {
 		board.forEach((row) => {
 			row.forEach((_, i) => {
@@ -124,8 +107,8 @@
 		});
 		board = board;
 
-		currentPlayer = human;
-		gameStatus = 'Winner:';
+		currentPlayer = Player.Human;
+		gameWinner = null;
 	}
 
 	function computerPick() {
@@ -145,7 +128,7 @@
 		let move = {};
 
 		for (const i of moves) {
-			board[i[0]][i[1]] = ai;
+			board[i[0]][i[1]] = Player.Bot;
 			const score = alphaBetaMiniMax(board, 0, -Infinity, +Infinity, false);
 			board[i[0]][i[1]] = '';
 
@@ -155,22 +138,22 @@
 			}
 		}
 
-		currentPlayer = human;
-		checkWinner(true);
+		currentPlayer = Player.Human;
+		gameWinner = checkWinner();
 
 		return move;
 	}
 
 	function alphaBetaMiniMax(board, depth, alpha, beta, isMaximizing) {
 		// alpha beta pruning seems to be 10x faster
-		let result = checkWinner(false);
+		const result = checkWinner();
 		if (result !== null) {
 			return scores[result];
 		}
 
 		let bestScore = isMaximizing ? -Infinity : +Infinity;
 
-		let moves = [];
+		const moves = [];
 		for (let i = 0; i < 3; i++) {
 			for (let j = 0; j < 3; j++) {
 				if (board[i][j] == '') {
@@ -180,7 +163,7 @@
 		}
 
 		for (const i of moves) {
-			board[i[0]][i[1]] = isMaximizing ? ai : human;
+			board[i[0]][i[1]] = isMaximizing ? Player.Bot : Player.Human;
 			let score = alphaBetaMiniMax(board, depth + 1, alpha, beta, !isMaximizing);
 			board[i[0]][i[1]] = '';
 
@@ -203,14 +186,14 @@
 
 <!-- TODO: animate winning line -->
 <section class="ticTacToe">
-	<p class="winner h4 text-center">{gameStatus}</p>
-	<div class="ticTacToe__grid">
+	<div class="ticTacToe__grid relative mx-auto mt-8 grid grid-rows-3">
 		{#each { length: 3 } as _, x}
-			<div class="row">
+			<div class="row grid grid-cols-3">
 				{#each { length: 3 } as _, y}
-					<div class="col" on:click={() => playerClick(x, y)}>
-						{#if board[x][y] == 'X'}
+					<button class="col" on:click={() => playerClick(x, y)}>
+						{#if board[x][y] == Player.Human}
 							<svg
+								transition:scale={{ duration: 30 }}
 								xmlns="http://www.w3.org/2000/svg"
 								width="1em"
 								height="1em"
@@ -224,8 +207,9 @@
 								<line x1="18" y1="6" x2="6" y2="18"></line>
 								<line x1="6" y1="6" x2="18" y2="18"></line>
 							</svg>
-						{:else if board[x][y] == 'O'}
+						{:else if board[x][y] == Player.Bot}
 							<svg
+								transition:scale={{ duration: 30, delay: 50 }}
 								xmlns="http://www.w3.org/2000/svg"
 								width="1em"
 								height="1em"
@@ -239,12 +223,18 @@
 								<circle cx="12" cy="12" r="10"></circle>
 							</svg>
 						{/if}
-					</div>
+					</button>
 				{/each}
 			</div>
 		{/each}
 		<!-- <div class="absolute bg-pink-400 h-4/5 w-1 left-[16.5%] top-[16.5%] /-rotate-45 origin-top-left" /> -->
 	</div>
+
+	{#if gameWinner}
+		<p class="h4 text-center">
+			{gameWinner == 'tie' ? 'Tie!' : `Winner: ${gameWinner}`}
+		</p>
+	{/if}
 
 	<div class="flex flex-row items-center justify-center gap-4">
 		<p>Easy</p>
@@ -260,7 +250,7 @@
 		<p>Hard</p>
 	</div>
 
-	<button class="button restart mx-auto block" on:click={restart}> Restart game </button>
+	<button class="button restart mx-auto block" on:click={restart}>Restart game</button>
 </section>
 
 <style lang="postcss">
@@ -272,21 +262,10 @@
 		margin: 3rem calc(50% - 50vw);
 
 		&__grid {
-			margin: 0 auto 2rem auto;
-
-			display: grid;
-			position: relative;
-			grid-template-rows: repeat(3, 1fr);
-
 			width: 85vw;
 			max-width: 25rem;
 			height: 85vw;
 			max-height: 25rem;
-
-			div {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-			}
 
 			.row {
 				div {

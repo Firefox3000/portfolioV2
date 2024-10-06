@@ -110,7 +110,7 @@
 
 	// eten geven
 	function removeEtenAni() {
-		var divEten = document.querySelectorAll('.eten');
+		const divEten = document.querySelectorAll('.eten');
 
 		for (let i = 0; i < divEten.length; i++) {
 			divEten[i].classList.remove('etenAnimate');
